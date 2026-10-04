@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>07 — Lab Practicals (BCA101P + SEC101P) — Hinglish Notes</title>
+<style>
+:root{--ink:#1c1c2b;--muted:#5b5b73;--brand:#581c87;--brand2:#9333ea;--bg:#faf7fd;--card:#ffffff;--line:#eaddf7;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.68;font-size:16.5px}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px 90px}
+header.hero{background:linear-gradient(135deg,#581c87 0%,#9333ea 60%,#a855f7 100%);color:#fff;padding:38px 20px 34px;text-align:center}
+header.hero h1{margin:0 0 8px;font-size:1.7rem;line-height:1.3}
+header.hero p{margin:4px 0;opacity:.92;font-size:.97rem}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:3px 12px;border-radius:999px;font-size:.79rem;margin:4px 3px}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:-26px auto 26px;box-shadow:0 8px 24px rgba(88,28,135,.10);position:relative;z-index:2}
+nav.toc h2{margin:0 0 10px;font-size:1rem;color:var(--brand);text-transform:uppercase;letter-spacing:1px}
+nav.toc a{display:inline-block;margin:3px 12px 3px 0;color:var(--brand2);text-decoration:none;font-size:.92rem;border-bottom:1px dashed #d8b4fe}
+h2.unit{font-size:1.45rem;color:#fff;background:linear-gradient(135deg,#581c87,#9333ea);padding:12px 18px;border-radius:12px;margin:48px 0 16px;box-shadow:0 6px 18px rgba(88,28,135,.22)}
+h3{font-size:1.2rem;color:var(--brand);margin:30px 0 9px;border-left:5px solid var(--brand2);padding-left:12px}
+h4{font-size:1.04rem;color:#6b21a8;margin:20px 0 7px}
+p{margin:9px 0}
+ul,ol{margin:8px 0 8px 4px;padding-left:22px}
+li{margin:4px 0}
+table{border-collapse:collapse;width:100%;margin:14px 0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(28,28,43,.07);font-size:.92rem}
+th{background:#f0e2fb;color:#581c87;text-align:left;padding:9px 11px;border:1px solid var(--line);font-size:.89rem}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:#fcfaff}
+code{background:#f0e2fb;padding:1.5px 6px;border-radius:5px;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:.88em;color:#7e22ce}
+pre{background:#1e0b33;color:#f3e8ff;padding:14px 16px;border-radius:12px;overflow-x:auto;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:.83rem;line-height:1.55}
+pre .cm{color:#c084fc}
+pre .out{color:#86efac}
+.box{border-radius:12px;padding:13px 16px 13px 46px;margin:14px 0;position:relative;border:1px solid;font-size:.97rem}
+.box::before{position:absolute;left:13px;top:11px;font-size:1.15rem}
+.b-def{background:#eff6ff;border-color:#bfdbfe}.b-def::before{content:"📘"}
+.b-hing{background:#fff7ed;border-color:#fed7aa}.b-hing::before{content:"🗣️"}
+.b-real{background:#f0fdf4;border-color:#bbf7d0}.b-real::before{content:"🌍"}
+.b-tip{background:#fefce8;border-color:#fde68a}.b-tip::before{content:"🎯"}
+.b-warn{background:#fef2f2;border-color:#fecaca}.b-warn::before{content:"⚠️"}
+.b-mn{background:#f5f3ff;border-color:#ddd6fe}.b-mn::before{content:"🧠"}
+.b-out{background:#fffbeb;border-color:#fcd34d}.b-out::before{content:"🖨️"}
+.b-q{background:#fdf4ff;border-color:#f5d0fe}.b-q::before{content:"📝"}
+.b-key{background:#ecfeff;border-color:#a5f3fc}.b-key::before{content:"🔑"}
+.tag{display:inline-block;background:#581c87;color:#fff;font-size:.72rem;padding:2px 9px;border-radius:999px;margin-right:6px;letter-spacing:.4px}
+.rev{background:#1e0b33;color:#f3e8ff;border-radius:14px;padding:18px 20px;margin:18px 0}
+.rev h4{color:#d8b4fe;margin:0 0 8px}
+.rev li{margin:5px 0}
+.footer{border-top:2px dashed var(--line);margin-top:50px;padding-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
+.mini{font-size:.85rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>🧪 Lab Practicals — BCA101P &amp; SEC101P</h1>
+  <p>MS Word + MS Excel + saare C programs (working code + output + viva questions)</p>
+  <div><span class="badge">2 Credit each</span><span class="badge">ESE 60 + Internal 40</span><span class="badge">Copy-paste + samjho</span></div>
+</header>
+
+<div class="wrap">
+<nav class="toc">
+  <h2>Contents</h2>
+  <a href="#word">MS Word Practicals</a>
+  <a href="#excel">MS Excel Practicals</a>
+  <a href="#bcap">BCA101P — C Programs</a>
+  <a href="#secp">SEC101P — 16 Lab Programs</a>
+  <a href="#viva">Viva Questions (dono labs)</a>
+</nav>
+
+<div class="box b-key"><b>Lab file ka format (har practical aise likho):</b> <b>Aim</b> (kya karna hai) → <b>Software/Tools</b> → <b>Procedure/Algorithm</b> → <b>Code/Steps</b> → <b>Output</b> (screenshot ya sample) → <b>Result/Conclusion</b>. Yahi format university lab file me chahiye hota hai — examiner isi pe marks deta hai ✅</div>
+
+<!-- ================== MS WORD ================== -->
+<h2 class="unit" id="word">MS WORD PRACTICALS (BCA101P)</h2>
+
+<h3>W1. Creating an Advertisement 🫙</h3>
+<div class="box b-def"><b>Aim:</b> MS Word me ek attractive advertisement banane ke liye formatting features ka use karna.</div>
+<p><b>Steps:</b></p>
+<ol>
+  <li>MS Word kholo → new blank document (Ctrl+N)</li>
+  <li>Title likho: "GRAND SALE – 50% OFF!" → Home tab me font: bold, size 36, color red, center align</li>
+  <li>Ek catchy line likho: "Har purchase par dhamaka! 10 Oct – 15 Oct"</li>
+  <li><b>Insert → Pictures</b> se product ki image dalo (ya Insert → Shapes se design banao)</li>
+  <li><b>Insert → Text Box</b> me offer details likho (border + fill color lagao)</li>
+  <li>Bullets (Home → Bullets) se product list banao: "Shoes, Bags, Watches"</li>
+  <li><b>Page Layout → Borders</b> se page border / <b>Shapes</b> se box decoration karo</li>
+  <li>Save: File → Save As → "advertisement.docx" 📄</li>
+</ol>
+<div class="box b-tip"><b>Word features jo lab me dikhane hain (exam me poochhte hain):</b> font formatting, paragraph alignment, bullets/numbering, images, shapes, text boxes, borders/shading, WordArt (title ko fancy banane ke liye — Design gallery me), colors. "Advertisement = visual + short lines + offer highlight" — bas inka mel banao.</div>
+
+<h3>W2. Curriculum Vitae (CV/Biodata) 📄</h3>
+<div class="box b-def"><b>Aim:</b> MS Word me apna CV banana (table + formatting + photo).</div>
+<p><b>Steps:</b></p>
+<ol>
+  <li>Naam sabse upar — bold, size 20, center. Neeche contact info (phone, email, address) — size 11</li>
+  <li>Heading lines: "Career Objective", "Education", "Skills", "Achievements" — bold + underline, alag color</li>
+  <li><b>Education ke liye table banao:</b> Insert → Table (3 columns: Qualification | Board/University | Year/%) → data bharo</li>
+  <li><b>Skills section me bullets</b> use karo (C, MS Office, HTML...)</li>
+  <li><b>Photo:</b> Insert → Pictures → apni passport photo → crop + size adjust</li>
+  <li><b>Page border</b> (Design → Page Borders) ya side me ek vertical line — professional look</li>
+  <li>Save: "myCV.docx" — aur note: CV "clean + 1 page + no typo" hona chahiye</li>
+</ol>
+
+<h3>W3. Scientific Notations (Superscript/Subscript) 🔬</h3>
+<div class="box b-def"><b>Aim:</b> Scientific notations (x², H₂O, exponents, symbols) Word me banana.</div>
+<p><b>Steps:</b></p>
+<ol>
+  <li>Type karo: <code>x2</code> → "2" select karo → Home tab → <b>Superscript</b> (x²) — shortcut: <span class="tag">Ctrl + Shift + +</span></li>
+  <li>Type karo: <code>H2O</code> → "2" select → <b>Subscript</b> (H₂O) — shortcut: <span class="tag">Ctrl + =</span></li>
+  <li>Symbols ke liye: Insert → <b>Symbol</b> → π, α, β, °, →, ≥, √ (Equation bhi: Insert → Equation → type karo <code>E=mc^2</code> then space)</li>
+  <li>Practice karo: "Area = πr²", "E = mc²", "C₆H₁₂O₆", "10⁻³", "H₂SO₄"</li>
+</ol>
+<div class="box b-real"><b>Kyun zaroori hai:</b> Chemistry ke formulas (H₂O), Maths ke exponents (x² + y²), physics ke units (m/s²) — sab jagah superscript/subscript ka use hota hai. University ke practical me ye dikhaana hota hai — 5 minute ka kaam, easy marks ✅</div>
+
+<h3>W4. Creating a Timetable 📅</h3>
+<p><b>Steps:</b> Insert → Table (7 cols × 6 rows: Days × Periods) → headers bharo (Day, 9–10, 10–11, ...) → subjects type karo → <b>Merge Cells</b> se lunch break column banao → header row ko bold + shading color (Table Design → Shading) → row height adjust (Table Properties) → "timetable.docx" save. <b>Tip:</b> "Insert → Table" ke bajaye Table Draw karke bhi bana sakte ho; column width adjust ke liye border pe drag karo.</p>
+
+<h3>W5. Conversion (Document Conversion / Units Table) 🔁</h3>
+<p>Do interpretation hain — dono practice karo:</p>
+<ul>
+  <li><b>(a) Unit conversion table banana:</b> Table banao (Length: 1 km = 1000 m, 1 m = 100 cm; Weight, Temperature) — "Conversion table" as a document</li>
+  <li><b>(b) File conversion:</b> Word document ko PDF me convert karna (File → Save As → PDF) / PDF to Word (Word me PDF kholo) — ye practical me dikhate hain</li>
+</ul>
+
+<h3>W6. Mail Merge and Letter ✉️ <span class="tag">Important</span></h3>
+<div class="box b-def"><b>Mail Merge</b> = ek hi letter ko kai logon ke liye automatically personalize karke bhejna (naam, address alag-alag) — "ek template + ek data list = 100 letters, 2 minute me!" 😎</div>
+<p><b>Steps:</b></p>
+<ol>
+  <li><b>Main document banao:</b> Letter ka format likho — jahan naam/address aayega wahan placeholder soch lo: "Dear «Name», aapko suchit kiya jaata hai..."</li>
+  <li><b>Recipient list banao:</b> Mailings tab → <b>Start Mail Merge → Letters</b> → Select Recipients → Type a New List → columns: Name, City, Amount → data bharo (5–10 log) → save (recipients.mdb/ .docx merge list)</li>
+  <li><b>Placeholders lagao:</b> Mailings → <b>Insert Merge Field</b> → «Name», «City» etc. letter me daalo</li>
+  <li><b>Preview Results</b> se check karo (Next record arrow se ek-ek letter dekho)</li>
+  <li><b>Finish &amp; Merge</b> → Print Documents ya Edit Individual Documents (saare letters ek file me)</li>
+</ol>
+<pre><span class="cm">Sample merged letter (har name ke liye auto-bana):</span>
+
+Surajmal University, Kichha
+Date: 10 October 2026
+
+Dear «Name»,
+Aapka admission form «City» campus me receive ho gaya hai.
+Pending fee: ₹«Amount» — kripya 15 October tak jama karayein.
+
+Regards,
+Admission Cell
+
+<span class="cm">Data list: Name | City | Amount
+Rahul  | Kichha | 5000
+Priya  | Haldwani | 8000 ... (har ek ka letter alag ban jayega ✔)</span></pre>
+
+<h3>W7. Drawing a Flowchart 🗺️</h3>
+<p><b>Steps:</b> Insert → <b>Shapes</b> → Oval (Start/Stop), Parallelogram (Input/Output), Rectangle (Process), Diamond (Decision) drop karo → <b>Text box me shape ke andar text</b> likho (ya shape pe right-click → Add Text) → connectors (Lines/Arrows) se jodo → <b>Group</b> (Ctrl+G) karke ek unit bana lo → save "flowchart.docx". <b>Example banao:</b> largest of two numbers ka flowchart (ya even/odd) — jo Unit 1 me sikha tha wahi Word me shapes se draw karo ✅</p>
+
+<!-- ================== MS EXCEL ================== -->
+<h2 class="unit" id="excel">MS EXCEL PRACTICALS (BCA101P)</h2>
+
+<h3>E1. Spreadsheet Charts — Line, XY, Bar &amp; Pie 📊</h3>
+<pre><span class="cm">Pehle data banao (5 students ke marks):</span>
+
+   A        B      C      D
+1  Name     Math   Sci    Eng
+2  Ansh     78     85     90
+3  Priya    90     88     92
+4  Rahul    65     70     72
+5  Sara     88     79     95
+6  Amit     50     60     55
+
+<span class="cm">Chart ka steps (har type ka):</span>
+1. Data select karo (A1:D6)
+2. Insert tab → Charts group → chart type choose karo:
+   • Column/Bar chart → subjects ka comparison
+   • Line chart → trend dikhane ke liye
+   • Pie chart → ek column ka hissa (jaise Language-wise %)
+   • XY (Scatter) chart → do numbers ke relation ke liye
+3. Chart Design tab → title, axis labels, legend add karo
+4. Chart ko move/resize karke alag sheet pe bhejo (Move Chart → New Sheet)</pre>
+<table>
+  <tr><th>Chart type</th><th>Kab use karein (Hinglish)</th></tr>
+  <tr><td><b>Column/Bar</b></td><td>Alag-alag categories ka comparison (students ke marks, mahine ki sales)</td></tr>
+  <tr><td><b>Line</b></td><td>Trend/time ke saath change (6 mahine ki sales ka trend 📈)</td></tr>
+  <tr><td><b>Pie</b></td><td>Hissa dikhana (class me subject-wise favourite, budget ke parts 🥧)</td></tr>
+  <tr><td><b>XY (Scatter)</b></td><td>Do values ka relation (height vs weight, temperature vs ice-cream sales)</td></tr>
+</table>
+
+<h3>E2. Spreadsheet Formula Editor ➗</h3>
+<pre><span class="cm">Basic formulas (har ek = se shuru hota hai):</span>
+
+=D2+E2         → simple addition (do cells jodna)
+=SUM(B2:D2)    → range ka sum (Math | Sci | Eng ka total)
+=AVERAGE(B2:D2)→ average nikalo
+=MAX(B2:D2)    → sabse zyada marks
+=MIN(B2:D2)    → sabse kam
+=COUNT(B2:B10) → kitni numbers hain (count)
+=COUNTA(A2:A10)→ kitne cells bhare hain
+=B2/D2*100     → percentage (marks/total × 100)
+=IF(D2>=33,"Pass","Fail")           → condition wala (Rahi, pass/fail)
+=IF(B2>=90,"A",IF(B2>=75,"B","C"))  → nested IF = grade nikalna
+=ROUND(B2*1.18,2)                   → GST lagana + 2 decimal
+=CONCAT(A2," ",B2)                  → do cells jodna (naam + city)</pre>
+<div class="box b-fx"><b>Ready-made practical — Marksheet banao (lab ke liye perfect):</b>
+<pre>A: Name | B: Math | C: Sci | D: Eng
+E1: "Total"  → E2 = SUM(B2:D2)
+F1: "Percentage" → F2 = ROUND(E2/300*100,1)
+G1: "Grade"  → G2 = IF(F2>=90,"A",IF(F2>=75,"B",IF(F2>=60,"C",IF(F2>=33,"D","Fail"))))
+H1: "Result" → H2 = IF(F2>=33,"Pass","Fail")
+
+Phir: chart banao (Insert → Bar chart) + Conditional Formatting se 
+Fail wale red ho jaayein (Home → Conditional Formatting → Highlight Cell Rules) 🎨</pre></div>
+<div class="box b-tip"><b>Excel ke exam-friendly features:</b> <b>Fill handle</b> (cell ke corner se drag = formula copy ho jaata hai — dhyaan do: cell reference auto badalta hai, $ lagao to fix), absolute reference (<code>$B$2</code>), Sort &amp; Filter (Data tab), Conditional Formatting, Chart, Pivot Table (advanced). Ye sab dikha do — examiner impress 👏</div>
+
+<!-- ================== BCA101P C PROGRAMS ================== -->
+<h2 class="unit" id="bcap">BCA101P — C PROGRAMS (Computer Fundamental Lab list)</h2>
+
+<h3>1. Temperature: Celsius → Fahrenheit 🌡️</h3>
+<pre>#include &lt;stdio.h&gt;
+int main() {
+    float c, f;
+    printf("Enter temperature in Celsius: ");
+    scanf("%f", &amp;c);
+    f = (c * 9 / 5) + 32;          <span class="cm">// formula: F = C×9/5 + 32</span>
+    printf("%.2f Celsius = %.2f Fahrenheit", c, f);
+    return 0;
+}
+<span class="out">Input: 38  →  Output: 38.00 Celsius = 100.40 Fahrenheit
+(Aur idea: 0°C = 32°F, 100°C = 212°F — formula ke andar yahi khayal hai)</span></pre>
+
+<h3>2. Simple Interest &amp; Compound Interest 💰</h3>
+<pre>#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+int main() {
+    float p, r, t, si, ci;
+    printf("Enter Principal, Rate, Time: ");
+    scanf("%f %f %f", &amp;p, &amp;r, &amp;t);
+
+    si = (p * r * t) / 100;                        <span class="cm">// SI = P×R×T/100</span>
+    ci = p * pow((1 + r / 100), t) - p;            <span class="cm">// CI = P(1+R/100)^T − P</span>
+
+    printf("Simple Interest  = %.2f\n", si);
+    printf("Compound Interest = %.2f\n", ci);
+    return 0;
+}
+<span class="out">Input: 10000 5 2
+Simple Interest  = 1000.00
+Compound Interest = 1025.00
+(Kyun CI zyada? Kyunki CI me "interest pe bhi interest" milta hai 😄)</span></pre>
+<div class="box b-real"><b>Real life:</b> Bank FD par SI, loan/bachat schemes me CI — "5% interest 2 saal" ka matlab depend karta hai compounding pe. Isi liye SIP/compound me paisa tez badhta hai. 💹</div>
+
+<h3>3. Total Salary (HRA 3% + TA 5% + DA 3%) 🧾</h3>
+<pre>#include &lt;stdio.h&gt;
+int main() {
+    float basic, hra, ta, da, total;
+    printf("Enter Basic Salary: ");
+    scanf("%f", &amp;basic);
+
+    hra = 0.03 * basic;        <span class="cm">// HRA = 3% of basic</span>
+    ta  = 0.05 * basic;        <span class="cm">// TA  = 5% of basic</span>
+    da  = 0.03 * basic;        <span class="cm">// DA  = 3% of basic</span>
+    total = basic + hra + ta + da;
+
+    printf("HRA = %.2f\nTA = %.2f\nDA = %.2f\n", hra, ta, da);
+    printf("Total Salary = %.2f", total);
+    return 0;
+}
+<span class="out">Input: 20000
+HRA = 600.00   TA = 1000.00   DA = 600.00
+Total Salary = 22200.00</span></pre>
+
+<h3>4. Swap Two Numbers — with third variable 🔄</h3>
+<pre>#include &lt;stdio.h&gt;
+int main() {
+    int a, b, temp;
+    scanf("%d %d", &amp;a, &amp;b);
+    printf("Before: a=%d b=%d\n", a, b);
+
+    temp = a;   <span class="cm">// a ko temp me rakha</span>
+    a = b;      <span class="cm">// b ki value a me</span>
+    b = temp;   <span class="cm">// temp (purana a) b me</span>
+
+    printf("After : a=%d b=%d", a, b);
+    return 0;
+}
+<span class="out">Input: 10 20 → After: a=20 b=10
+(Glass analogy: do glass ka paani exchange karna — ek khaali glass (temp) chahiye!)</span></pre>
+
+<h3>5. Swap Two Numbers — without third variable ✨</h3>
+<pre>#include &lt;stdio.h&gt;
+int main() {
+    int a, b;
+    scanf("%d %d", &amp;a, &amp;b);
+    printf("Before: a=%d b=%d\n", a, b);
+
+    a = a + b;    <span class="cm">// a = 10+20 = 30</span>
+    b = a - b;    <span class="cm">// b = 30-20 = 10  (purana a)</span>
+    a = a - b;    <span class="cm">// a = 30-10 = 20  (purana b)</span>
+
+    printf("After : a=%d b=%d", a, b);
+    return 0;
+}
+<span class="out">Input: 10 20 → After: a=20 b=10 ✔ (bina khaali glass! 😄)
+Note: XOR method bhi hota hai: a = a^b; b = a^b; a = a^b;</span></pre>
+
+<h3>6. Area &amp; Circumference of Circle ⭕</h3>
+<pre>#include &lt;stdio.h&gt;
+#define PI 3.14159
+int main() {
+    float r, area, circ;
+    scanf("%f", &amp;r);
+    area = PI * r * r;          <span class="cm">// Area = πr²</span>
+    circ = 2 * PI * r;          <span class="cm">// Circumference = 2πr</span>
+    printf("Area = %.2f\nCircumference = %.2f", area, circ);
+    return 0;
+}
+<span class="out">Input: 7 → Area = 153.94, Circumference = 43.98</span></pre>
+
+<h3>7. Ternary Operator (largest of two) ⚖️</h3>
+<pre>#include &lt;stdio.h&gt;
+int main() {
+    int a, b, big;
+    scanf("%d %d", &amp;a, &amp;b);
+    big = (a &gt; b) ? a : b;      <span class="cm">// condition ? sach : jhoot</span>
+    printf("Largest = %d", big);
+    return 0;
+}
+<span class="out">Input: 15 42 → Largest = 42</span></pre>
+
+<h3>8. Roots of Quadratic Equation (ax² + bx + c = 0) 🧮</h3>
+<pre>#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+int main() {
+    float a, b, c, d, r1, r2;
+    printf("Enter a, b, c: ");
+    scanf("%f %f %f", &amp;a, &amp;b, &amp;c);
+
+    d = b * b - 4 * a * c;      <span class="cm">// discriminant</span>
+
+    if (d &gt; 0) {
+        r1 = (-b + sqrt(d)) / (2 * a);
+        r2 = (-b - sqrt(d)) / (2 * a);
+        printf("Real & distinct roots: %.2f and %.2f", r1, r2);
+    } else if (d == 0) {
+        r1 = -b / (2 * a);
+        printf("Real & equal roots: %.2f", r1);
+    } else {
+        printf("Complex roots: %.2f + %.2fi and %.2f - %.2fi",
+               -b/(2*a), sqrt(-d)/(2*a), -b/(2*a), sqrt(-d)/(2*a));
+    }
+    return 0;
+}
+<span class="out">Input: 1 -5 6 → Real & distinct roots: 3.00 and 2.00
+(d > 0: do roots, d = 0: ek root, d < 0: imaginary roots — "i" wale)</span></pre>
+
+<h3>9. Armstrong Number 💪</h3>
+<pre>#include &lt;stdio.h&gt;
+int main() {
+    int n, temp, r, sum = 0;
+    scanf("%d", &amp;n);
+    temp = n;
+    while (temp != 0) {
+        r = temp % 10;              <span class="cm">// digit nikala</span>
+        sum += r * r * r;           <span class="cm">// cube joda</span>
+        temp /= 10;
+    }
+    if (sum == n)
+        printf("%d is Armstrong", n);
+    else
+        printf("%d is not Armstrong", n);
+    return 0;
+}
+<span class="out">153 = 1³+5³+3³ = 1+125+27 = 153 ✔ Armstrong
+370, 371, 407 bhi Armstrong hain (3-digit). 1634 bhi hota hai (4-digit, 4th power se!)</span></pre>
+
+<h3>10. Factorial &amp; 11. Fibonacci Series 🔢</h3>
+<pre><span class="cm">// 10. Factorial</span>
+#include &lt;stdio.h&gt;
+int main() {
+    int n, i; unsigned long long f = 1;
+    scanf("%d", &amp;n);
+    for (i = 1; i &lt;= n; i++)
+        f = f * i;
+    printf("%d! = %llu", n, f);
+    return 0;
+}
+<span class="out">Input: 6 → 6! = 720   (5!=120, 7!=5040 — yaad rakho!)</span>
+
+<span class="cm">// 11. Fibonacci series (0 1 1 2 3 5 8...)</span>
+#include &lt;stdio.h&gt;
+int main() {
+    int n, i, a = 0, b = 1, c;
+    scanf("%d", &amp;n);
+    for (i = 1; i &lt;= n; i++) {
+        printf("%d ", a);
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    return 0;
+}
+<span class="out">Input: 8 → 0 1 1 2 3 5 8 13</span></pre>
+<div class="box b-tip"><b>Lab record trick (ye 11 programs ek baar likh kar rakho):</b> Har program me (1) header comment: naam + aim (2) code (3) 2 sample outputs (4) ek line ka conclusion. Bas! Examiner ne kya poochha — "kya samajh aaya?" — wo conclusion line hi jawab hai 😄</div>
+
+<div class="rev">
+<h4>⚡ BCA101P — Quick checklist</h4>
+<ul>
+  <li>Word: Advertisement ✔ CV ✔ Scientific notations (superscript/subscript) ✔ Timetable (tables/merge) ✔ Conversion ✔ Mail Merge ✔ Flowchart (shapes) ✔</li>
+  <li>Excel: Charts (Bar/Line/Pie/XY) ✔ Formula editor (SUM, AVERAGE, IF, %...) ✔ Marksheet + conditional formatting bonus</li>
+  <li>C: C→F ✔ SI &amp; CI ✔ Salary (HRA/TA/DA) ✔ Swap with/without temp ✔ Area &amp; Circumference ✔ Ternary ✔ Quadratic roots ✔ Armstrong ✔ Factorial ✔ Fibonacci ✔</li>
+</ul>
+</div>
+<!-- ================== SEC101P ================== -->
+<h2 class="unit" id="secp">SEC101P — PROGRAMMING IN C LAB (saare 16 programs)</h2>
+
+<div class="box b-key"><b>Ye list aapke syllabus me exactly wahi hai</b> — 16 programs. Neeche har program ka <b>ready code + output</b> hai. Practical exam me aksar inhi me se aa jaata hai, aur viva me "isme kya use hua?" poochhte hain — isliye har program ke neeche <b>"isme kya sikha"</b> line bhi hai 📌</div>
+
+<h3>P1. Largest of Two / Three Numbers — if aur conditional operator se ⚖️</h3>
+<pre><span class="cm">/* Largest of THREE numbers — nested if-else se */</span>
+#include &lt;stdio.h&gt;
+int main() {
+    int a, b, c;
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    if (a &gt;= b &amp;&amp; a &gt;= c)
+        printf("%d is largest", a);
+    else if (b &gt;= a &amp;&amp; b &gt;= c)
+        printf("%d is largest", b);
+    else
+        printf("%d is largest", c);
+    return 0;
+}
+<span class="out">Input: 12 45 30 → 45 is largest</span>
+
+<span class="cm">/* Same with conditional (ternary) operator — ONE LINE me! */</span>
+int big = (a &gt; b) ? ((a &gt; c) ? a : c) : ((b &gt; c) ? b : c);
+printf("%d is largest", big);</pre>
+<p><b>Isme kya sikha:</b> nested if-else vs ternary operator ka use, comparison logic (≥ vs = ke saath sochna).</p>
+
+<h3>P2. Reverse of a Given Number 🔄</h3>
+<pre>#include &lt;stdio.h&gt;
+int main() {
+    int n, rev = 0, r;
+    scanf("%d", &amp;n);
+    while (n &gt; 0) {
+        r = n % 10;            <span class="cm">// aakhri digit</span>
+        rev = rev * 10 + r;    <span class="cm">// reverse me joda</span>
+        n = n / 10;            <span class="cm">// digit hata di</span>
+    }
+    printf("Reverse = %d", rev);
+    return 0;
+}
+<span class="out">Input: 1234 → Reverse = 4321
+Bonus: palindrome check: if (rev == original) print "Palindrome" 😎</span></pre>
+<p><b>Isme kya sikha:</b> loop + % aur / ka digit manipulation (har digital-number program ka base — Armstrong, palindrome, sum-of-digits sab yahi trick).</p>
+
+<h3>P3. Prime Numbers from 2 to n 🔢</h3>
+<pre>#include &lt;stdio.h&gt;
+int main() {
+    int n, i, j, flag;
+    scanf("%d", &amp;n);
+
+    printf("Prime numbers from 2 to %d: ", n);
+    for (i = 2; i &lt;= n; i++) {
+        flag = 1;                       <span class="cm">// "ye prime hai" maan lo</span>
+        for (j = 2; j &lt;= i / 2; j++) {
+            if (i % j == 0) {
+                flag = 0;               <span class="cm">// kisi ne divide kiya = prime nahi</span>
+                break;
+            }
+        }
+        if (flag == 1)
+            printf("%d ", i);
+    }
+    return 0;
+}
+<span class="out">Input: 30 → 2 3 5 7 11 13 17 19 23 29</span></pre>
+<p><b>Isme kya sikha:</b> nested loop + flag variable + break (as soon as kaam khatam, loop break karo — efficient coding!).</p>
+
+<h3>P4. Roots of Quadratic Equation using SWITCH 🔀</h3>
+<pre>#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+int main() {
+    float a, b, c, d, r1, r2;
+    scanf("%f %f %f", &amp;a, &amp;b, &amp;c);
+    d = b * b - 4 * a * c;
+
+    <span class="cm">// d ki condition ko "1, 0, -1" me convert karo taaki switch chal sake</span>
+    if (d &gt; 0) d = 1;
+    else if (d == 0) d = 0;
+    else d = -1;
+
+    switch ((int)d) {
+        case 1:
+            r1 = (-b + sqrt(b*b - 4*a*c)) / (2*a);
+            r2 = (-b - sqrt(b*b - 4*a*c)) / (2*a);
+            printf("Real & distinct roots: %.2f and %.2f", r1, r2);
+            break;
+        case 0:
+            printf("Real & equal roots: %.2f", -b / (2*a));
+            break;
+        case -1:
+            printf("Complex roots: %.2f ± %.2fi",
+                   -b/(2*a), sqrt(-(b*b - 4*a*c))/(2*a));
+            break;
+    }
+    return 0;
+}
+<span class="out">Input: 1 -5 6 → Real & distinct roots: 3.00 and 2.00
+Note: switch me case "range" nahi ho sakta (d>0/d=0 direct nahi) — isliye pehle 
+condition ko 1/0/−1 me convert kiya. Ye trick examiner ko dikhana! ✔</span></pre>
+<p><b>Isme kya sikha:</b> switch sirf equality pe chalta hai, isliye range conditions ko "code" me convert karke switch me bhejna — realistic programming skill.</p>
+
+<h3>P5. Triangle of Stars ⭐</h3>
+<pre>#include &lt;stdio.h&gt;
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+    for (i = 1; i &lt;= n; i++) {        <span class="cm">// lines 1..n</span>
+        for (j = 1; j &lt;= i; j++) {    <span class="cm">// har line me i stars</span>
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+<span class="out">Input: 4 →
+*
+* *
+* * *
+* * * *
+</span>
+
+<span class="cm">/* BONUS — alag-alag patterns (viva me poochhte hain!) */</span>
+// Ulta triangle:  for (i = n; i &gt;= 1; i--)
+// Pyramid (center): spaces (n-i) phir stars (2i-1)
+// Diamond: pyramid + ulta pyramid
+// Number triangle: printf("%d ", j);  j ki jagah i</pre>
+<p><b>Isme kya sikha:</b> nested loops + pattern thinking (outer = lines, inner = per-line content). Ye "thinking" competitive coding me sabse pehle aati hai.</p>
+
+<h3>P6. Largest &amp; Smallest in a List 📋</h3>
+<pre>#include &lt;stdio.h&gt;
+int main() {
+    int n, i, big, small, num;
+    scanf("%d", &amp;n);          <span class="cm">// kitne numbers</span>
+    scanf("%d", &amp;big);
+    small = big;              <span class="cm">// pehla number hi dono maan lo</span>
+
+    for (i = 2; i &lt;= n; i++) {
+        scanf("%d", &amp;num);
+        if (num &gt; big)   big = num;
+        if (num &lt; small) small = num;
+    }
+    printf("Largest = %d\nSmallest = %d", big, small);
+    return 0;
+}
+<span class="out">Input: 6 | 45 12 78 3 90 56
+Largest = 90, Smallest = 3</span></pre>
+<p><b>Isme kya sikha:</b> "champion" technique — pehle maan lo, phir har naye se compare karke update karte jao (array ke bina bhi ho gaya!).</p>
+
+<h3>P7. Product of Two Matrices ✖️</h3>
+<pre>#include &lt;stdio.h&gt;
+int main() {
+    int a[10][10], b[10][10], prod[10][10];
+    int r1, c1, r2, c2, i, j, k;
+
+    printf("Rows & cols of A: ");
+    scanf("%d %d", &amp;r1, &amp;c1);
+    printf("Rows & cols of B: ");
+    scanf("%d %d", &amp;r2, &amp;c2);
+
+    if (c1 != r2) {                       <span class="cm">// condition check!</span>
+        printf("Multiplication not possible (c1 != r2)");
+        return 0;
+    }
+
+    printf("Enter matrix A:\n");
+    for (i = 0; i &lt; r1; i++)
+        for (j = 0; j &lt; c1; j++)
+            scanf("%d", &amp;a[i][j]);
+
+    printf("Enter matrix B:\n");
+    for (i = 0; i &lt; r2; i++)
+        for (j = 0; j &lt; c2; j++)
+            scanf("%d", &amp;b[i][j]);
+
+    for (i = 0; i &lt; r1; i++) {
+        for (j = 0; j &lt; c2; j++) {
+            prod[i][j] = 0;
+            for (k = 0; k &lt; c1; k++) {            <span class="cm">// dot product</span>
+                prod[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+
+    printf("Product:\n");
+    for (i = 0; i &lt; r1; i++) {
+        for (j = 0; j &lt; c2; j++)
+            printf("%d ", prod[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
+<span class="out">A = [1 2; 3 4], B = [5 6; 7 8]
+Product: 19 22
+         43 50       (Maths Unit 1 wala hi kaam, ab C me! 😄)</span></pre>
+<p><b>Isme kya sikha:</b> 2D arrays, 3 nested loops (i, j, k), aur "c1 = r2" validation — Maths ka matrix multiplication code me convert karna.</p>
+
+<h3>P8. GCD of Two Numbers — Iteration aur Recursion dono 🌀</h3>
+<pre><span class="cm">/* (a) Iteration se (Euclid's algorithm) */</span>
+#include &lt;stdio.h&gt;
+int main() {
+    int a, b, t;
+    scanf("%d %d", &amp;a, &amp;b);
+    while (b != 0) {
+        t = b;
+        b = a % b;      <span class="cm">// remainder</span>
+        a = t;
+    }
+    printf("GCD = %d", a);
+    return 0;
+}
+<span class="out">Input: 36 60 → GCD = 12</span>
+
+<span class="cm">/* (b) Recursion se */</span>
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;                  <span class="cm">// base case</span>
+    return gcd(b, a % b);          <span class="cm">// khud ko chhote input se call</span>
+}
+<span class="out">gcd(36, 60) → gcd(60, 36) → gcd(36, 24) → gcd(24, 12) → gcd(12, 0) → 12 ✔</span></pre>
+<p><b>Isme kya sikha:</b> Euclid's algorithm; aur ek hi problem ke do solutions — iteration (loop) vs recursion. Viva me poochhte hain: "recursion me base case ka kya role hai?"</p>
+
+<h3>P9. Storage Classes Illustration 🗄️</h3>
+<pre>#include &lt;stdio.h&gt;
+
+int global = 100;              <span class="cm">// static/global — poore program me zinda</span>
+
+void demo() {
+    auto int a = 10;           <span class="cm">// auto: function khatam, gaya; har call pe naya</span>
+    static int s = 0;          <span class="cm">// static: value YAAD rehti hai calls ke beech</span>
+    register int r = 5;        <span class="cm">// register: CPU register me (fastest)</span>
+
+    a++;    s++;    r++;       <span class="cm">// teeno badhaye</span>
+    printf("auto a = %d, static s = %d, register r = %d, global = %d\n",
+           a, s, r, global);
+}
+
+int main() {
+    demo();   <span class="cm">// auto a = 11, static s = 1, register r = 6, global = 100</span>
+    demo();   <span class="cm">// auto a = 11, static s = 2, register r = 6, global = 100</span>
+    demo();   <span class="cm">// auto a = 11, static s = 3, register r = 6, global = 100</span>
+    return 0;
+}
+<span class="out">OUTPUT:
+auto a = 11, static s = 1, register r = 6, global = 100
+auto a = 11, static s = 2, register r = 6, global = 100
+auto a = 11, static s = 3, register r = 6, global = 100
+
+Dekha? sirf static badhta gaya (1 → 2 → 3) — kyunki wo yaad rakhta hai! 
+auto/reset har call pe 11 pe hi raha 😎 — YEHI viva ka jawab hai!</span></pre>
+<p><b>Isme kya sikha:</b> char storage classes ka difference aur "static" ka jaadu — har function call ke beech value retain karna. Viva me pakka sawal! ⭐</p>
+
+<h3>P10. Call by Value vs Call by Reference 🔄</h3>
+<pre>#include &lt;stdio.h&gt;
+
+void swapValue(int x, int y) {         <span class="cm">// copies aayi</span>
+    int t = x;  x = y;  y = t;
+    printf("Andar (value):     x=%d y=%d\n", x, y);
+}
+
+void swapRef(int *x, int *y) {         <span class="cm">// addresses aaye</span>
+    int t = *x;  *x = *y;  *y = t;
+    printf("Andar (reference): x=%d y=%d\n", *x, *y);
+}
+
+int main() {
+    int a = 10, b = 20;
+
+    swapValue(a, b);
+    printf("main me (baad value):     a=%d b=%d\n", a, b);   <span class="cm">// 10 20 — no change!</span>
+
+    swapRef(&amp;a, &amp;b);
+    printf("main me (baad reference): a=%d b=%d\n", a, b);   <span class="cm">// 20 10 — changed ✔</span>
+    return 0;
+}
+<span class="out">OUTPUT:
+Andar (value):     x=20 y=10
+main me (baad value):     a=10 b=20    ← original safe!
+Andar (reference): x=20 y=10
+main me (baad reference): a=20 b=10    ← original badal gaya ✔</span></pre>
+<p><b>Isme kya sikha:</b> value = photocopy, reference = original ka pata. Pointer ka practical use — yahi concept function se "multiple values wapas laane" me kaam aata hai.</p>
+
+<h3>P11. Count Occurrences of Each Alphabet (command line arguments) 🔤</h3>
+<pre>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+
+int main(int argc, char *argv[]) {
+    int count[26] = {0};
+    int i, j;
+
+    <span class="cm">// har argument ke har character ko check karo</span>
+    for (i = 1; i &lt; argc; i++) {
+        for (j = 0; argv[i][j] != '\0'; j++) {
+            char ch = tolower(argv[i][j]);
+            if (ch &gt;= 'a' &amp;&amp; ch &lt;= 'z')
+                count[ch - 'a']++;       <span class="cm">// a=0, b=1, c=2... position</span>
+        }
+    }
+
+    for (i = 0; i &lt; 26; i++)
+        if (count[i] &gt; 0)
+            printf("%c : %d\n", 'a' + i, count[i]);
+    return 0;
+}
+<span class="out">Command: prog hello bca
+Output:
+a : 1
+b : 1
+c : 1
+e : 1
+h : 1
+l : 2
+o : 1
+
+Note: Turbo C me "Arguments" alag set karte hain; modern IDE/terminal me
+program ke aage likh do: ./a.out hello bca</span></pre>
+<p><b>Isme kya sikha:</b> <code>argc/argv</code> (command line se input), frequency counting ki technique, aur <code>ch - 'a'</code> wala index trick (character ko array index me badalna).</p>
+
+<h3>P12. enum Data Type Illustration 🏷️</h3>
+<pre>#include &lt;stdio.h&gt;
+
+enum week { MON, TUE, WED, THU, FRI, SAT, SUN };   <span class="cm">// 0,1,2,3,4,5,6</span>
+enum status { FAIL, PASS = 33, DISTINCTION = 75 };  <span class="cm">// custom values</span>
+
+int main() {
+    enum week today = WED;
+    enum status result = PASS;
+
+    printf("WED ka internal value = %d\n", today);    <span class="cm">// 2</span>
+    printf("PASS = %d, DISTINCTION = %d\n", PASS, DISTINCTION);  <span class="cm">// 33, 75</span>
+    printf("Today is day number %d\n", today + 1);    <span class="cm">// 3</span>
+
+    if (result == PASS)
+        printf("Student passed ✔\n");
+    return 0;
+}
+<span class="out">OUTPUT:
+WED ka internal value = 2
+PASS = 33, DISTINCTION = 75
+Today is day number 3
+Student passed ✔
+
+Idea: enum se code readable ban jaata hai — "2" ki jagah "WED" likhna 
+samajhna aasan hai 😄</span></pre>
+<p><b>Isme kya sikha:</b> enum = named integer constants — code ko readable banata hai (magic numbers ki jagah naam). Menu/states/status ke liye best.</p>
+
+<h3>P13. String Functions (string.h) 📜</h3>
+<pre>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char a[50] = "BCA";
+    char b[50] = "Students";
+    char c[50];
+
+    printf("strlen(a)   = %d\n", strlen(a));        <span class="cm">// 3</span>
+
+    strcpy(c, a);
+    printf("strcpy c    = %s\n", c);                 <span class="cm">// BCA</span>
+
+    strcat(a, " ");
+    strcat(a, b);
+    printf("strcat a    = %s\n", a);                 <span class="cm">// BCA Students</span>
+
+    printf("strcmp(BCA,BCA)  = %d\n", strcmp("BCA", "BCA"));    <span class="cm">// 0 = equal</span>
+    printf("strcmp(BCA,ABC)  = %d\n", strcmp("BCA", "ABC"));    <span class="cm">// +ve: BCA bada</span>
+
+    printf("strrev-like reverse: ");
+    for (int i = strlen(c) - 1; i &gt;= 0; i--)   <span class="cm">// manual reverse</span>
+        printf("%c", c[i]);
+    printf("\n");
+
+    printf("strupr/lwr: %s | %s\n", strupr(c), strlwr(c));  <span class="cm">// Turbo C</span>
+    return 0;
+}
+<span class="out">strlen(a)   = 3
+strcpy c    = BCA
+strcat a    = BCA Students
+strcmp(BCA,BCA)  = 0
+strcmp(BCA,ABC)  = 66   (positive — BCA pehle aata hai dictionary me)
+strrev-like reverse: ACB</span></pre>
+<p><b>Isme kya sikha:</b> string.h ke 4 main functions + strcmp ka result number hota hai (0 = equal) — ye sabse zyada poochha jaata hai.</p>
+
+<h3>P14. Count Characters in a File 📁</h3>
+<pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+    FILE *fp;
+    char filename[50], ch;
+    long count = 0;
+
+    printf("Enter file name: ");
+    scanf("%s", filename);
+
+    fp = fopen(filename, "r");       <span class="cm">// r = read mode</span>
+    if (fp == NULL) {
+        printf("File open nahi hui! (naam/galat path check karo)");
+        return 1;
+    }
+
+    while ((ch = fgetc(fp)) != EOF)   <span class="cm">// ek-ek character padho</span>
+        count++;                      <span class="cm">// EOF = End Of File</span>
+
+    fclose(fp);                       <span class="cm">// file band karna zaroori!</span>
+    printf("Total characters = %ld", count);
+    return 0;
+}
+<span class="out">Enter file name: notes.txt
+Total characters = 1240
+
+File handling ke 4 steps yaad rakho: 
+fopen → check (NULL?) → fgetc/fputc/fprintf in loop → fclose ✔</span></pre>
+<p><b>Isme kya sikha:</b> file handling ka poora cycle — fopen/fgetc/fclose, NULL check, EOF concept. Ye C lab ka sabse important "real programming" program hai.</p>
+
+<h3>P15. Structure Student — 10 Students File me 📝</h3>
+<pre>#include &lt;stdio.h&gt;
+
+struct Student {                     <span class="cm">// apna "data type" banaya</span>
+    int roll_no;
+    char name[30];
+    char class[10];
+    int year;
+    float total_marks;
+};
+
+int main() {
+    struct Student s[10];            <span class="cm">// 10 students ka array</span>
+    FILE *fp;
+    int i;
+
+    fp = fopen("students.txt", "w");  <span class="cm">// w = write mode</span>
+    if (fp == NULL) {
+        printf("File nahi khuli!");
+        return 1;
+    }
+
+    for (i = 0; i &lt; 10; i++) {
+        printf("Student %d — Roll, Name, Class, Year, Marks: ", i + 1);
+        scanf("%d %s %s %d %f", &amp;s[i].roll_no, s[i].name,
+              s[i].class, &amp;s[i].year, &amp;s[i].total_marks);
+
+        fprintf(fp, "%d %s %s %d %.2f\n", s[i].roll_no, s[i].name,
+                s[i].class, s[i].year, s[i].total_marks);   <span class="cm">// file me likho</span>
+    }
+
+    fclose(fp);
+    printf("10 students ka data students.txt me save ho gaya ✔");
+
+    <span class="cm">// (Bonus: same file wapas padho — fehif ("students.txt","r") + fscanf)</span>
+    return 0;
+}
+<span class="out">students.txt me aisa dikhega:
+1 Ansh BCA 1 445.50
+2 Priya BCA 1 462.00
+... (10 lines)</span></pre>
+<p><b>Isme kya sikha:</b> structure (apne fields ka group) + array of structures + file me write (fprintf). Ye "mini database" jaisa hai — BCA ke aage ke projects ka base! 💾</p>
+
+<h3>P16. Copy File — Lowercase → UPPERCASE 🔠</h3>
+<pre>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+
+int main() {
+    FILE *src, *dest;
+    char ch;
+
+    src = fopen("input.txt", "r");
+    if (src == NULL) {
+        printf("Source file nahi mili!");
+        return 1;
+    }
+    dest = fopen("output.txt", "w");
+
+    while ((ch = fgetc(src)) != EOF) {
+        if (ch &gt;= 'a' &amp;&amp; ch &lt;= 'z')
+            ch = toupper(ch);        <span class="cm">// small → CAPITAL</span>
+        fputc(ch, dest);             <span class="cm">// destination me likho</span>
+    }
+
+    fclose(src);
+    fclose(dest);
+    printf("File copy ho gayi (lowercase → UPPERCASE) ✔");
+    return 0;
+}
+<span class="out">input.txt :  "bca first semester" 
+output.txt:  "BCA FIRST SEMESTER"
+
+Note: ctype.h ke toupper/tolower hi asli kaam kar rahe hain — 
+condition: sirf lowercase letters badlenge, baaki characters (space, ., numbers) same rahenge!</span></pre>
+<p><b>Isme kya sikha:</b> do files ek saath handle karna (read + write), character-by-character processing, toupper ka use. "File copy with transformation" — real utility program! ✅</p>
+
+<!-- ================== VIVA ================== -->
+<h2 class="unit" id="viva">VIVA QUESTIONS — dono labs (iskar jawab ready rakho) 🎤</h2>
+<h4>C Lab (SEC101P) — viva favourite questions</h4>
+<table>
+  <tr><th>Question</th><th>Short answer (Hinglish)</th></tr>
+  <tr><td>C kya hai? Kaun banaya?</td><td>High-level/middle-level structured language, Dennis Ritchie, 1972, Bell Labs</td></tr>
+  <tr><td>sizeof(int) kitna hai?</td><td>Turbo C me 2 byte, modern (gcc) me 4 byte — machine dependent</td></tr>
+  <tr><td>%d aur %f me difference?</td><td>%d integer ke liye, %f float ke liye (scanf me &amp; zaroori!)</td></tr>
+  <tr><td>Compiler vs Interpreter?</td><td>Compiler poora program ek saath (fast execution), interpreter line-by-line (slow but easy debug)</td></tr>
+  <tr><td>while vs do-while?</td><td>while = entry controlled (0 baar bhi chal sakta), do-while = exit controlled (kam se kam 1 baar)</td></tr>
+  <tr><td>break vs continue?</td><td>break = loop poora chhodo, continue = sirf current round skip karo</td></tr>
+  <tr><td>Array kya hai? Index kahan se?</td><td>Same type ka collection, contiguous memory, index 0 se</td></tr>
+  <tr><td>String me '\0' ka kaam?</td><td>String ka end batane wala null character (iske bina printf garbage print karega)</td></tr>
+  <tr><td>strcmp result kya deta hai?</td><td>0 = barabar, positive/negative = bada/chhota (number, string nahi!)</td></tr>
+  <tr><td>Call by value vs reference?</td><td>Value = copy (original safe), reference = address (original badalta hai)</td></tr>
+  <tr><td>Recursion kya hai? Base case kyun?</td><td>Function khud ko call kare; base case = rukne ki condition (warna infinite/stack overflow)</td></tr>
+  <tr><td>Pointer kya hai? * aur &amp;?</td><td>Address store karne wala variable; &amp; = address of, * = value at that address</td></tr>
+  <tr><td>static variable ka fayda?</td><td>Function calls ke beech value retain karta hai (ek hi baar initialize hota hai)</td></tr>
+  <tr><td>File handling ka sequence?</td><td>fopen → NULL check → read/write → fclose</td></tr>
+</table>
+<h4>Computer Lab (BCA101P) — viva favourite questions</h4>
+<table>
+  <tr><th>Question</th><th>Short answer</th></tr>
+  <tr><td>Mail merge kya hai?</td><td>Ek letter template + data list se kai personalized letters ek saath banana</td></tr>
+  <tr><td>Superscript vs subscript?</td><td>Superscript upar (x², Ctrl+Shift++), subscript neeche (H₂O, Ctrl+=)</td></tr>
+  <tr><td>Excel me $B$2 ka matlab?</td><td>Absolute reference — formula copy karne pe bhi cell fix rehta hai</td></tr>
+  <tr><td>Chart ke types aur use?</td><td>Bar = comparison, Line = trend, Pie = hissa, XY = relation</td></tr>
+  <tr><td>Hardware vs software? Input/output devices?</td><td>Chhu sakte ho vs program; keyboard input, printer/monitor output (Unit 2 ke notes!)</td></tr>
+  <tr><td>Number system conversion?</td><td>Decimal→Binary = 2 se divide, remainders ulta; Binary→Octal = 3-3 bits ke group</td></tr>
+  <tr><td>Flowchart symbols?</td><td>Oval = start/stop, Parallelogram = I/O, Rectangle = process, Diamond = decision</td></tr>
+</table>
+<div class="box b-tip"><b>Viva tip:</b> Viva me "ghabrana mat, jo aata hai confidently bolo, jo nahi aata — 'Sir, maine ye padha tha par abhi recall nahi ho pa raha' kehna 100% better hai than galat jawab. 😄 Aur practical me CHALTE hue program dikhao (compile + run) — half exam wahi hai!</div>
+
+<div class="rev">
+<h4>⚡ Labs — Final Checklist (exam se pehle)</h4>
+<ul>
+  <li>Lab file complete: har practical Aim → Code/Steps → Output → Result ke saath</li>
+  <li>16 C programs ek baar haath se likh kar dekho (copy-paste nahi — pakka yaad rahega)</li>
+  <li>Word: CV + Advertisement + Mail Merge ka demo practice</li>
+  <li>Excel: marksheet + IF formula + chart banake dikhao</li>
+  <li>Viva table (upar wali) 2 baar padho — 50% viva questions yahi hote hain</li>
+  <li>Turbo C shortcuts: <b>F9 compile, Ctrl+F9 run, Alt+F5 output, F7 step-by-step</b> ⌨️</li>
+</ul>
+</div>
+
+<div class="footer">
+  📚 File 07 — Lab Practicals (BCA101P + SEC101P) • Saare programs + viva questions<br>
+  Ye last file thi! Poora kit: 00 (START HERE), 01–07. Happy studying! 🎓💪
+</div>
+</div>
+</body>
+</html>

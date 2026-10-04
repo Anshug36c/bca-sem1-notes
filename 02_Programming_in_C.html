@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>02 — Programming in C (SEC101T) — Hinglish Notes</title>
+<style>
+:root{--ink:#1c1c2b;--muted:#5b5b73;--brand:#065f46;--brand2:#0d9488;--bg:#f4fbf9;--card:#ffffff;--line:#d7ece7;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.68;font-size:16.5px}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px 90px}
+header.hero{background:linear-gradient(135deg,#064e3b 0%,#0d9488 60%,#14b8a6 100%);color:#fff;padding:38px 20px 34px;text-align:center}
+header.hero h1{margin:0 0 8px;font-size:1.7rem;line-height:1.3}
+header.hero p{margin:4px 0;opacity:.92;font-size:.97rem}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:3px 12px;border-radius:999px;font-size:.79rem;margin:4px 3px}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:-26px auto 26px;box-shadow:0 8px 24px rgba(6,78,59,.10);position:relative;z-index:2}
+nav.toc h2{margin:0 0 10px;font-size:1rem;color:var(--brand);text-transform:uppercase;letter-spacing:1px}
+nav.toc a{display:inline-block;margin:3px 12px 3px 0;color:var(--brand2);text-decoration:none;font-size:.92rem;border-bottom:1px dashed #9fd6cd}
+h2.unit{font-size:1.45rem;color:#fff;background:linear-gradient(135deg,#064e3b,#0d9488);padding:12px 18px;border-radius:12px;margin:48px 0 16px;box-shadow:0 6px 18px rgba(6,78,59,.22)}
+h3{font-size:1.2rem;color:var(--brand);margin:30px 0 9px;border-left:5px solid var(--brand2);padding-left:12px}
+h4{font-size:1.04rem;color:#134e4a;margin:20px 0 7px}
+p{margin:9px 0}
+ul,ol{margin:8px 0 8px 4px;padding-left:22px}
+li{margin:4px 0}
+table{border-collapse:collapse;width:100%;margin:14px 0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(28,28,43,.07);font-size:.92rem}
+th{background:#dff5f0;color:#115e59;text-align:left;padding:9px 11px;border:1px solid var(--line);font-size:.89rem}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:#f8fdfc}
+code{background:#e6f7f3;padding:1.5px 6px;border-radius:5px;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:.88em;color:#0f766e}
+pre{background:#04211c;color:#d7f5ef;padding:14px 16px;border-radius:12px;overflow-x:auto;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:.84rem;line-height:1.55}
+pre .cm{color:#7fd1c4}
+.box{border-radius:12px;padding:13px 16px 13px 46px;margin:14px 0;position:relative;border:1px solid;font-size:.97rem}
+.box::before{position:absolute;left:13px;top:11px;font-size:1.15rem}
+.b-def{background:#eff6ff;border-color:#bfdbfe}.b-def::before{content:"📘"}
+.b-hing{background:#fff7ed;border-color:#fed7aa}.b-hing::before{content:"🗣️"}
+.b-real{background:#f0fdf4;border-color:#bbf7d0}.b-real::before{content:"🌍"}
+.b-tip{background:#fefce8;border-color:#fde68a}.b-tip::before{content:"🎯"}
+.b-warn{background:#fef2f2;border-color:#fecaca}.b-warn::before{content:"⚠️"}
+.b-mn{background:#f5f3ff;border-color:#ddd6fe}.b-mn::before{content:"🧠"}
+.b-out{background:#fffbeb;border-color:#fcd34d}.b-out::before{content:"🖨️"}
+.b-q{background:#fdf4ff;border-color:#f5d0fe}.b-q::before{content:"📝"}
+.b-key{background:#ecfeff;border-color:#a5f3fc}.b-key::before{content:"🔑"}
+.b-fx{background:#f0f9ff;border-color:#bae6fd}.b-fx::before{content:"🧮"}
+.kbd{display:inline-block;background:#e8f5f2;border:1px solid #b8dcd5;border-bottom-width:2.5px;border-radius:6px;padding:0 7px;font-family:ui-monospace,monospace;font-size:.85em}
+.tag{display:inline-block;background:#065f46;color:#fff;font-size:.72rem;padding:2px 9px;border-radius:999px;margin-right:6px;letter-spacing:.4px}
+.rev{background:#03211c;color:#d1fae5;border-radius:14px;padding:18px 20px;margin:18px 0}
+.rev h4{color:#6ee7b7;margin:0 0 8px}
+.rev li{margin:5px 0}
+.qa{border-left:4px solid #0d9488;background:#fff;padding:10px 14px;border-radius:0 10px 10px 0;margin:10px 0;box-shadow:0 2px 8px rgba(28,28,43,.06)}
+.qa b{color:#115e59}
+.footer{border-top:2px dashed var(--line);margin-top:50px;padding-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
+.mini{font-size:.85rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>⌨️ Programming in 'C' (SEC101T)</h1>
+  <p>Complete Hinglish Notes • Unit 1–5 • Har concept ke saath ready-made program + output</p>
+  <div><span class="badge">4 Credits</span><span class="badge">ESE 70 + Internal 30</span><span class="badge">Lab: 16 programs</span></div>
+</header>
+
+<div class="wrap">
+<nav class="toc">
+  <h2>Units</h2>
+  <a href="#u1">Unit 1 — Introduction to C</a>
+  <a href="#u2">Unit 2 — Operators &amp; Expressions</a>
+  <a href="#u3">Unit 3 — Control Structures</a>
+  <a href="#u4">Unit 4 — Arrays &amp; Strings</a>
+  <a href="#u5">Unit 5 — Functions &amp; Pointers</a>
+</nav>
+
+<!-- ================== UNIT 1 ================== -->
+<h2 class="unit" id="u1">UNIT 1 — Introduction to C Programming</h2>
+
+<h3>1.1 History of C</h3>
+<table>
+  <tr><th>Saal</th><th>Kya hua</th></tr>
+  <tr><td>1960</td><td>ALGOL 60 — C ka ancestor (structured programming ka idea)</td></tr>
+  <tr><td>1967</td><td>BCPL (Basic Combined Programming Language) — Martin Richards</td></tr>
+  <tr><td>1970</td><td>B language — <b>Ken Thompson</b> (Bell Labs)</td></tr>
+  <tr><td><b>1972</b></td><td><b>C language — Dennis Ritchie</b> (AT&amp;T Bell Laboratories, USA) — UNIX OS ko dobara likhne ke liye banayi</td></tr>
+  <tr><td>1978</td><td>"The C Programming Language" book (K&amp;R C / Kernighan &amp; Ritchie)</td></tr>
+  <tr><td>1989/1990</td><td><b>ANSI C / C89</b> standard (standardization for portability)</td></tr>
+  <tr><td>1999, 2011</td><td>C99, C11 — naye features</td></tr>
+</table>
+<div class="box b-mn"><b>Yaad rakho:</b> <b>ALGOL → BCPL → B → C</b> (har naam chhota hota gaya 😄) — aur ise banaya <b>Dennis Ritchie</b> ne 1972 me. "C" ka naam B se aaya (B ka next letter).</div>
+<div class="box b-real"><b>Real life:</b> C ne "B language" ko replace kiya aur aaj bhi duniya ki sabse important language hai — <b>Windows, Linux, Android ka core, MySQL, Python ka interpreter, aapki gaadi ka ECU</b> — sab kisi na kisi hisse me C se bane hain. Isliye C ko <b>"Mother of all Languages"</b> kehte hain.</div>
+<h4>C kyun seekhna chahiye (features/importance)</h4>
+<ul>
+  <li><b>Simple &amp; powerful:</b> sirf 32 keywords, lekin poora OS likh sakte ho</li>
+  <li><b>Middle-level language:</b> high-level (samajhna easy) + low-level (memory/pointer control) dono ka mix</li>
+  <li><b>Portable:</b> Ek baar likho, kisi bhi machine pe chalega (recompile karke)</li>
+  <li><b>Fast &amp; efficient:</b> Hardware ke bahut paas — isliye games ka core, OS, drivers C me</li>
+  <li><b>Structured language:</b> Functions me todo, modular code</li>
+  <li><b>Rich library:</b> hazaaron ready-made functions (math.h, string.h, stdio.h)</li>
+  <li><b>Base of everything:</b> C++ , Java, JavaScript, PHP ka syntax bahut hadd tak C jaisa hai</li>
+</ul>
+
+<h3>1.2 Structure of a C Program</h3>
+<pre>/* 1. Documentation section  — comments (naam, kaam, date) */
+#include &lt;stdio.h&gt;        /* 2. Link/Library section — header files */
+#define PI 3.14159        /* 3. Definition section — symbolic constants */
+
+int add(int a, int b);    /* 4. Global declaration — function prototype */
+
+int main()                /* 5. main() function — yahin se program shuru */
+{
+    int r;                /* 6. variable declaration */
+    r = 5;
+
+    printf("Area = %f\n", PI * r * r);
+    return 0;             /* 0 = program successful khatam hua */
+}
+
+int add(int a, int b) {   /* 7. Sub-programs / user-defined functions */
+    return a + b;
+}</pre>
+<table>
+  <tr><th>Section</th><th>Kaam</th></tr>
+  <tr><td>Documentation</td><td>Comments — <code>/* ... */</code> (multi-line) aur <code>//</code> (single line). Compiler ignore karta hai</td></tr>
+  <tr><td>Preprocessor / Link</td><td><code>#include &lt;stdio.h&gt;</code> — input/output functions (printf/scanf) ready milte hain</td></tr>
+  <tr><td>Definition</td><td><code>#define</code> — symbolic constants, macros</td></tr>
+  <tr><td>Global declaration</td><td>Variables &amp; functions jo poore program me chahiye</td></tr>
+  <tr><td><b>main()</b></td><td><b>Har C program yahin se start hota hai</b> — OS isko first call karta hai. Aage bracket me kuch nahi ho to int return karna chahiye</td></tr>
+  <tr><td>Sub-programs</td><td>User-defined functions</td></tr>
+</table>
+<div class="box b-warn"><b>Exam ke liye zaroori:</b> C <b>case-sensitive</b> hai — <code>Sum</code>, <code>sum</code>, <code>SUM</code> teen alag naam hain. Statements ke end me <code>;</code> (semicolon) aur function ke code ko <code>{ }</code> curly braces me likhna mandatory hai. Ye chhote mistakes hi lab me 80% errors dete hain!</div>
+
+<h3>1.3 Compilation &amp; Execution of a C Program</h3>
+<pre>Steps (yaad rakho — exam me ye exact sequence puchha jata hai):
+
+   first.c  (source code — aap likhte ho)
+     │
+     ▼ 1. PREPROCESSOR  → #include/#define ko expand karta hai (.i file)
+     ▼ 2. COMPILER      → C → assembly language (syntax errors yahin milti hain)
+     ▼ 3. ASSEMBLER     → assembly → object code (first.obj / .o)
+     ▼ 4. LINKER        → object + library functions (printf etc.) jodta hai
+   first.exe (executable)
+     ▼ 5. LOADER        → RAM me load karke CPU ko chalane deta hai
+   OUTPUT 🎉</pre>
+<table>
+  <tr><th>Term</th><th>Matlab</th></tr>
+  <tr><td><b>Source code</b></td><td>.c file — jo aapne likhi (English jaisi)</td></tr>
+  <tr><td><b>Object code</b></td><td>.obj/.o — machine code, par adhoora (library call nahi jude)</td></tr>
+  <tr><td><b>Executable</b></td><td>.exe — poori tarah ready, chalane layak</td></tr>
+  <tr><td><b>Debugging</b></td><td>Error dhundhna aur theek karna (Turbo C me <span class="kbd">F7</span> single step, <span class="kbd">Ctrl+F9</span> run, <span class="kbd">Alt+F5</span> output dekho)</td></tr>
+</table>
+<h4>Types of Errors (exam me alag alag poochhte hain)</h4>
+<table>
+  <tr><th>Error type</th><th>Kab milta hai</th><th>Example</th></tr>
+  <tr><td><b>Syntax error</b> (compile-time)</td><td>Compiler pakadta hai — grammar galat</td><td><code>printf("hi")</code> — semicolon missing; <code>int 1a;</code></td></tr>
+  <tr><td><b>Logical error</b></td><td>Program chalta hai par output galat — sabse khatarnak 😈</td><td>Average me <code>(a+b)/2</code> ki jagah <code>a+b/2</code> likh diya</td></tr>
+  <tr><td><b>Runtime error</b></td><td>Program chalte waqt crash</td><td>0 se divide, memory out of range, file na mile</td></tr>
+  <tr><td><b>Linker error</b></td><td>Linking ke time</td><td>Function ka naam galat likha / library include nahi ki</td></tr>
+</table>
+
+<h3>1.4 Data Types and Sizes</h3>
+<div class="box b-def">A <b>data type</b> tells the compiler what kind of value a variable will store (number, character, decimal) and how much memory it needs.</div>
+<table>
+  <tr><th>Data type</th><th>Size (typical 32/64-bit)</th><th>Range (approx.)</th><th>Format specifier</th><th>Example</th></tr>
+  <tr><td><code>char</code></td><td>1 byte</td><td>−128 to 127</td><td>%c</td><td><code>'A'</code></td></tr>
+  <tr><td><code>int</code></td><td>2–4 bytes</td><td>−32,768 to 32,767 (2 bytes) ya ±2.1 billion (4 bytes)</td><td>%d</td><td><code>45</code></td></tr>
+  <tr><td><code>float</code></td><td>4 bytes</td><td>3.4E−38 to 3.4E+38 (6 digits precision)</td><td>%f</td><td><code>89.75</code></td></tr>
+  <tr><td><code>double</code></td><td>8 bytes</td><td>1.7E−308 to 1.7E+308 (15 digits)</td><td>%lf</td><td><code>3.14159265</code></td></tr>
+  <tr><td><code>void</code></td><td>0 (no value)</td><td>—</td><td>—</td><td>Function jo kuch return na kare</td></tr>
+</table>
+<p><b>Modifiers (size/range badalte hain):</b> <code>short</code> (chhota), <code>long</code> (bada), <code>signed</code> (negative + positive), <code>unsigned</code> (sirf positive — 0 se 2× tak range). Example: <code>unsigned int</code> = 0 to 65,535 (2 bytes me).</p>
+<table>
+  <tr><th>Data type</th><th>Usually kitna</th><th>Real-life example</th></tr>
+  <tr><td>char</td><td>Grade: 'A'</td><td>Section, grade, gender</td></tr>
+  <tr><td>int</td><td>Roll number, age, quantity</td><td>38 students, ₹500</td></tr>
+  <tr><td>float</td><td>Percentage, temperature, price with paise</td><td>78.5%, 36.6°C</td></tr>
+  <tr><td>double</td><td>Scientific calculations, precise values</td><td>π, interest calculation</td></tr>
+</table>
+<div class="box b-fx"><b>Size kaise pata karein?</b> <code>printf("%d", sizeof(int));</code> → 4 (ya 2). <code>sizeof</code> ek operator hai jo kisi bhi type/variable ka size bytes me batata hai. (Note: size machine/compiler par depend karta hai — Turbo C me int 2 byte hota hai.)</div>
+
+<h3>1.5 Declaration of Variables</h3>
+<div class="box b-def">A <b>variable</b> is a named memory location whose value can change during program execution. Declaration = compiler ko batana ki naam kya hai, type kya hai.</div>
+<pre>int a;                 <span class="cm">// declaration</span>
+int b = 10;            <span class="cm">// declaration + initialization (definition)</span>
+float pi = 3.14;
+char grade = 'A';
+int x = 5, y = 10;     <span class="cm">// ek hi line me kai variables</span></pre>
+<h4>Rules for naming variables (identifiers)</h4>
+<ol>
+  <li>Naam sirf <b>letters (A–Z, a–z), digits (0–9) aur underscore (_)</b> se banega.</li>
+  <li>Pehla character <b>letter ya underscore</b> ho — digit nahi. ❌ <code>1num</code> ✔️ <code>num1</code></li>
+  <li>Naam me <b>space ya special symbol</b> nahi (@, #, $, -). ❌ <code>total marks</code></li>
+  <li><b>Keyword</b> naam nahi ho sakta. ❌ <code>int int;</code></li>
+  <li>C <b>case-sensitive</b> hai: <code>marks</code> aur <code>Marks</code> alag hain.</li>
+  <li>Naam meaningful rakho (marks, total, avg) — debugging easy.</li>
+</ol>
+
+<h3>1.6 Keywords &amp; Identifiers</h3>
+<table>
+  <tr><th>Term</th><th>Matlab</th></tr>
+  <tr><td><b>Keyword</b></td><td>Reserved words jinka matlab compiler ko pehle se pata hai — inhe variable naam ki tarah use nahi kar sakte. C me <b>32 keywords</b> hote hain (C89)</td></tr>
+  <tr><td><b>Identifier</b></td><td>Aapke banaye naam — variables, functions, arrays, structures ke naam</td></tr>
+</table>
+<p><b>32 keywords (yaad karne ka trick — group me yaad karo 💡):</b></p>
+<pre>Data types:    int  char  float  double  void
+Modifiers:     short  long  signed  unsigned
+Storage:       auto  static  extern  register
+Control:       if  else  switch  case  default  break  continue  goto
+Loops:         for  while  do  return
+Logic:         const  sizeof  typedef  enum  volatile  union  struct</pre>
+<div class="box b-mn"><b>Trick:</b> "^ 6 groups" me tod do — (1) types (2) modifiers (3) storage (4) decision (5) loops (6) baaki (struct, union, enum, typedef, sizeof, const, volatile). Roz ek group likho — 3 din me 32 keywords mudh me! 💪</div>
+
+<h3>1.7 Symbolic Constants</h3>
+<div class="box b-def">Value jo program me <b>change nahi hoti</b> aur naam ke saath define ki jaati hai. C me 3 tarike: <code>#define</code> (preprocessor), <code>const</code> (keyword), <code>enum</code> (list of integer constants).</div>
+<pre><span class="cm">// 1. #define (macro) — text replace (preprocessor karta hai)</span>
+#define PI 3.14159
+#define MAX 100
+#define MSG "Welcome"
+
+<span class="cm">// 2. const keyword — type-safe constant (memory me jagah leta hai)</span>
+const float GST = 0.18;
+
+<span class="cm">// 3. enum — named integer constants</span>
+enum week { MON, TUE, WED };   <span class="cm">// MON=0, TUE=1, WED=2</span></pre>
+<div class="box b-real"><b>Real life:</b> Tax rate, PI, max students, GST — ye values program me kahin-kahin use hoti hain. Agar hard-code (0.18 har jagah) kar do aur rate badal jaaye, poori file edit karni padegi. Symbolic constant use karo: sirf ek jagah badlo, sab jagah apply. ✅</div>
+
+<h3>1.8 Storage Classes <span class="tag">Exam favourite ⭐</span></h3>
+<div class="box b-def">A <b>storage class</b> defines the scope (kahan tak naam chalta hai), lifetime (kab tak memory me rehta hai), initial value (default) aur memory location (RAM ya register) of a variable. C me <b>4 storage classes</b> hain: <b>auto, register, static, extern</b>.</div>
+<table>
+  <tr><th>Storage class</th><th>Keyword</th><th>Scope</th><th>Lifetime</th><th>Default value</th><th>Kahan store</th></tr>
+  <tr><td><b>auto</b> (automatic)</td><td>auto</td><td>Sirf us function/block ke andar</td><td>Function/block khatam = memory free</td><td>Garbage (random)</td><td>RAM (stack)</td></tr>
+  <tr><td><b>register</b></td><td>register</td><td>Sirf us block ke andar</td><td>Block khatam = free</td><td>Garbage</td><td>CPU register (agar possible ho) — fastest</td></tr>
+  <tr><td><b>static</b></td><td>static</td><td>Us file/function ke andar</td><td>Program ke poore chalne tak (value yaad rehti hai!)</td><td>0</td><td>RAM (data segment)</td></tr>
+  <tr><td><b>extern</b> (external)</td><td>extern</td><td>Poora program (global)</td><td>Poora program</td><td>0</td><td>RAM (data segment)</td></tr>
+</table>
+<div class="box b-hing"><b>Hinglish:</b> <b>auto</b> = "aaj ka guest" 🚪 (kaam khatam, banda gaya). <b>static</b> = "wo diary jo har saal wahi cheez yaad rakhti hai" 📔 (value zinda rehti hai). <b>register</b> = "haath me pakdi cheez" ✋ (sabse tez access, CPU ke jeb me). <b>extern</b> = "poore mohalle ka common naam" (global — kisi doosri file me bhi use ho sakta hai).</div>
+<pre><span class="cm">/* static ka jaadu — count hota rehta hai, reset NAHI hota */</span>
+#include &lt;stdio.h&gt;
+void counter() {
+    static int c = 0;      <span class="cm">// sirf pehli baar 0 hota hai!</span>
+    c++;
+    printf("Called %d times\n", c);
+}
+int main() {
+    counter();  <span class="cm">// Called 1 times</span>
+    counter();  <span class="cm">// Called 2 times</span>
+    counter();  <span class="cm">// Called 3 times</span>
+    return 0;
+}</pre>
+<div class="box b-tip"><b>Exam Q yaad rakho:</b> "static variable ki value function calls ke beech kaise survive karti hai?" — Kyunki static variable RAM me program ke poore lifetime ke liye banta hai (stack pe nahi), sirf ek baar initialize hota hai. Yahi wala program likh dena = full marks ✅</div>
+
+<h3>1.9 First C Program — samajho line by line</h3>
+<pre>#include &lt;stdio.h&gt;              <span class="cm">// printf/scanf ke liye</span>
+
+int main() {                    <span class="cm">// program ka entry point</span>
+    printf("Hello, BCA!\n");    <span class="cm">// \n = new line</span>
+    return 0;                   <span class="cm">// 0 = success (OS ko bataya)</span>
+}</pre>
+<div class="box b-out"><b>Output:</b><br><code>Hello, BCA!</code></div>
+<table>
+  <tr><th>Escape sequence</th><th>Kaam</th></tr>
+  <tr><td><code>\n</code></td><td>New line</td></tr>
+  <tr><td><code>\t</code></td><td>Tab (spacing)</td></tr>
+  <tr><td><code>\\</code></td><td>Backslash print</td></tr>
+  <tr><td><code>\"</code></td><td>Double quote print</td></tr>
+  <tr><td><code>\0</code></td><td>Null character (string ka end — Unit 4 me aayega)</td></tr>
+</table>
+<h4>printf aur scanf (I/O ka A-B-C)</h4>
+<pre>int age; float marks;
+printf("Enter age: ");
+scanf("%d", &amp;age);                <span class="cm">// &amp; = address of (kahan rakhna hai)</span>
+printf("Enter marks: ");
+scanf("%f", &amp;marks);
+printf("Age = %d, Marks = %.2f\n", age, marks); <span class="cm">// %.2f = 2 decimal places</span></pre>
+<div class="box b-warn"><b>Sabse common galti:</b> <code>scanf</code> me <code>&amp;</code> bhoolna! <code>scanf("%d", age)</code> = crash/galat value. <b>Format specifier match karna bhi zaroori:</b> int ke saath %d, float ke saath %f, char ke saath %c.</div>
+
+<div class="rev">
+<h4>⚡ Unit 1 — Rapid Revision</h4>
+<ul>
+  <li>C: Dennis Ritchie, 1972, Bell Labs • ALGOL → BCPL → B → C • ANSI C standard (1989)</li>
+  <li>Main features: simple, portable, middle-level, fast, structured, rich library, "mother of languages"</li>
+  <li>Structure: comments → #include → #define → global → main() → functions</li>
+  <li>Compile steps: Preprocess → Compile → Assemble → Link → Load → Run</li>
+  <li>Errors: Syntax (compiler), Logical (output galat), Runtime (crash), Linker</li>
+  <li>Data types: char(1B), int(2/4B), float(4B), double(8B), void • Modifiers: short, long, signed, unsigned</li>
+  <li>Specifiers: %d, %f, %c, %lf, %.2f • sizeof = size in bytes</li>
+  <li>Identifier rules: letter/_ se start, no space/special char, keyword nahi, case-sensitive • 32 keywords</li>
+  <li>Symbolic constants: #define, const, enum</li>
+  <li>Storage classes: auto (block, garbage), register (fastest), static (value yaad rehti hai, default 0), extern (global)</li>
+  <li>printf/scanf ke liye stdio.h; scanf me &amp; lagana mat bhoolna!</li>
+</ul>
+</div>
+<div class="box b-q"><b>Most probable exam questions — Unit 1:</b>
+<ol>
+  <li>History of C? C ki features explain karo. (5–10)</li>
+  <li>Structure of a C program — saare sections explain karo. (10)</li>
+  <li>Compilation &amp; execution process of C program step-by-step likho. (10)</li>
+  <li>Data types in C — sizes aur format specifiers ke saath table. (5–10)</li>
+  <li>What is a variable? Declaration vs initialization. Identifier naming rules. (5)</li>
+  <li>Keywords vs identifiers difference. (5)</li>
+  <li>Symbolic constants ke 3 tarike — examples ke saath. (5)</li>
+  <li>Storage classes in C — auto, static, register, extern table + example. (10)</li>
+  <li>Types of errors in C (syntax/logical/runtime) with examples. (5)</li>
+</ol></div>
+
+<!-- ================== UNIT 2 ================== -->
+<h2 class="unit" id="u2">UNIT 2 — C Operators &amp; Expressions</h2>
+
+<h3>2.1 What is an Operator &amp; Expression?</h3>
+<div class="box b-def"><b>Operator:</b> A symbol that performs an operation on values (operands). <b>Expression:</b> A combination of operands (variables/constants) and operators that produces a value. Example: <code>c = a + b</code> — yahan + operator hai, (a+b) expression hai, c result store karta hai.</div>
+
+<h3>2.2 Arithmetic Operators</h3>
+<table>
+  <tr><th>Operator</th><th>Kaam</th><th>Example (a=10, b=3)</th><th>Result</th></tr>
+  <tr><td>+</td><td>Addition</td><td>a + b</td><td>13</td></tr>
+  <tr><td>−</td><td>Subtraction</td><td>a − b</td><td>7</td></tr>
+  <tr><td>*</td><td>Multiplication</td><td>a * b</td><td>30</td></tr>
+  <tr><td>/</td><td>Division</td><td>a / b</td><td><b>3</b> (int/int = int! decimal kat jata hai)</td></tr>
+  <tr><td>%</td><td>Modulus (remainder)</td><td>a % b</td><td><b>1</b> (10 ÷ 3 ka shesh)</td></tr>
+</table>
+<div class="box b-warn"><b>Trap:</b> <code>10/3</code> = 3 (not 3.33) — kyunki dono int hain. Decimal chahiye to <code>10.0/3</code> ya <code>(float)10/3</code> likho. Modulus (%) sirf integers pe chalta hai — <code>10.0 % 3</code> = ERROR ❌. <b>Exam me ye question pakka aata hai!</b></div>
+<div class="box b-real"><b>% ka real-life use:</b> Even/odd check (<code>n % 2 == 0</code>), "har 3rd student ki fee" (roll % 3 == 0), clock ka seconds (total % 60), circular seats (chair number = position % total_chairs).</div>
+
+<h3>2.3 Relational Operators (comparison — True=1 / False=0)</h3>
+<table>
+  <tr><th>Operator</th><th>Matlab</th><th>Example (a=10, b=3)</th><th>Result</th></tr>
+  <tr><td>&lt;</td><td>Chhota</td><td>a &lt; b</td><td>0 (false)</td></tr>
+  <tr><td>&gt;</td><td>Bada</td><td>a &gt; b</td><td>1 (true)</td></tr>
+  <tr><td>&lt;=</td><td>Chhota ya barabar</td><td>a &lt;= b</td><td>0</td></tr>
+  <tr><td>&gt;=</td><td>Bada ya barabar</td><td>a &gt;= b</td><td>1</td></tr>
+  <tr><td>==</td><td>Barabar hai kya?</td><td>a == b</td><td>0</td></tr>
+  <tr><td>!=</td><td>Barabar nahi hai?</td><td>a != b</td><td>1</td></tr>
+</table>
+<div class="box b-warn"><b>Sabse famous galti:</b> <code>=</code> (assignment) aur <code>==</code> (comparison) me farak! <code>if (a = 5)</code> — ye a me 5 daal dega (aur hamesha true!). <code>if (a == 5)</code> — ye pooch raha hai "a 5 hai kya?" ✔️</div>
+
+<h3>2.4 Logical Operators</h3>
+<table>
+  <tr><th>Operator</th><th>Naam</th><th>Rule</th><th>Example</th></tr>
+  <tr><td>&amp;&amp;</td><td>AND</td><td>Dono true → tabhi true</td><td><code>(age &gt;= 18) &amp;&amp; (citizen == 1)</code> → vote de sakta hai?</td></tr>
+  <tr><td>||</td><td>OR</td><td>Koi ek true → true</td><td><code>(marks &gt;= 90) || (sports == 1)</code> → scholarship milegi?</td></tr>
+  <tr><td>!</td><td>NOT</td><td>True ko false, false ko true</td><td><code>!(a == b)</code> — same as a != b</td></tr>
+</table>
+<div class="box b-real"><b>Real life:</b> UPI transaction: "PIN sahi <b>&amp;&amp;</b> balance kaafi" = payment hoga. ATM card: "chip sahi <b>||</b> ATM kharab nahi" 😄 — AND zyada strict hai, OR zyada udhar hai.</div>
+<p><b>Short-circuit evaluation (bonus concept):</b> <code>A &amp;&amp; B</code> me agar A false nikal gaya, to B check hi nahi hota. <code>A || B</code> me A true hua to B check nahi hota. Isse code fast banta hai aur crash bachta hai (jaise <code>if (ptr != NULL &amp;&amp; *ptr == 5)</code> — pehla false hua to doosra chala hi nahi, warna crash hota).</p>
+
+<h3>2.5 Assignment Operators</h3>
+<table>
+  <tr><th>Operator</th><th>Example</th><th>Matlab</th></tr>
+  <tr><td>=</td><td>a = 10</td><td>a me 10 daalo</td></tr>
+  <tr><td>+=</td><td>a += 5</td><td>a = a + 5</td></tr>
+  <tr><td>−=</td><td>a −= 5</td><td>a = a − 5</td></tr>
+  <tr><td>*=</td><td>a *= 5</td><td>a = a * 5</td></tr>
+  <tr><td>/=</td><td>a /= 5</td><td>a = a / 5</td></tr>
+  <tr><td>%=</td><td>a %= 5</td><td>a = a % 5</td></tr>
+</table>
+<div class="box b-tip"><b>Exam tip:</b> Shorthand likhna "good programming practice" hai — kam typing, kam error. Interview me bhi poochhte hain: <code>x += 3</code> ka output kya hoga.</div>
+
+<h3>2.6 Increment &amp; Decrement Operators</h3>
+<table>
+  <tr><th>Operator</th><th>Naam</th><th>Example (a=5)</th><th>Result</th></tr>
+  <tr><td>++ (prefix)</td><td>Pehle badhao, phir use karo</td><td>b = ++a;</td><td>a=6, b=6</td></tr>
+  <tr><td>++ (postfix)</td><td>Pehle use karo, phir badhao</td><td>b = a++;</td><td>b=5, a=6</td></tr>
+  <tr><td>−− (prefix)</td><td>Pehle ghatao, phir use karo</td><td>b = −−a;</td><td>a=4, b=4</td></tr>
+  <tr><td>−− (postfix)</td><td>Pehle use karo, phir ghatao</td><td>b = a−−;</td><td>b=5, a=4</td></tr>
+</table>
+<div class="box b-mn"><b>Trick:</b> <b>Prefix = "pehle kaam ki taiyari"</b> (badhao phir do), <b>Postfix = "baad me samay mile to badha denge"</b> (do phir badhao). Real-life: prefix = paisa pehle gin ke dena; postfix = pehle saaman do, paisa baad me 😄</div>
+
+<h3>2.7 Bitwise Operators (bits par kaam — 0/1)</h3>
+<table>
+  <tr><th>Operator</th><th>Naam</th><th>Example (a=5=0101, b=3=0011)</th><th>Result</th></tr>
+  <tr><td>&amp;</td><td>Bitwise AND</td><td>a &amp; b = 0101 &amp; 0011</td><td>0001 = 1</td></tr>
+  <tr><td>|</td><td>Bitwise OR</td><td>a | b</td><td>0111 = 7</td></tr>
+  <tr><td>^</td><td>Bitwise XOR</td><td>a ^ b</td><td>0110 = 6</td></tr>
+  <tr><td>~</td><td>Bitwise NOT (complement)</td><td>~a</td><td>...11111010 = −6</td></tr>
+  <tr><td>&lt;&lt;</td><td>Left shift (bits left — ×2 each)</td><td>a &lt;&lt; 1</td><td>1010 = 10 (×2)</td></tr>
+  <tr><td>&gt;&gt;</td><td>Right shift (bits right — ÷2 each)</td><td>a &gt;&gt; 1</td><td>0010 = 2 (÷2)</td></tr>
+</table>
+<div class="box b-real"><b>Kahan use hote hain:</b> (1) <b>Left shift ×2</b> — CPU ke liye multiplication se faster (old games me use hota tha). (2) Flags/permissions: ek number ke bits me "read/write/execute" ka status (chmod 755 ka antr!). (3) Color codes: RGB pixel = 3 bytes bits me. (4) Low-level device control, embedded systems, cryptography. Ye exam me short note ke liye kaafi hai.</div>
+
+<h3>2.8 Conditional (Ternary) Operator</h3>
+<div class="box b-def">C ka <b>only 3-operand operator</b>: <code>condition ? value_if_true : value_if_false</code> — if-else ka chhota roop.</div>
+<pre>int a = 10, b = 20, big;
+big = (a &gt; b) ? a : b;          <span class="cm">// big = 20</span>
+printf("%s", (n % 2 == 0) ? "Even" : "Odd");
+printf("Pass"); (marks &gt;= 33) ? printf("Pass") : printf("Fail");</pre>
+<div class="box b-hing"><b>Hinglish:</b> "Agar A &gt; B to A warna B" — ek line me decision. Jaise: "Agar doughnut available hai to doughnut, warna samosa" 🍩👉🥟</div>
+
+<h3>2.9 Special Operators</h3>
+<table>
+  <tr><th>Operator</th><th>Kaam</th><th>Example</th></tr>
+  <tr><td><code>sizeof</code></td><td>Size in bytes</td><td><code>sizeof(int)</code> → 4</td></tr>
+  <tr><td><code>,</code> (comma)</td><td>Kai expressions ek saath</td><td><code>int a=1, b=2;</code></td></tr>
+  <tr><td><code>&amp;</code> (address of)</td><td>Variable ka address</td><td><code>&amp;a</code> (scanf me use hota hai)</td></tr>
+  <tr><td><code>*</code> (dereference)</td><td>Address par jo value hai</td><td><code>*ptr</code> (Unit 5 me detail)</td></tr>
+  <tr><td><code>.</code> aur <code>→</code></td><td>Structure members</td><td><code>s.name</code>, <code>ptr->age</code></td></tr>
+  <tr><td><code>cast</code></td><td>Type convert (temporarily)</td><td><code>(float)a / b</code></td></tr>
+</table>
+
+<h3>2.10 Operator Precedence &amp; Associativity <span class="tag">Exam favourite ⭐</span></h3>
+<div class="box b-def"><b>Precedence:</b> Kisi expression me pehle kaunsa operator chalega. <b>Associativity:</b> Same priority wale operators me left-to-right ya right-to-left kaun pehle.</div>
+<table>
+  <tr><th>Priority (high→low)</th><th>Category</th><th>Operators</th><th>Associativity</th></tr>
+  <tr><td>1</td><td>Postfix</td><td><code>() [] . -> a++ a--</code></td><td>Left to Right</td></tr>
+  <tr><td>2</td><td>Unary</td><td><code>+ − ++ -- ! ~ * &amp; sizeof (type)</code></td><td><b>Right to Left</b></td></tr>
+  <tr><td>3</td><td>Multiplicative</td><td><code>* / %</code></td><td>Left to Right</td></tr>
+  <tr><td>4</td><td>Additive</td><td><code>+ −</code></td><td>Left to Right</td></tr>
+  <tr><td>5</td><td>Shift</td><td><code>&lt;&lt; &gt;&gt;</code></td><td>Left to Right</td></tr>
+  <tr><td>6</td><td>Relational</td><td><code>&lt; &lt;= &gt; &gt;=</code></td><td>Left to Right</td></tr>
+  <tr><td>7</td><td>Equality</td><td><code>== !=</code></td><td>Left to Right</td></tr>
+  <tr><td>8,9,10</td><td>Bitwise</td><td><code>&amp; ^ |</code></td><td>Left to Right</td></tr>
+  <tr><td>11,12</td><td>Logical</td><td><code>&amp;&amp; ||</code></td><td>Left to Right</td></tr>
+  <tr><td>13</td><td>Conditional</td><td><code>?:</code></td><td><b>Right to Left</b></td></tr>
+  <tr><td>14</td><td>Assignment</td><td><code>= += -= *= /= %=</code></td><td><b>Right to Left</b></td></tr>
+  <tr><td>15</td><td>Comma</td><td><code>,</code></td><td>Left to Right</td></tr>
+</table>
+<div class="box b-mn"><b>Trick:</b> "PUMA REBL TACA" — <b>P</b>ostfix, <b>U</b>nary, <b>M</b>ultiplicative, <b>A</b>dditive, <b>R</b>elational, <b>E</b>quality, <b>B</b>itwise(<b>A</b>ND), <b>L</b>ogic, <b>T</b>ernary, <b>A</b>ssignment, <b>C</b>omma. Yahi order hai high 🡒 low. 😄</div>
+<pre><span class="cm">// Precedence wale classic questions (exam me direct aate hain)</span>
+int a = 2 + 3 * 4;        <span class="cm">// * pehle → 2 + 12 = 14 (NOT 20!)</span>
+int b = (2 + 3) * 4;      <span class="cm">// bracket pehle → 20</span>
+int c = 10 - 4 - 2;       <span class="cm">// left to right → (10-4)-2 = 4 (NOT 8!)</span>
+int d = 10 / 2 * 5;       <span class="cm">// same priority → left to right → 5*5 = 25</span>
+int e = 5 &gt; 3 &amp;&amp; 2 &lt; 4;   <span class="cm">// relational pehle → 1(AND)1 = 1</span></pre>
+
+<h3>2.11 Evaluation of Arithmetic Expressions &amp; Type Conversion</h3>
+<div class="box b-def"><b>Type conversion</b> = ek data type ki value ko doosre type me badalna. Do tarike: <b>Implicit</b> (compiler khud karta hai — automatic/widening) aur <b>Explicit</b> (aap <code>(float)</code> likh kar karte ho — casting).</div>
+<table>
+  <tr><th>Implicit (Automatic)</th><th>Explicit (Casting)</th></tr>
+  <tr><td>Compiler khud karta hai jab mixed types aayen</td><td>Programmer forcibly convert karta hai</td></tr>
+  <tr><td>Chhota type → bada type (no data loss): int → float → double</td><td>Bada → chhota bhi kar sakte ho (data loss ho sakta hai)</td></tr>
+  <tr><td><code>float x = 10;</code> → 10.0 ho jayega</td><td><code>int y = (int)3.99;</code> → 3 ho jayega (decimal kat gaya)</td></tr>
+  <tr><td><code>int a=5, b=2; float c = a/b;</code> → c = 2.0 (<b>galti!</b>)</td><td><code>float c = (float)a/b;</code> → 2.5 ✔️</td></tr>
+</table>
+<div class="box b-tip"><b>Golden rule yaad rakho (type promotion):</b> <b>char → int → float → double</b> — expression me sabse "bade" type me sab convert ho jate hain. Aur <code>int/int = int</code> (decimal khatam). Isliye division me pehle ek operand ko float karna seekho — <b>yehi 90% beginner bugs ki jadd hai!</b> 🎯</div>
+<div class="box b-real"><b>Real-life:</b> Marks percentage: <code>(float)total / (float)n * 100</code> — agar cast na karo to 850/10 = 85 sahi aayega par 851/10 = <b>85</b> (0.1 gayab!) — student ka 85.1% 85% ban jayega 😅. Bilkul isliye result sirf teen decimal me dena.</div>
+
+<div class="rev">
+<h4>⚡ Unit 2 — Rapid Revision</h4>
+<ul>
+  <li>Arithmetic: + − * / % • int/int = int, 10/3 = 3 • % sirf integer pe</li>
+  <li>Relational: &lt; &gt; &lt;= &gt;= == != (result 1/0) • == vs = wali galti mat karna</li>
+  <li>Logical: &amp;&amp; (dono true), || (koi ek), ! (ulta) • Short-circuit evaluation</li>
+  <li>Assignment: = += -= *= /= %=</li>
+  <li>Increment: ++a (pehle badhao) vs a++ (baad me badhao)</li>
+  <li>Bitwise: &amp; | ^ ~ &lt;&lt; &gt;&gt; • &lt;&lt; = ×2, &gt;&gt; = ÷2</li>
+  <li>Ternary: cond ? true_value : false_value</li>
+  <li>Precedence order: Postfix → Unary → * / % → + − → shift → relational → equality → bitwise → logical → ternary → assignment • Unary/ternary/assignment are right-to-left</li>
+  <li>Type conversion: implicit (auto, chhota→bada) vs explicit/casting (float) • int/int = int</li>
+</ul>
+</div>
+<div class="box b-q"><b>Most probable exam questions — Unit 2:</b>
+<ol>
+  <li>C ke operators ke types explain karo with examples (arithmetic, relational, logical, assignment, bitwise, conditional). (10)</li>
+  <li>Precedence aur associativity kya hai? Table ke saath explain karo. (10)</li>
+  <li>Evaluate: <code>a = 2 + 3 * 4 - 6 / 3</code>, <code>b = 10 - 4 - 2</code>, <code>c = 5 &gt; 3 &amp;&amp; 2 &lt; 4</code>. (5)</li>
+  <li>Increment/decrement — prefix vs postfix difference with example. (5)</li>
+  <li>Type conversion — implicit vs explicit, examples. (5)</li>
+  <li>Conditional operator (ternary) with a program. (5)</li>
+  <li>Bitwise operators kaise kaam karte hain? Example: 5 &amp; 3, 5 << 1. (5)</li>
+  <li>Program: do numbers me se bada number ternary se nikalo. (5 — practical)</li>
+</ol></div>
+<!-- ================== UNIT 3 ================== -->
+<h2 class="unit" id="u3">UNIT 3 — Control Structures</h2>
+
+<div class="box b-def"><b>Control structures</b> program ke execution ka flow (rasi) control karte hain. C me 3 types: <b>Sequence</b> (line-by-line), <b>Selection/Decision</b> (if, switch — condition ke hisaab se raasta), <b>Iteration/Loop</b> (while, do-while, for — kaam baar-baar). Aur <b>jump statements</b> (break, continue, goto) jo flow ko todte hain.</div>
+<div class="box b-real"><b>Real life analogy (ghar chhod kar college Jana 🎒):</b> Subah uthte hi <b>sequence</b> (utho → brush karo → nashta → niklo). Raaste me <b>if-else</b>: "Agar barish hai to raincoat pehno warna nahi." Gate par <b>while loop</b>: "Jab tak auto nahi aata, wait karo." Lecture ke beech <b>break</b>: "Sir ne attendance li, nikal gaye." Ye poora din hi program ki tarah hai 😄</div>
+
+<h3>3.1 Simple if</h3>
+<pre>if (condition) {
+    <span class="cm">// ye block chalega sirf jab condition TRUE ho</span>
+}
+
+<span class="cm">// Example: age check</span>
+if (age &gt;= 18)
+    printf("You can vote\n");</pre>
+
+<h3>3.2 if-else</h3>
+<pre>if (condition) {
+    <span class="cm">// TRUE wala kaam</span>
+} else {
+    <span class="cm">// FALSE wala kaam</span>
+}
+
+<span class="cm">// Example: even / odd</span>
+if (n % 2 == 0)
+    printf("Even");
+else
+    printf("Odd");</pre>
+
+<h3>3.3 Nested if-else</h3>
+<pre><span class="cm">// if ke andar if — largest of three numbers</span>
+if (a &gt; b) {
+    if (a &gt; c)
+        printf("A is largest");
+    else
+        printf("C is largest");
+} else {
+    if (b &gt; c)
+        printf("B is largest");
+    else
+        printf("C is largest");
+}</pre>
+
+<h3>3.4 else-if Ladder (multi-way decision)</h3>
+<pre><span class="cm">// Grade decide karna — ek ke baad ek condition (ladder = seedhi)</span>
+if (marks &gt;= 90)
+    printf("Grade A");
+else if (marks &gt;= 75)
+    printf("Grade B");
+else if (marks &gt;= 60)
+    printf("Grade C");
+else if (marks &gt;= 33)
+    printf("Grade D");
+else
+    printf("Fail");</pre>
+<div class="box b-tip"><b>Exam tip:</b> Ladder me sabse pehle strongest (ya sabse specific) condition likho. Agar chhoti condition pehle likh doge (jaise marks &gt;= 33 pehle), to 95 marks wale ko bhi "D" milega — kyunki pehli condition true ho gayi. <b>Common mistake in exams!</b></div>
+
+<h3>3.5 Switch Statement</h3>
+<div class="box b-def"><b>switch</b> is a multi-way decision statement that compares one expression's value against several <b>case</b> values, and jumps to the matching case. Har case ke end me <b>break</b> lagana zaroori hai (warna "fall through" — neeche ke cases bhi chal jaate hain).</div>
+<pre>switch (expression) {           <span class="cm">// int/char ho sakta hai — float nahi!</span>
+    case value1:
+        statements;
+        break;
+    case value2:
+        statements;
+        break;
+    default:                    <span class="cm">// koi case match nahi hua</span>
+        statements;
+}
+
+<span class="cm">// Example: simple calculator</span>
+switch (op) {
+    case '+': printf("%f", a + b); break;
+    case '-': printf("%f", a - b); break;
+    case '*': printf("%f", a * b); break;
+    case '/': printf("%f", a / b); break;
+    default : printf("Invalid operator");
+}</pre>
+<div class="box b-real"><b>Real life:</b> Restaurant ka menu = switch! Customer "1 dabaye" → Pizza case, "2 dabaye" → Burger case, warna → "Invalid option". ATM ke buttons bhi yahi hote hain (1 = Balance, 2 = Withdraw, 3 = Mini statement).</div>
+<h4>if-else vs switch (exam favourite)</h4>
+<table>
+  <tr><th>if-else</th><th>switch</th></tr>
+  <tr><td>Har tarah ki condition (range, &gt;=, &amp;&amp;, ||) chal jaati hai</td><td>Sirf <b>equality</b> comparison (== value)</td></tr>
+  <tr><td><code>float</code> pe bhi laga sakte ho</td><td><b>float allowed nahi</b> (int/char/long/string-special)</td></tr>
+  <tr><td>Ladder lamba aur messy ho jaata hai</td><td>Clean, padhne me aasan (menu/states ke liye best)</td></tr>
+  <tr><td>Saari conditions check hoti hain (slow thoda)</td><td>Direct jump (jump table) — fast</td></tr>
+  <tr><td>Zaroori nahi ek case sirf ek hi bar chale</td><td><b>break bhoolne se multiple cases chal jaate hain</b> ("fall through")</td></tr>
+</table>
+
+<h3>3.6 goto Statement</h3>
+<pre><span class="cm">// goto = kisi label par program ka control bhej dena (jump)</span>
+int i = 1;
+start:                       <span class="cm">// label</span>
+    printf("%d ", i);
+    i++;
+    if (i &lt;= 5)
+        goto start;         <span class="cm">// wapas jump</span></pre>
+<div class="box b-warn"><b>Warning:</b> goto se code "spaghetti" (uljha hua) ban jata hai — isliye use <b>avoid</b> karo (completely ban nahi hai, par structured programming ke against hai). Aaj ye sirf error handling/cleanup me kabhi-kabhi use hota hai. Exam me definition + ek example chahta hai bas.</div>
+
+<h3>3.7 break &amp; continue</h3>
+<table>
+  <tr><th><b>break</b></th><th><b>continue</b></th></tr>
+  <tr><td>Loop ko <b>poora tod</b> kar bahar aa jata hai</td><td>Sirf <b>is baar</b> ka iteration skip karke agle iteration pe chala jata hai</td></tr>
+  <tr><td>switch ke case me bhi use hota hai</td><td>Loop me hi use hota hai (switch me bekar)</td></tr>
+  <tr><td>Example: "jaise hi marks mil gaye, dhundhna band"</td><td>Example: "absent sirf skip karo, baaki sabki attendance lo"</td></tr>
+</table>
+<pre><span class="cm">// break: 1-10 me se 5 mil gaya to ruk jao</span>
+for (i = 1; i &lt;= 10; i++) {
+    if (i == 5) break;
+    printf("%d ", i);       <span class="cm">// 1 2 3 4</span>
+}
+
+<span class="cm">// continue: 5 ko chhod kar baaki print karo</span>
+for (i = 1; i &lt;= 10; i++) {
+    if (i == 5) continue;
+    printf("%d ", i);       <span class="cm">// 1 2 3 4 6 7 8 9 10</span>
+}</pre>
+<div class="box b-mn"><b>Ek line me:</b> <b>break = chhutti leke bhaag jao</b> 🏃; <b>continue = ek period skip karke class me hi bane raho</b> 📚.</div>
+
+<h3>3.8 Looping Statements — Entry vs Exit Controlled</h3>
+<table>
+  <tr><th></th><th><b>Entry-controlled loop</b></th><th><b>Exit-controlled loop</b></th></tr>
+  <tr><td>Kab check hota hai condition?</td><td>Loop ke entry par — pehle condition, phir body</td><td>Loop ke exit par — pehle body (1 baar guaranteed), phir condition</td></tr>
+  <tr><td>Body 0 baar chal sakti hai?</td><td>Haan — agar condition shuru me hi false</td><td>Nahi — body kam se kam 1 baar chalegi</td></tr>
+  <tr><td>Examples</td><td><code>for</code>, <code>while</code></td><td><code>do-while</code></td></tr>
+</table>
+
+<h4>for loop</h4>
+<pre>for (initialization; condition; update) {
+    body;
+}
+
+for (i = 1; i &lt;= 5; i++) {        <span class="cm">// 1 2 3 4 5</span>
+    printf("%d ", i);
+}</pre>
+<p>Kab use karein: jab <b>kitni baar chalana hai wo pehle se pata ho</b> (1 to n, 1 to 10 table).</p>
+
+<h4>while loop</h4>
+<pre>while (condition) {
+    body;              <span class="cm">// condition FALSE hone tak chalta rehta hai</span>
+}
+
+int i = 1;
+while (i &lt;= 5) {           <span class="cm">// 1 2 3 4 5</span>
+    printf("%d ", i);
+    i++;                   <span class="cm">// ❗ ye bhoolna = INFINITE LOOP</span>
+}</pre>
+<p>Kab use karein: jab <b>pata na ho kitni baar chalega</b> — jaise "jab tak user sahi password na daale, poochho" ya "jab tak balance kaafi hai, withdraw karo".</p>
+
+<h4>do-while loop</h4>
+<pre>do {
+    body;              <span class="cm">// kam se kam 1 baar to chalega hi</span>
+} while (condition);    <span class="cm">// ❗ semicolon lagana mat bhoolna!</span>
+
+int i = 1;
+do {
+    printf("%d ", i);
+    i++;
+} while (i &lt;= 5);        <span class="cm">// 1 2 3 4 5</span></pre>
+<p>Kab use karein: <b>Menu/dashboard, PIN entry</b> — jahan pehli baar to dikhana hi hai, phir poochho "aur karna hai?"</p>
+
+<h4>Nested loops (loop ke andar loop)</h4>
+<pre><span class="cm">// Table 1-5 (outer loop × inner loop)</span>
+for (i = 1; i &lt;= 5; i++) {
+    for (j = 1; j &lt;= 10; j++) {
+        printf("%d x %d = %d\n", i, j, i * j);
+    }
+    printf("\n");
+}
+
+<span class="cm">// Star pattern (lab ka famous program)</span>
+for (i = 1; i &lt;= 4; i++) {          <span class="cm">// lines</span>
+    for (j = 1; j &lt;= i; j++) {      <span class="cm">// stars per line</span>
+        printf("* ");
+    }
+    printf("\n");
+}
+<span class="cm">/* Output:
+*
+* *
+* * *
+* * * *      */</span></pre>
+<div class="box b-warn"><b>Infinite loop se bacho:</b> (1) condition kabhi false na ho, (2) update statement (i++) bhoolna, (3) semicolon galat jagah — <code>while (i &lt;= 5);</code> — loop body khaali, infinite! Agar program "hang" ho gaya to <b>Ctrl+C</b> se rok dena.</div>
+
+<h3>3.9 Complete Practice Programs (ye likh-mar do, exam me direct aate hain)</h3>
+<pre><span class="cm">/* P1 — Largest of two numbers (if-else) */</span>
+#include &lt;stdio.h&gt;
+int main() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;a, &amp;b);
+    if (a &gt; b)
+        printf("%d is largest", a);
+    else
+        printf("%d is largest", b);
+    return 0;
+}
+<span class="cm">// Input: 15 42 → Output: 42 is largest</span>
+
+<span class="cm">/* P2 — Reverse of a number (while loop + %) */</span>
+#include &lt;stdio.h&gt;
+int main() {
+    int n, rev = 0, r;
+    printf("Enter number: ");
+    scanf("%d", &amp;n);
+    while (n != 0) {
+        r = n % 10;            <span class="cm">// last digit nikala</span>
+        rev = rev * 10 + r;    <span class="cm">// reverse me joda</span>
+        n = n / 10;            <span class="cm">// last digit hata diya</span>
+    }
+    printf("Reverse = %d", rev);
+    return 0;
+}
+<span class="cm">// Input: 1234  → Output: Reverse = 4321</span>
+
+<span class="cm">/* P3 — Sum of first n natural numbers */</span>
+#include &lt;stdio.h&gt;
+int main() {
+    int n, i, sum = 0;
+    scanf("%d", &amp;n);
+    for (i = 1; i &lt;= n; i++)
+        sum += i;
+    printf("Sum = %d", sum);
+    return 0;
+}
+<span class="cm">// Input: 10 → Sum = 55</span>
+
+<span class="cm">/* P4 — Factorial */</span>
+#include &lt;stdio.h&gt;
+int main() {
+    int n, i; long long f = 1;
+    scanf("%d", &amp;n);
+    for (i = 1; i &lt;= n; i++)
+        f = f * i;
+    printf("Factorial = %lld", f);
+    return 0;
+}
+<span class="cm">// Input: 5 → Factorial = 120</span>
+
+<span class="cm">/* P5 — Fibonacci series (0 1 1 2 3 5 8 ...) */</span>
+#include &lt;stdio.h&gt;
+int main() {
+    int n, i, a = 0, b = 1, c;
+    scanf("%d", &amp;n);
+    printf("%d %d ", a, b);
+    for (i = 3; i &lt;= n; i++) {
+        c = a + b;
+        printf("%d ", c);
+        a = b;  b = c;
+    }
+    return 0;
+}
+<span class="cm">// n = 8 → 0 1 1 2 3 5 8 13</span>
+
+<span class="cm">/* P6 — Armstrong number (153 = 1³ + 5³ + 3³) */</span>
+#include &lt;stdio.h&gt;
+int main() {
+    int n, temp, r, sum = 0;
+    scanf("%d", &amp;n);
+    temp = n;
+    while (temp != 0) {
+        r = temp % 10;
+        sum += r * r * r;
+        temp /= 10;
+    }
+    if (sum == n) printf("Armstrong");
+    else printf("Not Armstrong");
+    return 0;
+}
+<span class="cm">// 153 → Armstrong ✔   370 ✔   123 ✘</span>
+
+<span class="cm">/* P7 — Prime check */</span>
+#include &lt;stdio.h&gt;
+int main() {
+    int n, i, flag = 1;
+    scanf("%d", &amp;n);
+    for (i = 2; i &lt;= n/2; i++) {
+        if (n % i == 0) { flag = 0; break; }
+    }
+    if (flag &amp;&amp; n &gt; 1) printf("Prime");
+    else printf("Not Prime");
+    return 0;
+}</pre>
+<div class="box b-tip"><b>Pattern yaad rakho (jo lab me kaam aayega):</b> (1) Reverse/Sum of digits = <b>% 10</b> se last digit nikalo, <b>/ 10</b> se hatao. (2) Table/pattern = <b>nested loop</b>. (3) Prime/Factorial = <b>ek loop + condition</b>. (4) Armstrong/Palindrome = reverse nikalo, phir original se compare karo. Ye 4 patterns samajh gaye to lab ready ✅</div>
+
+<div class="rev">
+<h4>⚡ Unit 3 — Rapid Revision</h4>
+<ul>
+  <li>Decision: simple if, if-else, nested if-else, else-if ladder, switch</li>
+  <li>switch me sirf equality check, float NOT allowed, break zaroori (warna fall-through)</li>
+  <li>switch vs if-else: range conditions if me, menu/states switch me</li>
+  <li>goto = jump to label (avoid karo — spaghetti code)</li>
+  <li>break = loop/switch se poora bahar • continue = sirf current iteration skip</li>
+  <li>Entry controlled: for, while (0 baar chal sakta hai) • Exit controlled: do-while (kam se kam 1 baar)</li>
+  <li>for = kitni baar pata ho • while = pata na ho • do-while = pehle kaam, phir puchho (menu/PIN)</li>
+  <li>Nested loop = pattern/table • Infinite loop: update bhoolna, condition kabhi false na hona</li>
+  <li>Digits wale programs ka trick: n % 10 (last digit), n / 10 (hatao)</li>
+</ul>
+</div>
+<div class="box b-q"><b>Most probable exam questions — Unit 3:</b>
+<ol>
+  <li>Control structures kya hain? Types explain karo. (5)</li>
+  <li>if-else vs switch — differences + example program. (10)</li>
+  <li>Write a program: largest of three numbers. (5 — practical)</li>
+  <li>Entry controlled vs exit controlled loops difference with examples. (5)</li>
+  <li>Difference between while and do-while with example. (5)</li>
+  <li>break aur continue ka difference, example ke saath. (5)</li>
+  <li>Nested loop se star pattern print karo. (5–10)</li>
+  <li>Programs: reverse of number, factorial, prime, Fibonacci, Armstrong. (10 — practical)</li>
+  <li>goto statement kya hai? Iske nuksaan likho. (5)</li>
+</ol></div>
+
+<!-- ================== UNIT 4 ================== -->
+<h2 class="unit" id="u4">UNIT 4 — Arrays and Strings</h2>
+
+<h3>4.1 Array — Introduction</h3>
+<div class="box b-def">An <b>array</b> is a collection of a fixed number of elements of the <b>same data type</b>, stored in <b>contiguous (continuous) memory locations</b> and accessed using a common name with an <b>index</b>. (Index C me <b>0 se</b> shuru hota hai.)</div>
+<div class="box b-hing"><b>Hinglish:</b> Array = ek hi type ki cheezon ki "trey" 🍽️ — jaise ek thali me rakhi 10 rotis, ya ek row me baithhe 60 students. Naam sirf ek (<code>marks</code>), par har element ka apna number/index (marks[0], marks[1], ...). Bina array ke 60 students ke liye 60 variables banane padte 😱 — array ne zindagi aasan kar di.</div>
+<div class="box b-real"><b>Real life:</b> Class ke 60 students ke marks = array. Cricket team ke 11 players ka score = array. WhatsApp chat ke messages = array (list). DSA me stack, queue, heap, sorting — sab arrays se bante hain. Ye C ka pehla "data structure" hai.</div>
+<h4>Array ke advantages &amp; disadvantages</h4>
+<table>
+  <tr><th>Advantages ✔️</th><th>Disadvantages ❌</th></tr>
+  <tr><td>Ek naam se bahut saare values</td><td>Size fix — program chalte waqt badha nahi sakte</td></tr>
+  <tr><td>Index se direct access — O(1) fastest</td><td>Insert/delete beech me karna costly (shift karna padta hai)</td></tr>
+  <tr><td>Easy loops ke saath — sorting/searching aasan</td><td>Sirf same type ka data (int + char mix nahi)</td></tr>
+  <tr><td>Memory me continuous — cache friendly (fast)</td><td>Bounds check nahi hota — galat index = garbage/crash</td></tr>
+</table>
+
+<h3>4.2 One-Dimensional Array</h3>
+<pre><span class="cm">// Declaration (kitne elements chahiye)</span>
+int marks[60];
+float price[5];
+char grade[10];
+
+<span class="cm">// Initialization — 3 tarike</span>
+int a[5] = {10, 20, 30, 40, 50};      <span class="cm">// poora</span>
+int b[5] = {10, 20};                  <span class="cm">// baaki 3 automatically 0</span>
+int c[]  = {5, 10, 15};               <span class="cm">// size compiler count karega (3)</span>
+
+<span class="cm">// Access (0 se shuru!)</span>
+a[0] = 10;      <span class="cm">// pehla element</span>
+a[4] = 50;      <span class="cm">// 5th element</span>
+scanf("%d", &amp;a[i]);   <span class="cm">// input loop me</span>
+
+<span class="cm">// Loop se input + output (classic) — sasta battery, roz ka kaam</span>
+for (i = 0; i &lt; 5; i++)
+    scanf("%d", &amp;marks[i]);
+for (i = 0; i &lt; 5; i++)
+    printf("%d ", marks[i]);</pre>
+<h4>Memory Representation (exam me poochhte hain)</h4>
+<pre>int a[5] = {10, 20, 30, 40, 50};   (assume int = 4 bytes, base address 1000)
+
+Index:       a[0]    a[1]    a[2]    a[3]    a[4]
+Value:        10      20      30      40      50
+Address:     1000    1004    1008    1012    1016
+             ↑ Base address (a = a[0] ka address)
+
+Formula:  Address of a[i] = Base_Address + (i × size_of_one_element)
+           a[3] = 1000 + (3 × 4) = 1012 ✔</pre>
+<div class="box b-real"><b>Real-life:</b> Address formula hi "random access" ka raaz hai — isliye array me 1000th element bhi utni hi speed se milta hai jitni 1st. Library me ek shelf pe saari kitaabein serial-wise lagao (array) vs alag-alag kamron me rakho (list) — shelf wala formula se direct nikal aata hai 📚</div>
+
+<h3>4.3 Two-Dimensional Array (matrix / table)</h3>
+<pre><span class="cm">// Declaration: rows × columns</span>
+int a[3][4];              <span class="cm">// 3 rows, 4 columns (3×4 matrix)</span>
+
+<span class="cm">// Initialization — nested braces ya flat</span>
+int m[2][3] = { {1, 2, 3},
+                {4, 5, 6} };
+
+int m2[2][3] = {1, 2, 3, 4, 5, 6};   <span class="cm">// same cheez (row-by-row bharta hai)</span>
+
+<span class="cm">// Access: m[row][column]</span>
+m[0][0] = 1;     m[1][2] = 6;     <span class="cm">// last element (2nd row ki 3rd value)</span>
+
+<span class="cm">// Input / Output (nested loop — biling loops zaroori!)</span>
+for (i = 0; i &lt; 2; i++) {
+    for (j = 0; j &lt; 3; j++) {
+        scanf("%d", &amp;m[i][j]);
+    }
+}</pre>
+<h4>2D array ki memory representation (Row-Major Order)</h4>
+<pre>int m[2][3] = { {1,2,3}, {4,5,6} };   (int = 4 bytes, base = 2000)
+
+Memory me linear (ek seedhi line me) rakhta hai — ROW by ROW:
+[1][2][3][4][5][6]
+2000 2004 2008 2012 2016 2020
+
+Address formula: addr(m[i][j]) = Base + (i × cols + j) × size
+  m[1][2] = 2000 + (1×3 + 2) × 4 = 2000 + 20 = 2020 ✔
+
+⚠️ Column-major order (FORTRAN) me pehle column bhar jata hai — C me row-major hota hai.</pre>
+<h4>2D array ke common programs</h4>
+<pre><span class="cm">// Matrix addition</span>
+for (i=0; i&lt;r; i++)
+  for (j=0; j&lt;c; j++)
+    sum[i][j] = A[i][j] + B[i][j];
+
+<span class="cm">// Matrix multiplication (lab program #7) — 3 nested loops</span>
+for (i=0; i&lt;r1; i++)
+  for (j=0; j&lt;c2; j++) {
+    prod[i][j] = 0;
+    for (k=0; k&lt;c1; k++)
+      prod[i][j] += A[i][k] * B[k][j];
+  }
+
+<span class="cm">// Transpose (rows ↔ columns)</span>
+trans[j][i] = A[i][j];</pre>
+<div class="box b-real"><b>Real life:</b> 2D array = Excel sheet 📊 (rows × columns), timetable (periods × days), cinema hall ki seats (row × seat number), image ka pixel grid, marksheet (student × subject). Lab program me "product of two matrices" isi ke liye hai.</div>
+
+<h3>4.4 Strings in C</h3>
+<div class="box b-def">A <b>string</b> is a sequence of characters stored in a character array and terminated by a special character <b>'\0' (null character)</b>. C me koi separate "string" data type nahi hai — strings <code>char</code> arrays hi hote hain.</div>
+<pre><span class="cm">// Declaration & initialization</span>
+char name[20] = "Ansh";              <span class="cm">// compiler '\0' khud lagata hai</span>
+char city[10] = {'H','a','l','d','w'};   <span class="cm">// bina null — risky!</span>
+char s[] = "BCA";                    <span class="cm">// size = 4 (3 chars + '\0')</span>
+
+<span class="cm">// Memory me aise dikhta hai:</span>
+Index:      s[0]  s[1]  s[2]  s[3]
+Value:       'B'   'C'   'A'   '\0'
+             66    67    65     0     (ASCII codes)
+
+<span class="cm">// Input / Output</span>
+scanf("%s", name);        <span class="cm">// &amp; ki zarurat NAHI! (array khud address hai)</span>
+                          <span class="cm">// ⚠️ %s space par ruk jata hai (2 words nahi leta)</span>
+printf("%s", name);
+
+<span class="cm">// Poora line (spaces ke saath) lene ke liye:</span>
+gets(name);   <span class="cm">// ⚠️ insecure — aaj use mat karo</span>
+fgets(name, 20, stdin);   <span class="cm">// safe (limited)</span>
+puts(name);</pre>
+<div class="box b-warn"><b>Sabse zaroori concept:</b> <code>'\0'</code> string ka "full stop" hai 🛑. Computer ko isi se pata chalta hai ki string kahan khatam hui. Isliye string ke liye <b>size = characters + 1</b> chahiye. Agar <code>'\0'</code> hi nahi hai to printf aage ka garbage bhi print karega ("Ansh♠♥♦Saurabh...") 😅 — exam me isko "unterminated string" ka issue kehte hain.</div>
+
+<h3>4.5 String Handling Functions (string.h) <span class="tag">Lab #13</span></h3>
+<table>
+  <tr><th>Function</th><th>Kaam</th><th>Example</th><th>Result</th></tr>
+  <tr><td><code>strlen(s)</code></td><td>Length (null character ke pehle tak)</td><td><code>strlen("BCA")</code></td><td>3</td></tr>
+  <tr><td><code>strcpy(dest, src)</code></td><td>Copy — src se dest me</td><td><code>strcpy(a, "Hello")</code></td><td>a = "Hello"</td></tr>
+  <tr><td><code>strcat(d1, d2)</code></td><td>Concatenate — d2 ko d1 ke aage jodna</td><td><code>"Hello" + " ji"</code></td><td>"Hello ji"</td></tr>
+  <tr><td><code>strcmp(s1, s2)</code></td><td>Compare (ASCII): 0 = equal, +ve = s1 bada, −ve = s1 chhota</td><td><code>strcmp("apple","banana")</code></td><td>negative</td></tr>
+  <tr><td><code>strrev(s)</code></td><td>Reverse (Turbo C me; standard nahi)</td><td><code>"abc"</code></td><td>"cba"</td></tr>
+  <tr><td><code>strlwr(s)</code> / <code>strupr(s)</code></td><td>Lower / Upper case</td><td><code>"AbC"</code></td><td>"abc" / "ABC"</td></tr>
+  <tr><td><code>strstr(s1, s2)</code></td><td>s1 me s2 dhundhna (substring)</td><td><code>strstr("BCA notes","notes")</code></td><td>pointer to "notes"</td></tr>
+</table>
+<pre><span class="cm">/* Lab #13 — string.h ke functions demo */</span>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main() {
+    char a[30] = "BCA";
+    char b[30] = "Students";
+    char c[30];
+
+    printf("Length of a = %d\n", strlen(a));          <span class="cm">// 3</span>
+
+    strcpy(c, a);
+    printf("Copied: %s\n", c);                         <span class="cm">// BCA</span>
+
+    strcat(a, " ");
+    strcat(a, b);
+    printf("Joined: %s\n", a);                         <span class="cm">// BCA Students</span>
+
+    if (strcmp("abc", "abc") == 0)
+        printf("Strings equal\n");
+
+    return 0;
+}</pre>
+<div class="box b-mn"><b>Trick:</b> <b>S-C-L-C</b> — <b>S</b>trlen (length), <b>C</b>py (copy), <b>L</b>ink (strcat), <b>C</b>ompare (strcmp). Ek baar yaad, hamesha yaad. Aur dhyaan rakho: <b>strcmp ka result number hai, string nahi</b> — compare karne ke liye <code>== 0</code> likhna hota hai, <code>s1 == s2</code> C me galat kaam karta hai (address compare hota hai)!</div>
+
+<h3>4.6 Character Handling Functions (ctype.h)</h3>
+<table>
+  <tr><th>Function</th><th>Kaam</th><th>Example</th><th>Result</th></tr>
+  <tr><td><code>toupper(ch)</code></td><td>Small → Capital</td><td>toupper('a')</td><td>'A'</td></tr>
+  <tr><td><code>tolower(ch)</code></td><td>Capital → small</td><td>tolower('B')</td><td>'b'</td></tr>
+  <tr><td><code>isalpha(ch)</code></td><td>Letter hai kya? (A-Z/a-z)</td><td>isalpha('5')</td><td>0 (false)</td></tr>
+  <tr><td><code>isdigit(ch)</code></td><td>Digit hai kya? (0-9)</td><td>isdigit('7')</td><td>non-zero (true)</td></tr>
+  <tr><td><code>isalnum(ch)</code></td><td>Letter ya digit</td><td>isalnum('!')</td><td>0</td></tr>
+  <tr><td><code>isspace(ch)</code></td><td>Space/tab/newline</td><td>isspace(' ')</td><td>true</td></tr>
+  <tr><td><code>isupper/islower(ch)</code></td><td>Upper ya lower case check</td><td>isupper('A')</td><td>true</td></tr>
+  <tr><td><code>toascii(ch)</code></td><td>Character ka ASCII code</td><td>toascii('A')</td><td>65</td></tr>
+</table>
+<div class="box b-real"><b>Real life:</b> Form validation — "Mobile number me sirf digits ho" (isdigit check), "Name me sirf letters" (isalpha), "Password me capital + small dono" (isupper + islower), "Email me @ ke baad kuch ho" (strstr se check). Aapki har app me yahi functions peeche chal rahe hote hain! 📱</div>
+
+<h3>4.7 Ek Poora String Program (lab #14 se related)</h3>
+<pre><span class="cm">/* Vowels count — string ke saath loop */</span>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main() {
+    char str[100];
+    int i, count = 0;
+    printf("Enter a string: ");
+    fgets(str, 100, stdin);
+
+    for (i = 0; i &lt; strlen(str); i++) {
+        char ch = tolower(str[i]);
+        if (ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+            count++;
+    }
+    printf("Vowels = %d", count);
+    return 0;
+}
+<span class="cm">// Input: "Hello BCA Students" → Vowels = 6</span></pre>
+
+<div class="rev">
+<h4>⚡ Unit 4 — Rapid Revision</h4>
+<ul>
+  <li>Array = same type, contiguous memory, index 0 se shuru</li>
+  <li>Declaration: <code>int a[5];</code> • Initialization: <code>{10,20,30}</code> • Size auto: <code>int c[] = {...};</code></li>
+  <li>Address formula: <code>Base + (i × size)</code> — isliye random access O(1)</li>
+  <li>2D array = rows × columns; C me <b>row-major</b> order; nested loops se input/output</li>
+  <li>Matrix programs: addition, multiplication (3 loops), transpose</li>
+  <li>String = char array + <code>'\0'</code> (null character = terminator)</li>
+  <li>String ka size = characters + 1</li>
+  <li>string.h: strlen, strcpy, strcat, strcmp, strrev, strlwr, strupr</li>
+  <li>strcmp result = 0 (equal), +ve/−ve (bada/chhota) — <code>== 0</code> se compare karo</li>
+  <li>ctype.h: toupper, tolower, isalpha, isdigit, isspace, toascii</li>
+  <li>scanf %s space pe rukta hai • fgets/gets line leta hai • scanf me strings ke liye &amp; nahi lagta</li>
+</ul>
+</div>
+<div class="box b-q"><b>Most probable exam questions — Unit 4:</b>
+<ol>
+  <li>Array kya hai? One-dimensional array ka declaration, initialization aur memory representation explain karo. (10)</li>
+  <li>Advantages aur disadvantages of array. (5)</li>
+  <li>Address calculation: <code>int a[5]</code> base 1000, a[3] ka address? (5)</li>
+  <li>2D array kya hai? Row-major order me memory representation samjhao. (10)</li>
+  <li>Program: sum/average of array elements, largest element. (5–10 — practical)</li>
+  <li>Matrix multiplication ka program likho. (10 — Lab #7)</li>
+  <li>String kya hai? '\0' ka kya role hai? (5)</li>
+  <li>String handling functions (strlen, strcpy, strcat, strcmp) examples ke saath. (10)</li>
+  <li>Program: reverse a string / count vowels / palindrome check. (5–10)</li>
+  <li>Character handling functions (toupper, isalpha, isdigit) explain karo. (5)</li>
+</ol></div>
+<!-- ================== UNIT 5 ================== -->
+<h2 class="unit" id="u5">UNIT 5 — Functions and Pointers in C</h2>
+
+<h3>5.1 Functions — Introduction</h3>
+<div class="box b-def">A <b>function</b> is a self-contained block of statements that performs a specific task and can be called (used) from anywhere in the program. Functions make a program <b>modular, reusable and easy to debug</b>.</div>
+<div class="box b-hing"><b>Hinglish:</b> Function = "kaam ka ek packet" 📦. Aapne ek baar "chai banane ka tarika" likh liya (function), ab jab bhi chai chahiye — bas naam pukaro (call karo), poora tarika dobara likhne ki zarurat nahi. Isse code chhota, saaf aur reuse-worthy ban jata hai.</div>
+<div class="box b-real"><b>Real life:</b> Zomato app me "delivery charge calculate karna", Swiggy me "discount lagana" — ye ek baar likhe gaye functions hain jo har order pe call hote hain. Bina functions ke 1 lakh jagah same code likhna padta (aur ek bug = 1 lakh jagah fix 😱).</div>
+<h4>Benefits of functions</h4>
+<ul>
+  <li><b>Reusability:</b> Ek baar likho, baar-baar use karo</li>
+  <li><b>Modularity:</b> Bada program chhote-chhote tasks me bat jata hai</li>
+  <li><b>Easy debugging:</b> Problem wale function ko alag test kar sakte ho</li>
+  <li><b>Readability:</b> <code>calculateInterest()</code> dekh kar hi samajh aa jata hai kya ho raha hai</li>
+  <li><b>Teamwork:</b> Alag-alag log alag functions pe kaam kar sakte hain</li>
+</ul>
+
+<h3>5.2 Types of Functions: Built-in vs User-defined</h3>
+<table>
+  <tr><th>Built-in (Library) Functions</th><th>User-defined Functions</th></tr>
+  <tr><td>Pehle se C library me ready-made</td><td>Programmer khud banata hai</td></tr>
+  <tr><td>Header file include karni padti hai</td><td>Program ke andar hi likhi hoti hai</td></tr>
+  <tr><td>Example: <code>printf()</code>, <code>scanf()</code> (stdio.h), <code>strlen()</code> (string.h), <code>sqrt()</code>, <code>pow()</code> (math.h), <code>toupper()</code> (ctype.h)</td><td>Example: <code>add()</code>, <code>area()</code>, <code>isPrime()</code>, <code>factorial()</code> — jo aap likhte ho</td></tr>
+</table>
+
+<h3>5.3 Function Declaration, Definition aur Call (3 steps)</h3>
+<div class="box b-def">Har user-defined function ke 3 hisse hote hain: <b>(1) Declaration/Prototype</b> — compiler ko pehle bata dena ("aisa function aayega"), <b>(2) Definition</b> — function ka actual code, <b>(3) Call</b> — function ko chalane wala statement.</div>
+<pre>#include &lt;stdio.h&gt;
+
+<span class="cm">/* 1. DECLARATION (prototype) — return_type naam(parameters); */</span>
+int add(int a, int b);
+
+int main() {
+    int s;
+    <span class="cm">/* 3. CALL — naam + arguments */</span>
+    s = add(5, 3);
+    printf("Sum = %d", s);           <span class="cm">// Sum = 8</span>
+    return 0;
+}
+
+<span class="cm">/* 2. DEFINITION — yahan actual kaam */</span>
+int add(int a, int b) {              <span class="cm">// a, b = formal parameters</span>
+    return a + b;                    <span class="cm">// result wapas bheja</span>
+}</pre>
+<table>
+  <tr><th>Term</th><th>Matlab</th></tr>
+  <tr><td>Return type</td><td>Function kya wapas dega (int, float, char, void = kuch nahi)</td></tr>
+  <tr><td>Parameters / Arguments</td><td>Function ko di jaane wali values (formal = definition me, actual = call me)</td></tr>
+  <tr><td><code>return</code></td><td>Value wapas bhejna + function khatam karna. Ek function sirf <b>ek</b> value return kar sakta hai</td></tr>
+</table>
+<div class="box b-real"><b>Real life analogy:</b> Function = washing machine 🧺. Declaration = manual me likha hai ki machine hai. Definition = machine ke andar ka poora mechanism. Call = kapde daalna (arguments). Return = saaf kapde wapas milna. Sabse zaroori: kapde doge tabhi kapde milenge 😄</div>
+
+<h3>5.4 Parameter Passing: Call by Value vs Call by Reference <span class="tag">Exam favourite ⭐</span></h3>
+<table>
+  <tr><th>Basis</th><th>Call by Value</th><th>Call by Reference</th></tr>
+  <tr><td>Kya bhejte hain</td><td>Variable ki <b>value ki copy</b></td><td>Variable ka <b>address</b> (pointer)</td></tr>
+  <tr><td>Original variable par asar</td><td><b>Nahi</b> — original safe rehta hai</td><td><b>Haan</b> — original ki value badal jaati hai</td></tr>
+  <tr><td>Kaise likhte hain</td><td><code>swap(a, b);</code> → <code>void swap(int x, int y)</code></td><td><code>swap(&amp;a, &amp;b);</code> → <code>void swap(int *x, int *y)</code></td></tr>
+  <tr><td>Memory</td><td>Alag copy banti hai (extra memory)</td><td>Copy nahi banti (same memory pe kaam)</td></tr>
+  <tr><td>Use case</td><td>Jab original ko badalna nahi hai (calculation)</td><td>Jab original ko badalna hai (swap, update, arrays)</td></tr>
+</table>
+<pre><span class="cm">/* LAB #10 — Call by value vs Call by reference (swap example) */</span>
+#include &lt;stdio.h&gt;
+
+<span class="cm">// ---- CALL BY VALUE: original nahi badlega ----</span>
+void swapVal(int x, int y) {
+    int t = x;  x = y;  y = t;    <span class="cm">// sirf copies badli</span>
+}
+
+<span class="cm">// ---- CALL BY REFERENCE: original BADLEGA ----</span>
+void swapRef(int *x, int *y) {
+    int t = *x;  *x = *y;  *y = t;   <span class="cm">// address wali value badli</span>
+}
+
+int main() {
+    int a = 10, b = 20;
+
+    swapVal(a, b);
+    printf("After call by value:     a=%d b=%d\n", a, b);
+    <span class="cm">// a=10 b=20  ← kuch nahi badla!</span>
+
+    swapRef(&amp;a, &amp;b);
+    printf("After call by reference: a=%d b=%d\n", a, b);
+    <span class="cm">// a=20 b=10  ← original badal gaya ✔</span>
+
+    return 0;
+}</pre>
+<div class="box b-mn"><b>Yaad rakhne ka tareeka:</b> <b>Call by value = photocopy dena</b> 📄 (aapke original document pe koi asar nahi). <b>Call by reference = original file ka pata dena</b> 🏠 (jo bhi usse badlega, aapke ghar me hi badlega).</div>
+
+<h3>5.5 Recursion</h3>
+<div class="box b-def">A <b>recursive function</b> is a function that <b>calls itself</b> to solve a smaller version of the same problem. Har recursion me ek <b>base case</b> (rukne ki condition) hona zaroori hai — warna infinite recursion = stack overflow 💥</div>
+<pre><span class="cm">/* Factorial — recursion se (lab: GCD bhi isi tarah) */</span>
+#include &lt;stdio.h&gt;
+
+long factorial(int n) {
+    if (n == 0 || n == 1)
+        return 1;                    <span class="cm">// BASE CASE (ruko!)</span>
+    else
+        return n * factorial(n - 1); <span class="cm">// khud ko chhote input se call</span>
+}
+
+int main() {
+    printf("%ld", factorial(5));     <span class="cm">// 120</span>
+    return 0;
+}
+
+<span class="cm">/* Andar kya hua: factorial(5)
+   = 5 * factorial(4)
+   = 5 * 4 * factorial(3)
+   = 5 * 4 * 3 * factorial(2)
+   = 5 * 4 * 3 * 2 * factorial(1)
+   = 5 * 4 * 3 * 2 * 1 = 120  ✔  */</span></pre>
+<pre><span class="cm">/* LAB #8 — GCD by iteration AND recursion */</span>
+int gcdIter(int a, int b) {          <span class="cm">// loop wala</span>
+    while (b != 0) {
+        int t = b;
+        b = a % b;
+        a = t;
+    }
+    return a;
+}
+
+int gcdRec(int a, int b) {           <span class="cm">// recursion wala (Euclid)</span>
+    if (b == 0) return a;
+    return gcdRec(b, a % b);
+}</pre>
+<table>
+  <tr><th>Recursion ✔️</th><th>Recursion ✘ (vs Iteration)</th></tr>
+  <tr><td>Code chhota aur math ke paas (tree, factorial, Fibonacci, Tower of Hanoi)</td><td>Har call me memory (stack) kharch hoti hai</td></tr>
+  <tr><td>Kuch problems sirf recursion se hi saaf likhi jaati hain</td><td>Bina base case = stack overflow / infinite loop</td></tr>
+  <tr><td>Elegant, padhne me easy</td><td>Iteration aksar zyada fast hota hai (function call ka overhead)</td></tr>
+</table>
+<div class="box b-real"><b>Real life:</b> Recursion = "office ka kaam aage pass karna" 📋. Boss ne kaam diya → assistant ko diya → assistant ne intern ko diya → intern sabse chhota kaam khud kar leta hai (base case) → result wapas chain me upar aata hai. Google Drive me folders ke andar folders dhundhna — wahi recursion hai.</div>
+
+<h3>5.6 Understanding Pointers</h3>
+<div class="box b-def">A <b>pointer</b> is a variable that <b>stores the memory address</b> of another variable (instead of storing a value). Isse computer ka memory directly access/control hota hai — yeh C ki sabse powerful (aur thoda dangerous 😈) feature hai.</div>
+<div class="box b-hing"><b>Hinglish:</b> Normal variable = ghar 🏠 (usme rehne wala). Pointer = us ghar ka <b>address likha hua parcha</b> 📮. Address ke paas jaake aap ghar me kya hai dekh sakte ho (value padho) ya badal bhi sakte ho (value likho). Isliye pointer ko "address wala variable" kehte hain.</div>
+<pre><span class="cm">/* Pointer declaration, initialization & use */</span>
+#include &lt;stdio.h&gt;
+int main() {
+    int a = 10;          <span class="cm">// ek normal variable</span>
+    int *p;              <span class="cm">// pointer declaration (int ka pointer)</span>
+
+    p = &amp;a;              <span class="cm">// p me a ka ADDRESS daala (& = address-of)</span>
+
+    printf("Value of a      = %d\n", a);     <span class="cm">// 10</span>
+    printf("Address of a    = %p\n", &amp;a);    <span class="cm">// e.g. 0061FF1C</span>
+    printf("p me kya hai    = %p\n", p);     <span class="cm">// same address!</span>
+    printf("a ki value via p= %d\n", *p);    <span class="cm">// 10 (* = dereference)</span>
+
+    *p = 50;             <span class="cm">// pointer se a ki value badal di</span>
+    printf("Ab a = %d\n", a);                <span class="cm">// 50 ✔</span>
+    return 0;
+}</pre>
+<table>
+  <tr><th>Symbol / Term</th><th>Matlab</th></tr>
+  <tr><td><code>&amp;</code> (address-of operator)</td><td>Variable ka address nikalta hai: <code>&amp;a</code></td></tr>
+  <tr><td><code>*</code> (dereference / indirection operator)</td><td>Address par padi value: <code>*p</code> (padhna ya likhna dono)</td></tr>
+  <tr><td><code>int *p</code></td><td>Declaration — "p ek pointer hai jo int address rakhega"</td></tr>
+  <tr><td>NULL pointer</td><td><code>int *p = NULL;</code> — kisi address pe nahi (safe practice)</td></tr>
+</table>
+<div class="box b-warn"><b>Safety rules (nahi to crash 💥):</b> (1) Bina initialize pointer dereference mat karo (<code>int *p; *p = 5;</code> ❌). (2) NULL check karo. (3) Function se local variable ka address return mat karo (wo variable function ke baad mar jata hai). Ye "dangling pointer" aur "segmentation fault" ka source hote hain.</div>
+
+<h3>5.7 Pointers and Arrays (dono bhai-bhai hain)</h3>
+<pre>int arr[5] = {10, 20, 30, 40, 50};
+int *p = arr;          <span class="cm">// arr khud pehle element ka address hai!</span>
+
+<span class="cm">// Ye chaaro lines same kaam karti hain:</span>
+arr[2]  ==  *(arr + 2)  ==  *(p + 2)  ==  p[2]   <span class="cm">// sab = 30 ✔</span>
+
+<span class="cm">// &amp;arr[0] == arr  (base address)  — exam me aata hai</span>
+
+<span class="cm">// Loop with pointer (array ka alternative tarika)</span>
+for (i = 0; i &lt; 5; i++)
+    printf("%d ", *(p + i));</pre>
+<div class="box b-real"><b>Kyun important hai:</b> C me array ka naam hi uske pehle element ka pointer hai. Isi liye jab function ko array bhejte ho, to "call by reference" ho jaata hai (original array hi modify hota hai) — bina <code>&amp;</code> ke. Isliye <code>void update(int a[])</code> me jo badla, wapas main me bhi badla hua milta hai.</div>
+
+<h3>5.8 Pointer Arithmetic</h3>
+<pre>int arr[5] = {10,20,30,40,50};
+int *p = arr;      <span class="cm">// address 1000 maan lo</span>
+
+p++;        <span class="cm">// agle element pe — address +4 (int ke size jitna!) → 1004 → value 20</span>
+p--;        <span class="cm">// pichle element pe → 1000</span>
+p + 2;      <span class="cm">// 2 element aage → 1008 → value 30</span>
+p - 1;      <span class="cm">// ek peeche</span>
+p2 - p1;    <span class="cm">// do pointers ke beech ka difference = kitne elements ka gap</span></pre>
+<div class="box b-mn"><b>Rule yaad rakho:</b> <code>p++</code> ka matlab "1 byte aage" <b>nahi</b> hai — matlab "1 ELEMENT aage" (int me 4 bytes, char me 1 byte). Compiler khud type ka size lagata hai. Isliye <code>char*</code> ka p++ = 1 byte, <code>int*</code> ka p++ = 4 bytes. 🎯</div>
+
+<h3>5.9 Advantages &amp; Disadvantages of Pointers</h3>
+<table>
+  <tr><th>Advantages ✔️</th><th>Disadvantages ❌</th></tr>
+  <tr><td>Efficient memory access + manipulation</td><td>Galat use = crash / memory corruption / security holes</td></tr>
+  <tr><td>Functions se multiple values modify kar sakte ho (call by reference)</td><td>Samajhna mushkil — beginners ke liye confusing</td></tr>
+  <tr><td>Dynamic memory allocation (malloc/free) sirf pointers se</td><td>Memory leak (free karna bhool jaana) — program slow/crash</td></tr>
+  <tr><td>Linked list, tree, graph jaise data structures sirf pointers se</td><td>Dangling pointer, wild pointer ka khatra</td></tr>
+  <tr><td>Arrays/strings efficiently handle karna, string functions internally pointer use karte hain</td><td>Debugging mushkil — galti ki line par nahi, kai lines baad crash hota hai</td></tr>
+  <tr><td>Hardware/OS/driver programming ke liye essential</td><td>Portability issues (32/64-bit me size badalta hai)</td></tr>
+</table>
+<div class="box b-real"><b>Real life:</b> Pointer = "gaadi ka steering" 🚗 — sahi haath me ye aapko tez aur efficient le jaata hai, galat haath me acche se hagaara bhi de sakta hai. Isiliye Java/Python ne pointers hata diye (automatic memory management — "garbage collector") taaki programmer se ye galti hi na ho.</div>
+
+<h3>5.10 Pointer + Function = Call by Reference (poore lab ka favourite)</h3>
+<pre><span class="cm">/* Function jo do numbers ko pointer se update karta hai */</span>
+#include &lt;stdio.h&gt;
+
+void minMax(int arr[], int n, int *mn, int *mx) {
+    int i;
+    *mn = *mx = arr[0];
+    for (i = 1; i &lt; n; i++) {
+        if (arr[i] &lt; *mn) *mn = arr[i];
+        if (arr[i] &gt; *mx) *mx = arr[i];
+    }
+}
+
+int main() {
+    int a[6] = {45, 12, 78, 3, 90, 56};
+    int small, big;
+
+    minMax(a, 6, &amp;small, &amp;big);   <span class="cm">// addresses bheje</span>
+    printf("Smallest = %d, Largest = %d", small, big);
+    <span class="cm">// Output: Smallest = 3, Largest = 90 ✔</span>
+    return 0;
+}</pre>
+<div class="box b-tip"><b>Exam tip (bahut common question):</b> "Ek function se do values kaise return karein?" — C me <code>return</code> sirf ek value deta hai, par <b>pointers (call by reference) se aap 2, 3, jitni chaho values modify/return kar sakte ho</b>. Yahi answer example ke saath likhna = full marks.</div>
+
+<div class="rev">
+<h4>⚡ Unit 5 — Rapid Revision</h4>
+<ul>
+  <li>Function = block of statements, specific kaam, reusable • 3 steps: Declaration → Definition → Call</li>
+  <li>Built-in (printf, scanf, sqrt) vs User-defined (apne banaye)</li>
+  <li>return sirf <b>ek</b> value de sakta hai • void = kuch return nahi</li>
+  <li>Call by value = copy (original safe) • Call by reference = address (original badalta hai)</li>
+  <li>Recursion = function khud ko call kare • base case zaroori • factorial, GCD, Fibonacci, Hanoi</li>
+  <li>Pointer = address store karne wala variable • <code>&amp;</code> = address of, <code>*</code> = value at address</li>
+  <li>Array ka naam hi pehle element ka pointer hai: <code>arr == &amp;arr[0]</code></li>
+  <li><code>arr[i] == *(arr+i) == *(p+i) == p[i]</code> — chaaron same!</li>
+  <li>Pointer arithmetic: <code>p++</code> = agle ELEMENT pe (type ka size khud lagta hai)</li>
+  <li>Pointers ke fayde: efficient memory, call by reference, dynamic memory, data structures</li>
+  <li>Nuksaan: crash, memory leak, dangling pointer, mushkil debugging</li>
+</ul>
+</div>
+<div class="box b-q"><b>Most probable exam questions — Unit 5:</b>
+<ol>
+  <li>Function kya hai? Declaration, definition aur call ko example se samjhao. (10)</li>
+  <li>Built-in aur user-defined functions me difference. (5)</li>
+  <li>Call by value vs call by reference — swap program ke saath. (10 — Lab #10)</li>
+  <li>Recursion kya hai? Factorial ka recursive program likho. (10)</li>
+  <li>Recursion vs iteration (differences). (5)</li>
+  <li>Pointer kya hai? Declaration, initialization aur access explain karo. (10)</li>
+  <li>Pointers aur arrays ka relation. <code>arr[i]</code>, <code>*(arr+i)</code>, <code>p[i]</code> — samjhao. (10)</li>
+  <li>Pointer arithmetic kya hai? Example do. (5)</li>
+  <li>Advantages aur disadvantages of pointers. (5)</li>
+  <li>Program: pointer se do numbers swap karo / do values return karo. (5–10)</li>
+</ol></div>
+
+<div class="box b-key"><b>🏁 Poora Paper SEC101T — Final strategy:</b> Unit 1–2 = concepts + ratta (keywords, storage classes, precedence table). Unit 3–5 = <b>programs likhne wali practice</b> — roz 2 program (largest, reverse, prime, factorial, Fibonacci, Armstrong, matrix, string functions, swap by reference, recursion). Exam me program likhte waqt <b>comments aur output bhi</b> likh dena — examiners ko ye bahut pasand aata hai aur marks bhi. All the best! 💪</div>
+
+<div class="footer">
+  📚 File 02 — Programming in 'C' (SEC101T) • Hinglish Notes with ready-made programs<br>
+  Isse related: 07_Lab_Practicals.html me saare 16 lab programs + MS Word/Excel practicals hain. Baaki subjects: 01, 03, 04, 05, 06.
+</div>
+</div>
+</body>
+</html>

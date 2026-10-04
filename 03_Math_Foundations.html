@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>03 — Mathematics Foundation to Computer Science (BCA102T) — Hinglish Notes</title>
+<style>
+:root{--ink:#1c1c2b;--muted:#5b5b73;--brand:#7c2d12;--brand2:#ea580c;--bg:#fdf8f4;--card:#ffffff;--line:#f2e2d7;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:16.5px}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px 90px}
+header.hero{background:linear-gradient(135deg,#7c2d12 0%,#c2410c 60%,#ea580c 100%);color:#fff;padding:38px 20px 34px;text-align:center}
+header.hero h1{margin:0 0 8px;font-size:1.7rem;line-height:1.3}
+header.hero p{margin:4px 0;opacity:.92;font-size:.97rem}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:3px 12px;border-radius:999px;font-size:.79rem;margin:4px 3px}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:-26px auto 26px;box-shadow:0 8px 24px rgba(124,45,18,.10);position:relative;z-index:2}
+nav.toc h2{margin:0 0 10px;font-size:1rem;color:var(--brand);text-transform:uppercase;letter-spacing:1px}
+nav.toc a{display:inline-block;margin:3px 12px 3px 0;color:var(--brand2);text-decoration:none;font-size:.92rem;border-bottom:1px dashed #f5c6a5}
+h2.unit{font-size:1.45rem;color:#fff;background:linear-gradient(135deg,#7c2d12,#ea580c);padding:12px 18px;border-radius:12px;margin:48px 0 16px;box-shadow:0 6px 18px rgba(124,45,18,.22)}
+h3{font-size:1.2rem;color:var(--brand);margin:30px 0 9px;border-left:5px solid var(--brand2);padding-left:12px}
+h4{font-size:1.04rem;color:#7c2d12;margin:20px 0 7px}
+p{margin:9px 0}
+ul,ol{margin:8px 0 8px 4px;padding-left:22px}
+li{margin:4px 0}
+table{border-collapse:collapse;width:100%;margin:14px 0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(28,28,43,.07);font-size:.92rem}
+th{background:#fdeadd;color:#7c2d12;text-align:left;padding:9px 11px;border:1px solid var(--line);font-size:.89rem}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:#fffaf6}
+code{background:#fdeadd;padding:1.5px 6px;border-radius:5px;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:.88em;color:#9a3412}
+pre{background:#221106;color:#ffe8d6;padding:14px 16px;border-radius:12px;overflow-x:auto;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:.86rem;line-height:1.6}
+pre .cm{color:#f9a86c}
+.box{border-radius:12px;padding:13px 16px 13px 46px;margin:14px 0;position:relative;border:1px solid;font-size:.97rem}
+.box::before{position:absolute;left:13px;top:11px;font-size:1.15rem}
+.b-def{background:#eff6ff;border-color:#bfdbfe}.b-def::before{content:"📘"}
+.b-hing{background:#fff7ed;border-color:#fed7aa}.b-hing::before{content:"🗣️"}
+.b-real{background:#f0fdf4;border-color:#bbf7d0}.b-real::before{content:"🌍"}
+.b-tip{background:#fefce8;border-color:#fde68a}.b-tip::before{content:"🎯"}
+.b-warn{background:#fef2f2;border-color:#fecaca}.b-warn::before{content:"⚠️"}
+.b-mn{background:#f5f3ff;border-color:#ddd6fe}.b-mn::before{content:"🧠"}
+.b-fx{background:#f0f9ff;border-color:#bae6fd}.b-fx::before{content:"🧮"}
+.b-q{background:#fdf4ff;border-color:#f5d0fe}.b-q::before{content:"📝"}
+.b-key{background:#ecfeff;border-color:#a5f3fc}.b-key::before{content:"🔑"}
+.tag{display:inline-block;background:#7c2d12;color:#fff;font-size:.72rem;padding:2px 9px;border-radius:999px;margin-right:6px;letter-spacing:.4px}
+.rev{background:#241206;color:#ffe8d6;border-radius:14px;padding:18px 20px;margin:18px 0}
+.rev h4{color:#fdba74;margin:0 0 8px}
+.rev li{margin:5px 0}
+.footer{border-top:2px dashed var(--line);margin-top:50px;padding-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
+.mini{font-size:.85rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>🧮 Mathematics Foundation to Computer Science (BCA102T)</h1>
+  <p>Complete Hinglish Notes • Unit 1–5 • Har concept ke saath Solved Example (step-by-step)</p>
+  <div><span class="badge">3 Credits</span><span class="badge">ESE 70 + Internal 30</span><span class="badge">Discrete Maths + Linear Algebra</span></div>
+</header>
+
+<div class="wrap">
+<nav class="toc">
+  <h2>Units</h2>
+  <a href="#u1">Unit 1 — Matrix Algebra</a>
+  <a href="#u2">Unit 2 — Sets, Relations</a>
+  <a href="#u3">Unit 3 — Functions</a>
+  <a href="#u4">Unit 4 — Algebraic Structures</a>
+  <a href="#u5">Unit 5 — Counting &amp; Recurrence</a>
+</nav>
+
+<div class="box b-hing"><b>Padhne ka tarika:</b> Maths me sirf padhna kaam nahi karta — <b>haath se solve karna</b> padta hai. Is file me har concept ke baad "🧮 Solved Example" hai — usse pehle khud solve karne ki koshish karo, phir solution dekho. Har unit me "formula card" bhi hai jo exam se pehle last-minute revision ke liye kaam aayega.</div>
+
+<!-- ================== UNIT 1 ================== -->
+<h2 class="unit" id="u1">UNIT 1 — Matrix Algebra</h2>
+
+<h3>1.1 Matrix — Definition, Order &amp; Types</h3>
+<div class="box b-def">A <b>matrix</b> is a rectangular arrangement of numbers (called elements) in rows and columns, enclosed in brackets. Ek matrix jisme m rows aur n columns hain, uska <b>order m × n</b> hota hai. Element a<sub>ij</sub> ka matlab: i-th row aur j-th column wala number.</div>
+<div class="box b-hing"><b>Hinglish:</b> Matrix = Excel sheet ka ek block 📊. Aapki class ke 3 students ke 4 subjects ke marks — 3×4 matrix. Marks ki table ko "ganit ki bhasha" me likh diya, aur ab uspe operations kar sakte ho (add, multiply, solve equations).</div>
+<div class="box b-real"><b>Computer Science me kahan:</b> (1) <b>Image</b> = matrix of pixels (grayscale image ek matrix hai!). (2) <b>Google PageRank</b> = matrix eigenvalue problem. (3) <b>3D games</b> me rotation/translation = matrix multiplication (transformations). (4) <b>Machine learning</b> — neural network ka poora hisaab matrix multiplications hai. (5) Graphics, cryptography, network analysis, CPM/PERT — sab matrices.</div>
+<table>
+  <tr><th>Type</th><th>Definition</th><th>Example</th></tr>
+  <tr><td>Row matrix</td><td>Sirf 1 row (1 × n)</td><td>[2 5 7]</td></tr>
+  <tr><td>Column matrix</td><td>Sirf 1 column (m × 1)</td><td>[2; 5; 7] vertical</td></tr>
+  <tr><td>Zero/Null matrix</td><td>Saare elements 0</td><td>[0 0; 0 0]</td></tr>
+  <tr><td>Square matrix</td><td>Rows = columns (n × n)</td><td>2×2, 3×3</td></tr>
+  <tr><td>Diagonal matrix</td><td>Square, jisme sirf diagonal (a<sub>ii</sub>) me non-zero; baaki 0</td><td>diag(3, 5)</td></tr>
+  <tr><td>Scalar matrix</td><td>Diagonal matrix jisme saare diagonal elements same</td><td>diag(4, 4, 4)</td></tr>
+  <tr><td><b>Identity matrix (I)</b></td><td>Diagonal pe sab 1, baaki 0</td><td>I = [1 0; 0 1]</td></tr>
+  <tr><td>Upper triangular</td><td>Diagonal ke neeche sab 0</td><td>a<sub>ij</sub> = 0 for i &gt; j</td></tr>
+  <tr><td>Lower triangular</td><td>Diagonal ke upar sab 0</td><td>a<sub>ij</sub> = 0 for i &lt; j</td></tr>
+  <tr><td><b>Symmetric</b></td><td>A<sup>T</sup> = A (transpose ke baad same)</td><td>diagonal pe kuch bhi, mirror values equal</td></tr>
+  <tr><td><b>Skew-symmetric</b></td><td>A<sup>T</sup> = −A (diagonal sab 0)</td><td>a<sub>ij</sub> = −a<sub>ji</sub></td></tr>
+  <tr><td><b>Orthogonal</b></td><td>A·A<sup>T</sup> = A<sup>T</sup>·A = I (transpose = inverse)</td><td>rotation matrices</td></tr>
+  <tr><td>Singular</td><td>Determinant = 0 (inverse nahi hota)</td><td>|A| = 0</td></tr>
+  <tr><td>Non-singular</td><td>Determinant ≠ 0 (inverse hota hai)</td><td>|A| ≠ 0</td></tr>
+</table>
+
+<h3>1.2 Algebra of Matrices — Addition, Subtraction, Multiplication</h3>
+<ul>
+  <li><b>Addition/Subtraction:</b> Sirf tab possible jab <b>dono ka order same</b> ho. Corresponding elements ko jodo/ghatao.</li>
+  <li><b>Scalar multiplication:</b> Ek number (scalar) se har element multiply.</li>
+  <li><b>Matrix multiplication:</b> A (m×n) × B (n×p) = possible (A ke columns = B ke rows), result m×p. Yaad rakho: "andar ke numbers match hone chahiye, bahar wale result ka order banate hain".</li>
+  <li><b>Important:</b> Matrix multiplication <b>commutative nahi</b> hai — AB ≠ BA (aksar). Ye exam me question banta hai!</li>
+</ul>
+<div class="box b-mn"><b>Trick (order check):</b> (m×<b>n</b>) × (<b>n</b>×p) → <b>n = n</b> ✔ to multiply ho sakta hai, result <b>m×p</b>. "Andar gayab ho jate hain, bahar wale bach jate hain" 😄</div>
+<div class="box b-fx"><b>Solved Example — multiplication:</b>
+<pre>A = [1 2]   B = [5 6]
+    [3 4]       [7 8]
+
+AB = [ (1×5+2×7)  (1×6+2×8) ]   = [19 22]
+     [ (3×5+4×7)  (3×6+4×8) ]     [43 50]
+
+BA = [ (5×1+6×3)  (5×2+6×4) ]   = [23 34]   ← AB ≠ BA ✔
+     [ (7×1+8×3)  (7×2+8×4) ]     [31 46]</pre></div>
+
+<h3>1.3 Determinant of a Matrix</h3>
+<div class="box b-def">Determinant ek scalar (number) hai jo square matrix se nikalta hai, denoted |A| ya det(A). Ye matrix ke "invertible hone ka test" hai — |A| ≠ 0 matlab inverse exist karta hai.</div>
+<pre><span class="cm">// 2×2 determinant</span>
+| a  b |
+| c  d |  = ad − bc
+
+Example: | 3  5 |
+         | 2  4 |  = (3×4) − (5×2) = 12 − 10 = 2
+
+<span class="cm">// 3×3 determinant — first row ke saath expand (cofactor method)</span>
+| a b c |
+| d e f |  = a(ei − fh) − b(di − fg) + c(dh − eg)
+| g h i |
+
+Example:
+| 1 2 3 |
+| 4 5 6 |
+| 7 8 9 |
+= 1(5×9 − 6×8) − 2(4×9 − 6×7) + 3(4×8 − 5×7)
+= 1(45 − 48) − 2(36 − 42) + 3(32 − 35)
+= 1(−3) − 2(−6) + 3(−3) = −3 + 12 − 9 = 0  ✔ (singular matrix!)</pre>
+<p><b>Properties (exam me short note):</b> |AB| = |A|·|B| • |A<sup>T</sup>| = |A| • Identity ka det = 1 • Do rows/columns same ho → det = 0 • Kisi row ko k se multiply karo → det k guna • Row swap → sign badal jata hai.</p>
+
+<h3>1.4 Rank of a Matrix</h3>
+<div class="box b-def">The <b>rank</b> of a matrix is the order of the largest non-zero minor (square sub-matrix whose determinant is non-zero) — basically kitni "independent rows/columns" hain.</div>
+<pre><span class="cm">// Method: Echelon (triangular) form banao, phir non-zero rows gino</span>
+A = [ 1 2 3 ]
+    [ 2 4 6 ]      ← Row2 = 2×Row1 (dependent!), Row3 = Row1 + Row2
+    [ 3 6 9 ]
+
+Echelon form me saari doosri-teesri rows zero ho jaayengi:
+[ 1 2 3 ]
+[ 0 0 0 ]
+[ 0 0 0 ]   → Non-zero rows = 1  → Rank(A) = 1 ✔
+
+<span class="cm">// Dusra example</span>
+B = [ 1 2 ]   → det = (1×4 − 2×3) = −2 ≠ 0
+    [ 3 4 ]   → largest non-zero minor = 2×2 → Rank(B) = 2
+
+Notes:
+• Rank ≤ min(rows, columns)
+• Full rank = min(m, n)
+• System of equations: rank se consistency check hoti hai</pre>
+
+<h3>1.5 Inverse of a Matrix</h3>
+<div class="box b-def">A<sup>−1</sup> is that matrix for which A·A<sup>−1</sup> = A<sup>−1</sup>·A = I. Ye tabhi exist karta hai jab |A| ≠ 0 (non-singular).</div>
+<pre><span class="cm">// 2×2 ka inverse — sabse zyada poochha jaata hai</span>
+A = [ a b ]        A⁻¹ = 1/(ad−bc) × [  d  −b ]
+    [ c d ]                          [ −c   a ]
+
+Step 1: det = ad − bc
+Step 2: diagonal elements (a, d) ko swap karo
+Step 3: baaki do (b, c) ke sign badlo
+Step 4: sab ko det se divide karo
+
+Example:
+A = [ 4 3 ]       det = 4×2 − 3×1 = 8 − 3 = 5
+    [ 1 2 ]
+
+A⁻¹ = 1/5 × [  2  −3 ]  = [ 0.4  −0.6 ]
+            [ −1   4 ]    [ −0.2  0.8 ]
+
+Verify: A × A⁻¹ = I? 
+[4 3][0.4 −0.6]   [4(0.4)+3(−0.2)   4(−0.6)+3(0.8)]   [1 0]
+[1 2][−0.2 0.8] = [1(0.4)+2(−0.2)   1(−0.6)+2(0.8)] = [0 1] ✔</pre>
+<p><b>3×3 inverse (adjoint method):</b> A<sup>−1</sup> = adj(A)/|A|, jahan adj(A) = cofactor matrix ka transpose. Steps: (1) cofactor nikalo, (2) transpose karo (adjoint), (3) |A| se divide. (Exam me 3×3 ka inverse aa sakta hai — practice zaroori.)</p>
+
+<h3>1.6 Applications: Solving Systems of Linear Equations <span class="tag">Exam favourite ⭐</span></h3>
+<div class="box b-def">Do methods: <b>(a) Matrix Inverse Method:</b> AX = B → X = A<sup>−1</sup>B. <b>(b) Cramer's Rule:</b> x = D<sub>x</sub>/D, y = D<sub>y</sub>/D (D = coefficient determinant ≠ 0).</div>
+<div class="box b-fx"><b>Solved Example — dono methods:</b>
+<pre>Samasya:  2x + 3y = 13
+          4x − y  = 5
+
+Matrix form:  [2  3][x] = [13]
+              [4 −1][y]   [ 5]
+
+D  = |2  3; 4 −1| = (2 × −1) − (3 × 4) = −2 − 12 = −14
+Dx = |13  3; 5 −1| = (13 × −1) − (3 × 5) = −13 − 15 = −28
+Dy = |2 13; 4   5| = (2 × 5) − (13 × 4) = 10 − 52 = −42
+
+Cramer's Rule:
+x = Dx/D = −28/−14 = 2
+y = Dy/D = −42/−14 = 3
+
+Check: 2(2) + 3(3) = 4 + 9 = 13 ✔   4(2) − 3 = 5 ✔
+
+x = 2, y = 3  ✅</pre></div>
+<div class="box b-real"><b>Real life:</b> Do dukaanon ka rate nikalna: "2 pen + 3 copy = ₹13, 4 pen − 1 copy = ₹5 → pen ka rate kya?" — yeh linear equation hi hai! Computer graphics me do lines ka intersection (collision detection in games), circuit analysis (Kirchhoff's laws), economics ka supply-demand balance — sab AX = B.</div>
+
+<h3>1.7 Eigenvalues &amp; Eigenvectors</h3>
+<div class="box b-def">For a square matrix A, a non-zero vector X and scalar λ such that <b>AX = λX</b>: λ = <b>eigenvalue</b>, X = <b>eigenvector</b>. Matlab: matrix A ne vector X ki sirf length badli, direction nahi — λ batata hai kitna stretch hua.</div>
+<pre><span class="cm">// Finding eigenvalues of 2×2 (characteristic equation method)</span>
+Formula: |A − λI| = 0  (characteristic equation)
+
+A = [ 4 1 ]
+    [ 2 3 ]
+
+|4−λ   1  | = 0
+| 2   3−λ |
+
+(4−λ)(3−λ) − (1×2) = 0
+λ² − 7λ + 12 − 2 = 0
+λ² − 7λ + 10 = 0
+(λ − 5)(λ − 2) = 0
+→ λ = 5 and λ = 2  ✅ (eigenvalues)
+
+<span class="cm">// λ = 5 ka eigenvector:</span>
+(A − 5I)X = 0 →  [−1  1] [x] = [0]  → −x + y = 0 → y = x
+                 [ 2 −2] [y]   [0]
+→ Eigenvector for λ=5: X = [1, 1]ᵀ (ya koi bhi multiple: [2,2], [−1,−1]...)
+
+<span class="cm">// λ = 2 ka eigenvector: </span>
+(A − 2I)X = 0 → [2 1; 2 1] → 2x + y = 0 → y = −2x
+→ Eigenvector for λ=2: X = [1, −2]ᵀ</pre>
+<p><b>Properties (yaad rakho):</b> Eigenvalues ka sum = trace(A) = diagonal elements ka sum. Eigenvalues ka product = |A| (determinant). Symmetric matrix ke eigenvalues hamesha real hote hain. Triangular matrix ke eigenvalues = diagonal elements khud!</p>
+<div class="box b-real"><b>Kahan use hota hai:</b> Google ka <b>PageRank</b> web ko matrix maanta hai aur uska principal eigenvector sabse important page batata hai 📈. Face recognition (eigenfaces), vibration analysis, quantum mechanics, and PCA (data science me dimensionality reduction) — sab eigenvalue pe based hai.</div>
+
+<h3>1.8 Cayley–Hamilton Theorem</h3>
+<div class="box b-def">Every square matrix satisfies its own characteristic equation. Ise use karke A<sup>−1</sup> nikala jata hai, aur high powers of A (A⁴, A⁵...) ko sasti tarah calculate karte hain.</div>
+<div class="box b-fx"><b>Solved Example — theorem verify + A⁻¹ find karo:</b>
+<pre>A = [ 4 1 ]   (upar wala example)
+    [ 2 3 ]
+
+Step 1: Characteristic equation: λ² − 7λ + 10 = 0  (pehle nikala tha)
+
+Step 2: Cayley–Hamilton kehte hain: 
+        A² − 7A + 10I = 0   (λ ko A se, 10 ko 10I se replace)
+
+Step 3: A⁻¹ ke liye dono taraf A⁻¹ se multiply karo:
+        A − 7I + 10A⁻¹ = 0
+    →   10A⁻¹ = 7I − A
+    →   A⁻¹ = (1/10) [ 7I − A ]
+    →   A⁻¹ = (1/10) { [7 0; 0 7] − [4 1; 2 3] }
+    →   A⁻¹ = (1/10) [3 −1; −2  4]   ✅
+
+Verify: A·A⁻¹ = I (kar ke dekho!)</pre></div>
+<div class="box b-tip"><b>Exam tip:</b> 3×3 matrix ka inverse bhi isi theorem se nikalta hai (formula: A³ − c₁A² + c₂A − c₃I = 0 wala). Question aksar aata hai: "State Cayley–Hamilton theorem and use it to find A⁻¹." 2×2 se practice karo, concept wahi hai. ✅</div>
+
+<div class="rev">
+<h4>⚡ Unit 1 — Rapid Revision (formula card)</h4>
+<ul>
+  <li>Order m×n • a<sub>ij</sub> = i-th row, j-th column • Square n×n</li>
+  <li>Symmetric: Aᵀ = A • Skew-symmetric: Aᵀ = −A (diagonal 0) • Orthogonal: AAᵀ = I</li>
+  <li>Multiplication possible: (m×n)(n×p) → result m×p • AB ≠ BA</li>
+  <li>2×2 det = ad − bc • 3×3 = first row expand</li>
+  <li>Rank = largest non-zero minor • Echelon form se count karo</li>
+  <li>A⁻¹ = adj(A)/|A|, exists only if |A| ≠ 0 • 2×2: swap diagonal, badlo sign, divide by det</li>
+  <li>AX = B → X = A⁻¹B • Cramer: x = Dx/D, y = Dy/D</li>
+  <li>Eigen: |A − λI| = 0 → λ, phir (A − λI)X = 0 → X • Sum λ = trace, product λ = |A|</li>
+  <li>Cayley–Hamilton: matrix apni characteristic equation satisfy karta hai; A⁻¹ nikalne ka shortcut</li>
+</ul>
+</div>
+<div class="box b-q"><b>Most probable exam questions — Unit 1:</b>
+<ol>
+  <li>Matrix ke types (symmetric, skew-symmetric, orthogonal, diagonal, identity) define karo with examples. (10)</li>
+  <li>Determinant kya hai? 2×2 aur 3×3 determinant nikalo. (5)</li>
+  <li>Rank of matrix — definition + example. (5)</li>
+  <li>Inverse of a 2×2/3×3 matrix — method + example. (10)</li>
+  <li>Solve the system using Cramer's rule / matrix inverse: 2x+3y=13, 4x−y=5. (10)</li>
+  <li>Eigenvalues aur eigenvectors — definition + 2×2 example. (10)</li>
+  <li>State and verify Cayley–Hamilton theorem + find A⁻¹. (10)</li>
+  <li>Prove: (AB)ᵀ = BᵀAᵀ / verify AB ≠ BA example ke saath. (5)</li>
+</ol></div>
+
+<!-- ================== UNIT 2 ================== -->
+<h2 class="unit" id="u2">UNIT 2 — Sets, Relations and Functions</h2>
+
+<h3>2.1 Set — Definition &amp; Representation</h3>
+<div class="box b-def">A <b>set</b> is a well-defined collection of distinct objects (called elements/members). Well-defined matlab: kisi bhi cheez ke liye saaf pata ho ki wo set ka member hai ya nahi.</div>
+<div class="box b-hing"><b>Hinglish:</b> Set = ek group 🎒 — jaise "BCA 1st sem ke 60 students ka set", "aapke stationery ka set", "1 se 10 tak odd numbers ka set". Well-defined hona zaroori hai: "sundar ladkiyon ka set" ❌ set nahi hai (sundar ka matlab har bande ke liye alag); "5 feet se lambi ladkiyon ka set" ✔️ set hai.</div>
+<pre><span class="cm">Representation ke 2 tarike:</span>
+Roster form:    A = {1, 2, 3, 4, 5}
+Set-builder:    A = {x : x ∈ N, x ≤ 5}   ("aisa x jahan x natural number hai aur 5 ya kam")
+
+<span class="cm">Kuch important symbols (ye yaad kar lo):</span>
+∈  → element hai (2 ∈ A)
+∉  → element nahi hai (7 ∉ A)
+⊂  → subset (A ⊂ B)
+⊆  → subset ya equal
+∪  → union (A ∪ B = sab kuch dono me se)
+∩  → intersection (A ∩ B = dono me common)
+−  → difference (A − B = A me hai par B me nahi)
+Aᶜ → complement (jo A me nahi hai, universal set ke andar)
+∅  → empty/null set (khali set)
+U  → universal set (sab ka baap 😄)
+n(A) → cardinality (kitne elements hain)</pre>
+<p><b>Types of sets:</b> Empty/Null (∅ = {}), Singleton (1 element), Finite, Infinite, Equal sets (same elements), Equivalent sets (same cardinality), Subset (A ⊂ B), Power set (all subsets ka set — agar n elements hain to <b>2ⁿ subsets</b>), Universal set.</p>
+<div class="box b-fx"><b>Solved Example:</b>
+<pre>U = {1,2,3,4,5,6,7,8,9,10},  A = {1,2,3,4,5},  B = {2,4,6,8}
+
+A ∪ B  = {1,2,3,4,5,6,8}          (dono se sab, duplicate ek baar)
+A ∩ B  = {2,4}                    (common)
+A − B  = {1,3,5}                  (A me hai, B me nahi)
+B − A  = {6,8}
+Aᶜ     = {6,7,8,9,10}
+n(A) = 5,  n(A ∪ B) = 7
+|A ∪ B| = |A| + |B| − |A ∩ B| = 5 + 4 − 2 = 7 ✔  (ye formula exam me aata hai!)</pre></div>
+
+<h3>2.2 Set Operations ke Properties &amp; Laws</h3>
+<table>
+  <tr><th>Law</th><th>Form</th></tr>
+  <tr><td>Commutative</td><td>A ∪ B = B ∪ A • A ∩ B = B ∩ A</td></tr>
+  <tr><td>Associative</td><td>(A ∪ B) ∪ C = A ∪ (B ∪ C)</td></tr>
+  <tr><td>Distributive</td><td>A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)</td></tr>
+  <tr><td>Identity</td><td>A ∪ ∅ = A • A ∩ U = A</td></tr>
+  <tr><td>Complement</td><td>A ∪ Aᶜ = U • A ∩ Aᶜ = ∅ • (Aᶜ)ᶜ = A</td></tr>
+  <tr><td><b>De Morgan's Laws</b></td><td>(A ∪ B)ᶜ = Aᶜ ∩ Bᶜ • (A ∩ B)ᶜ = Aᶜ ∪ Bᶜ</td></tr>
+  <tr><td>Absorption</td><td>A ∪ (A ∩ B) = A • A ∩ (A ∪ B) = A</td></tr>
+</table>
+<div class="box b-mn"><b>Venn diagram ka faayda:</b> De Morgan's law yaad karne ka trick — "complement poore bracket pe lage to symbol palat jaata hai" 🔄: ∪ ➜ ∩, ∩ ➜ ∪. Jaise AC fail hone par light nahi aati — (Light ∩ Current)ᶜ = Lightᶜ ∪ Currentᶜ ("light kharab HO YA current nahi") ⚡</div>
+
+<h3>2.3 Cartesian Product &amp; Relations</h3>
+<div class="box b-def"><b>Cartesian product A × B</b> = all ordered pairs (a, b) where a ∈ A, b ∈ B. Agar |A| = m aur |B| = n, to |A × B| = m × n.</div>
+<pre>A = {1, 2},  B = {x, y}
+A × B = {(1,x), (1,y), (2,x), (2,y)}   (4 pairs ✔)
+B × A = {(x,1), (x,2), (y,1), (y,2)}   (A×B ≠ B×A — order matters!)</pre>
+<div class="box b-def">A <b>relation R</b> from A to B is a subset of A × B. Agar (a, b) ∈ R, to likhte hain <b>a R b</b> ("a, b se related hai"). Relation on a set A = subset of A × A.</div>
+<div class="box b-real"><b>Real life:</b> Students ka set × Subjects ka set — "kis student ne kya padha" ek relation hai. WhatsApp pe "kis ne kise message kiya" — relation. Instagram "follow" — directed relation (main tujhe follow karta hu, tu mujhe nahi bhi kar sakta). Wikipedia links ka web graph = relation!</div>
+<pre><span class="cm">// Example relation: A = {1,2,3}, R = {(a,b) : a &lt; b}  (on A)</span>
+R = {(1,2), (1,3), (2,3)}
+
+<span class="cm">// Properties (ye table ratta maar lo — exam ka favourite):</span>
+Reflexive:     har a ke liye (a,a) ∈ R ho      [1,2,3 sab apne aap se related? (1,1),(2,2),(3,3) chahiye]
+Symmetric:     (a,b) ∈ R → (b,a) ∈ R bhi ho
+Antisymmetric: (a,b) and (b,a) dono sirf tab jab a = b
+Transitive:    (a,b) & (b,c) ∈ R → (a,c) ∈ R bhi ho</pre>
+<div class="box b-fx"><b>Solved Example — property check:</b>
+<pre>R = {(1,1), (2,2), (3,3), (1,2), (2,1)} ka check karo:
+
+Reflexive?    (1,1)✔ (2,2)✔ (3,3)✔  → HAAN ✅
+Symmetric?    (1,2) hai aur (2,1) bhi hai ✔ → HAAN ✅
+Transitive?   (1,2) & (2,1) → (1,1) ✔ hai
+              (2,1) & (1,2) → (2,2) ✔ hai → HAAN ✅
+Antisymmetric? (1,2) aur (2,1) dono hain par 1 ≠ 2 → NAHI ❌
+Ye relation reflexive + symmetric + transitive hai = EQUIVALENCE relation ✨</pre></div>
+
+<h3>2.4 Types of Relations (yaad rakhne wala table)</h3>
+<table>
+  <tr><th>Relation type</th><th>Conditions</th><th>Example</th></tr>
+  <tr><td><b>Empty relation</b></td><td>Koi pair nahi (R = ∅)</td><td>—</td></tr>
+  <tr><td><b>Universal relation</b></td><td>A × A (saare pairs)</td><td>—</td></tr>
+  <tr><td><b>Identity relation</b></td><td>Sirf (a,a) pairs</td><td>{(1,1),(2,2),(3,3)}</td></tr>
+  <tr><td><b>Reflexive</b></td><td>Har element apne aap se related</td><td>"same age" relation</td></tr>
+  <tr><td><b>Symmetric</b></td><td>Dono taraf</td><td>"same city me rehta hai"</td></tr>
+  <tr><td><b>Transitive</b></td><td>Chain chalti hai</td><td>"se chhota hai" (a&lt;b&lt;c → a&lt;c)</td></tr>
+  <tr><td><b>Equivalence</b></td><td>Reflexive + Symmetric + Transitive (R-S-T)</td><td>"barabar hai (mod n)", "same city"</td></tr>
+  <tr><td><b>Partial Order</b></td><td>Reflexive + Antisymmetric + Transitive</td><td>"≤" on numbers, "subset" relation</td></tr>
+</table>
+<div class="box b-mn"><b>Trick:</b> Equivalence = <b>"RST"</b> (Reflexive-Symmetric-Transitive) — "RST ka matlab: Rishta Sabka Terror-free" 😄. Partial order = <b>"RAT"</b> (Reflexive-Antisymmetric-Transitive). Exam me pehle hi check karo: (a,a) hai? phir symmetric, phir transitive.</div>
+
+<h3>2.5 Equivalence Relation and Partition of a Set</h3>
+<div class="box b-def">Equivalence relation set ko <b>equivalence classes</b> me tod deta hai — har class ek "dabba" jisme related elements hote hain. Ye classes milkar set ka <b>partition</b> banati hain: (1) koi class khaali nahi, (2) classes overlap nahi karti, (3) sab classes ka union = poora set.</div>
+<div class="box b-real"><b>Real life:</b> Students ko "same city" wale relation se todo → Kichha waale, Haldwani waale, Rudrapur waale — ye partition hai! Har student kisi ek hi group me (overlap nahi), koi group khaali nahi, sab groups juta ke poori class. Google drive sorting, file types (photos/videos/docs) — sab partition ka concept.</div>
+<pre>Example: A = {1,2,3,4,5,6},  R = {(a,b) : a − b, 3 se divisible}   (mod 3)
+Class [1] = {1, 4}       (remainder 1)
+Class [2] = {2, 5}       (remainder 2)
+Class [0] = {3, 6}       (remainder 0)
+→ 3 classes: {1,4}, {2,5}, {3,6} — ye partition hai ✔</pre>
+
+<h3>2.6 Representing Relations — Matrix &amp; Digraph</h3>
+<pre><span class="cm">// Matrix representation: A = {1,2,3}, R = {(1,1),(1,2),(2,3),(3,1)}</span>
+Row i, column j = 1 agar (i,j) ∈ R, warna 0.
+
+    1 2 3
+1 [ 1 1 0 ]
+2 [ 0 0 1 ]
+3 [ 1 0 0 ]
+
+<span class="cm">// Digraph (directed graph) representation:</span>
+Har element = ek node (circle)
+Agar (a,b) ∈ R → a se b tak arrow
+Self loop = (a,a) ∈ R
+
+   ①◄──┐
+   │ ╲  │
+   ▼  ╲ ▼
+   ② ─▶ ③      (nodes: 1,2,3 — arrows: 1→1 self loop, 1→2, 2→3, 3→1)
+</pre>
+<div class="box b-hing"><b>Kaam kya:</b> Matrix form me relation ki properties aasani se check hoti hain: Reflexive = diagonal pe sab 1 • Symmetric = matrix apne transpose jaisa (mirror) • Transitive = M × M ka boolean product M me hi ho. Digraph me: self loop = reflexive, dono taraf arrow = symmetric, chained arrows = transitive.</div>
+
+<h3>2.7 Closures of Relations &amp; Warshall's Algorithm</h3>
+<div class="box b-def"><b>Closure</b> of a relation = sabse chhota relation jo given relation ko contain kare AUR ek particular property rakhe. <b>Reflexive closure</b> = diagonal sab 1 + R. <b>Symmetric closure</b> = R ∪ R⁻¹ (ulta bhi add karo). <b>Transitive closure</b> = R jeeta short cut chains add karo — isi ke liye <b>Warshall's Algorithm</b> hai.</div>
+<div class="box b-real"><b>Real life (transitive closure):</b> Aapke friends ke friends ke friends... tak kaun reachable hai — social network ka "connection" nikalna. Ya flights: Delhi → Mumbai → Bangalore chain se Delhi se Bangalore pahunch raaste nikalna. Warshall isi "kaun-kis tak pahunch sakta hai" table banata hai.</div>
+<div class="box b-fx"><b>Warshall's Algorithm — steps (n × n matrix pe):</b>
+<pre>1. Relation ki adjacency matrix M lo (boolean — 0/1)
+2. k = 1 se n tak har node ke liye:
+      agar M[i][k] == 1 AND M[k][j] == 1
+      to M[i][j] = 1  kar do   (transitivity add)
+3. Ant me matrix = transitive closure (reachability matrix)
+
+Solved Example: R = {(1,2),(2,3),(3,4)}  (chain! 1→2→3→4)
+M =  1 2 3 4
+1 [  0 1 0 0 ]
+2 [  0 0 1 0 ]
+3 [  0 0 0 1 ]
+4 [  0 0 0 0 ]
+
+k=2 lagao: M[1][3] = 1 (kyunki 1→2 aur 2→3)
+k=3 lagao: M[1][4] = 1, M[2][4] = 1 (2→3, 3→4)
+Closure = {(1,2),(2,3),(3,4),(1,3),(1,4),(2,4)} ✔
+Ab matrix se saaf dikhta hai: 1 se 4 tak bhi pahunch sakte hain!</pre></div>
+
+<div class="rev">
+<h4>⚡ Unit 2 — Rapid Revision</h4>
+<ul>
+  <li>Set = well-defined collection • Symbol: ∈ ∉ ⊂ ⊆ ∪ ∩ − ∅ U</li>
+  <li>|A ∪ B| = |A| + |B| − |A ∩ B| • De Morgan: (A∪B)ᶜ = Aᶜ∩Bᶜ</li>
+  <li>n elements ka power set = 2ⁿ subsets</li>
+  <li>Cartesian product |A×B| = m×n, ordered pairs</li>
+  <li>Relation = subset of A × B • Properties: Reflexive, Symmetric, Antisymmetric, Transitive</li>
+  <li>Equivalence = R+S+T ("RST") • Partial order = R + Antisymmetric + T</li>
+  <li>Equivalence classes = partition of set (overlap nahi, khaali nahi, union = full set)</li>
+  <li>Representation: matrix (diagonal 1 = reflexive, symmetric mirror) aur digraph (self-loop, arrows)</li>
+  <li>Closures: reflexive (diagonal 1), symmetric (R ∪ R⁻¹), transitive (Warshall)</li>
+  <li>Warshall: agar M[i][k] & M[k][j] = 1 to M[i][j] = 1</li>
+</ul>
+</div>
+<div class="box b-q"><b>Most probable exam questions — Unit 2:</b>
+<ol>
+  <li>Set kya hai? Types + union/intersection/difference examples ke saath. (5–10)</li>
+  <li>De Morgan's laws verify karo (Venn diagram se). (5)</li>
+  <li>Cartesian product kya hai? A×B nikalo jab A={1,2}, B={x,y}. (5)</li>
+  <li>Relation kya hai? Reflexive, symmetric, transitive properties define karo. (5–10)</li>
+  <li>Equivalence relation kya hai? Example ke saath verify karo. (10)</li>
+  <li>Equivalence classes aur partition ka relation explain karo. (5)</li>
+  <li>Relation ko matrix aur digraph se represent karo. (5)</li>
+  <li>Warshall's algorithm se transitive closure nikalo. (10)</li>
+  <li>Partial order relation aur equivalence relation me difference. (5)</li>
+</ol></div>
+<!-- ================== UNIT 3 ================== -->
+<h2 class="unit" id="u3">UNIT 3 — Functions</h2>
+
+<h3>3.1 Function — Definition, Domain, Range</h3>
+<div class="box b-def">A <b>function</b> f from set A to set B is a rule that assigns to <b>each element</b> of A <b>exactly one</b> element of B. Likha jaata hai: f : A → B. A = domain, B = co-domain; jo values actually use hoti hain = range.</div>
+<div class="box b-hing"><b>Hinglish:</b> Function = ek "machine" jo input deta hai → output deta hai 🤖. Input side = domain (jo de sakte ho), output side = range (jo actual me milega). Sabse important rule: <b>ek input se sirf EK output</b> — agar ek roll number se do alag-alag naam aa rahe hain, to wo function hi nahi hai! 😅</div>
+<div class="box b-real"><b>Real life:</b> Har student (roll no) ka <b>ek</b> naam — function hai ✔. Har Aadhaar number ka ek person — function hai. Voter ID se vote — ek ID, ek vote ✔. Par "mobile number" se "person" ❌ function nahi (ek number kai phone me ho sakta hai) — ye relation hai, function nahi!</div>
+<pre>f : A → B,  f(x) = x²,  A = {1, 2, 3, 4}
+
+Domain      = {1, 2, 3, 4}
+Co-domain   = Z (integers) — maan lo
+Range       = {1, 4, 9, 16}  (jo actual outputs aaye)
+
+Machine diagram:
+ 1 → 1
+ 2 → 4
+ 3 → 9
+ 4 → 16       (har input ka exactly ek output ✔)</pre>
+
+<h3>3.2 Injective (One-to-One), Surjective (Onto), Bijective</h3>
+<table>
+  <tr><th>Type</th><th>Condition</th><th>Simple matlab</th><th>Example</th></tr>
+  <tr><td><b>Injective</b> (one-to-one)</td><td>Different inputs → different outputs. f(x₁) = f(x₂) → x₁ = x₂</td><td>Koi do bande same output nahi dete</td><td>f(x) = 2x on integers ✔; f(x) = x² on Z ❌ (2 aur −2 dono 4 dete hain)</td></tr>
+  <tr><td><b>Surjective</b> (onto)</td><td>Range = Co-domain (har B ka element kisi na kisi se ban raha hai)</td><td>B ka koi element baaki nahi bacha</td><td>f(x) = x+1 from Z→Z ✔; f(x) = x² from R→R ❌ (negative numbers kabhi nahi aayenge)</td></tr>
+  <tr><td><b>Bijective</b></td><td>Injective + Surjective dono</td><td>Perfect matching — dono side ek-ek</td><td>f(x) = x+5 on Z; har seating arrangement perfect</td></tr>
+</table>
+<div class="box b-mn"><b>Trick:</b> <b>Injective = "In" tak unique</b> (koi overlap nahi), <b>Surjective = "S"ab cover</b> (poora co-domain bhar gaya), <b>Bijective = Best of both</b> ✅. Bijective hone se hi <b>inverse function</b> banta hai.</div>
+<div class="box b-real"><b>Real life:</b> Bijective = "shaadi ka perfect jodi matching" 💍 (har dulha ki ek dulhan, har dulhan ka ek dulha — koi bacha nahi, koi duplicate nahi). Roll numbers → students bijective hai. Ye concept database keys (primary key = injective!), encryption (bijective hona zaroori — decrypt kar sako), aur counting (bijection principle) me use hota hai.</div>
+
+<h3>3.3 Composition of Functions</h3>
+<div class="box b-def">(f ∘ g)(x) = f(g(x)) — pehle g lagao, phir f. "f after g" (right se left padho!). Composition ke liye g ki range, f ke domain me honi chahiye.</div>
+<pre>f(x) = x + 3,   g(x) = x²
+
+(f ∘ g)(x) = f(g(x)) = f(x²) = x² + 3
+(g ∘ f)(x) = g(f(x)) = g(x + 3) = (x + 3)² = x² + 6x + 9
+
+→ f ∘ g ≠ g ∘ f  (composition commutative nahi hai!) ⚠️
+
+At x = 2:  (f∘g)(2) = 4 + 3 = 7 ✔</pre>
+<div class="box b-real"><b>Real life:</b> Function composition = kaam ka chain 🔗. Jaise Zomato pe: order → restaurant (g) → delivery partner (f) → aapko khana (f∘g). Ya passport banane ka process: form submit → verification → dispatch. Har step ki output agli step ka input. Programming me bhi: <code>sqrt(abs(x))</code> = composition hi hai!</div>
+
+<h3>3.4 Inverse of a Function</h3>
+<div class="box b-def">f⁻¹ exists only if f is <b>bijective</b>. f(a) = b ho to f⁻¹(b) = a. Matlab: input-output ka rishta ulta kar dena. f⁻¹(f(x)) = x.</div>
+<pre>f(x) = 2x + 3                        (bijective on R ✔)
+Nikalne ka tarika: y = 2x + 3 → x = (y − 3)/2
+→ f⁻¹(y) = (y − 3)/2   ya  f⁻¹(x) = (x − 3)/2
+
+Check: f⁻¹(f(4)) = f⁻¹(11) = (11−3)/2 = 4 ✔
+
+Note: f(x) = x² ka inverse (on R) nahi hota — kyunki ye injective nahi hai (2 → 4 aur −2 → 4 dono!). 
+Agar domain sirf [0, ∞) kar do, to f⁻¹(x) = √x ban jayega ✔ (domain-e-galat se function theek 😄)</pre>
+
+<h3>3.5 Some Useful Functions for Computer Science</h3>
+<h4>(a) Floor and Ceiling Functions</h4>
+<table>
+  <tr><th>Function</th><th>Definition</th><th>Example</th></tr>
+  <tr><td><b>Floor</b> ⌊x⌋</td><td>Sabse bada integer jo x se ≤ ho (neeche wala)</td><td>⌊3.7⌋ = 3, ⌊−2.3⌋ = −3 (dhyaan do: aur neeche!), ⌊5⌋ = 5</td></tr>
+  <tr><td><b>Ceiling</b> ⌈x⌉</td><td>Sabse chhota integer jo x se ≥ ho (upar wala)</td><td>⌈3.2⌉ = 4, ⌈−2.7⌉ = −2, ⌈4⌉ = 4</td></tr>
+</table>
+<div class="box b-real"><b>CS me kahan use:</b> <b>Pagination:</b> 95 items, ek page pe 10 → pages = ⌈95/10⌉ = 10 (9.5 ko round up!). Time: 7:50 am ko "8 baje" class = ceiling; "kitne poore ghante bade" = floor. Memory blocks, disk allocation, hashing (⌊) — sab jagah yahi functions. Exam me roz: ⌊2.5⌋+⌈2.5⌉ = 2 + 3 = 5 type questions aate hain.</div>
+<h4>(b) Exponential Function</h4>
+<pre>f(x) = aˣ   (a &gt; 0, a ≠ 1)    e.g. 2ˣ, eˣ
+
+Properties:  a⁰ = 1 • a^(x+y) = aˣ · aʸ • (aˣ)ʸ = a^(xy)
+
+Growth ka role: x badhta hai to aˣ bahut tezi se badhta hai
+2¹ = 2, 2¹⁰ = 1024, 2²⁰ = ~10 lakh, 2³⁰ = ~100 crore!</pre>
+<div class="box b-real"><b>CS me:</b> Number of subsets = 2ⁿ • Har bit double karta hai (8-bit = 256 values, 16-bit = 65,536) • Password combinations = 26ⁿ • Algorithm complexity O(2ⁿ) = "exponential time" (slow — isliye brute force har jagah kaam nahi karta) • Compound interest, population growth, COVID spread — sab exponential.</div>
+<h4>(c) Logarithmic Function</h4>
+<pre>y = log_a(x)  ⟺  aʸ = x       (log = exponent ka ulta!)
+
+Properties:  log(mn) = log m + log n
+             log(m/n) = log m − log n
+             log(mⁿ) = n·log m
+             log_a 1 = 0,  log_a a = 1
+
+Examples: log₂ 8 = 3 (2³=8), log₁₀ 1000 = 3, log₂ 1024 = 10</pre>
+<div class="box b-real"><b>CS me (bahut important):</b> <b>Binary search</b> — 10 lakh students me naam dhundhne me sirf ~20 steps (log₂ 10,00,000 ≈ 20) — isliye O(log n) algorithm ko "fastest practical speed" maana jata hai. Database indexing (B-tree = log n), merge sort (n log n), information theory (bits = log₂ possibilities), earthquake Richter scale, pH scale — sab logarithmic.</div>
+<h4>(d) Polynomial Function</h4>
+<pre>f(x) = aₙxⁿ + aₙ₋₁x^(n−1) + ... + a₁x + a₀        (aₙ ≠ 0)
+
+Degree = n (sabse badi power)
+Examples: f(x) = 2x² + 3x − 5 (degree 2 — quadratic)
+          f(x) = x³ − 4x (degree 3 — cubic)
+
+Behaviour: degree jitna high, growth utna (par exponential se dheema!)
+Computer me har arithmetic operation ek polynomial manipulation hai;
+polynomial evaluation ke liye Horner's method use hota hai.</pre>
+<div class="box b-mn"><b>Growth speed ka table (yaad rakho — complexity compare karne me kaam aayega):</b>
+<pre>1  &lt;  log n  &lt;  n  &lt;  n log n  &lt;  n²  &lt;  n³  &lt;  2ⁿ  &lt;  n!
+(Constant &lt; Log &lt; Linear &lt; n log n &lt; Quadratic &lt; Cubic &lt; Exponential &lt; Factorial)
+
+Real feel (n = 1000):
+log n ≈ 10 steps       (binary search — super fast ⚡)
+n = 1000 steps         (ek loop)
+n² = 10 lakh steps     (nested loop — slow 🐢)
+2ⁿ = insaan ki zindagi se zyada (brute force ❌)</pre></div>
+
+<div class="rev">
+<h4>⚡ Unit 3 — Rapid Revision</h4>
+<ul>
+  <li>Function: har input ka exactly ek output • Domain → Co-domain, actual outputs = Range</li>
+  <li>Injective (unique outputs) • Surjective (range = co-domain) • Bijective (dono)</li>
+  <li>f ∘ g = f(g(x)) — right se left, commutative nahi</li>
+  <li>Inverse sirf bijective ka • f⁻¹(f(x)) = x</li>
+  <li>Floor ⌊x⌋ = neeche wala integer • Ceiling ⌈x⌉ = upar wala • ⌈95/10⌉ = 10 pages</li>
+  <li>Exponential aˣ = 2ⁿ subset, passwords, growth • Logarithm = exponent ka ulta, log₂ 1024 = 10</li>
+  <li>Tree height / binary search = log n • Polynomial = aₙxⁿ + ... + a₀, degree n</li>
+  <li>Growth order: 1 &lt; log n &lt; n &lt; n log n &lt; n² &lt; n³ &lt; 2ⁿ &lt; n!</li>
+</ul>
+</div>
+<div class="box b-q"><b>Most probable exam questions — Unit 3:</b>
+<ol>
+  <li>Function kya hai? Domain, co-domain, range define karo with example. (5)</li>
+  <li>Injective, surjective, bijective — definitions + examples. (10)</li>
+  <li>Composition of functions — (f∘g)(x) and (g∘f)(x) nikalo, f(x)=x+3, g(x)=x². (5)</li>
+  <li>Inverse function nikalo: f(x) = 2x + 3. (5)</li>
+  <li>Floor aur ceiling functions — definition + examples. (5)</li>
+  <li>Exponential aur logarithmic functions ke properties likho + CS me applications. (10)</li>
+  <li>log₂ 1024, log₁₀ 1000 evaluate karo + log ke laws. (5)</li>
+  <li>Growth rates compare karo: n², 2ⁿ, n log n (table ke saath). (5)</li>
+</ol></div>
+
+<!-- ================== UNIT 4 ================== -->
+<h2 class="unit" id="u4">UNIT 4 — Algebraic Structures</h2>
+
+<h3>4.1 Binary Operation</h3>
+<div class="box b-def">A <b>binary operation</b> * on a set S is a rule that combines any two elements of S to produce another element of S. Formal: * : S × S → S (closure property).</div>
+<pre>Addition on integers:  a * b = a + b       (5 + 3 = 8 ∈ Z ✔)
+Multiplication:        a * b = a × b       (2 × 4 = 8 ✔)
+Subtraction on N (natural numbers):       (3 − 5 = −2 ∉ N ❌ closure fail!)
+
+→ "Closed" hone ka matlab: operation ke baad bhi answer usi set me rahe.</pre>
+<div class="box b-hing"><b>Hinglish:</b> Binary operation = "do lo, ek do" 🎲. Do number daalo (jaise 2 aur 3), machine ek naya number degi (5). Bas shart: naya number bhi usi family (set) ka hona chahiye — warna "band darwaza" (closure fail).</div>
+
+<h3>4.2 Group — Definition &amp; All Properties <span class="tag">Exam favourite ⭐</span></h3>
+<div class="box b-def">An algebraic structure (G, *) is a <b>group</b> if it satisfies 4 properties:
+<ol>
+  <li><b>Closure:</b> a, b ∈ G → a * b ∈ G</li>
+  <li><b>Associativity:</b> (a * b) * c = a * (b * c)</li>
+  <li><b>Identity:</b> ∃ e ∈ G such that a * e = e * a = a</li>
+  <li><b>Inverse:</b> har a ke liye ∃ a⁻¹ such that a * a⁻¹ = a⁻¹ * a = e</li>
+</ol></div>
+<div class="box b-mn"><b>Trick — "CAII" (4 properties):</b> <b>C</b>losure, <b>A</b>ssociativity, <b>I</b>dentity, <b>I</b>nverse. "CAII" = "Group ki CHAABI hai CAII" 🔑. Agar sirf Closure + Associativity ho (identity-inverse nahi) = <b>Semigroup</b>. Semigroup + Identity = <b>Monoid</b>. Monoid + Inverse = <b>Group</b>. Group + Commutative = <b>Abelian Group</b>.</div>
+<pre>Hierarchy (yaad rakhne ka ladder — har step pe ek property add hoti hai):
+Set → Semigroup (+closure +associativity) → Monoid (+identity) 
+    → Group (+inverse) → Abelian Group (+commutative)
+
+Examples:
+(N, +)  : Group? (identity 0 hai, par 5 ka inverse −5 hai jo N me NAHI) ❌ not a group
+(Z, +)  : ✔ Group (AUR commutative — to Abelian group!)
+(Z, ×)  : ❌ not a group (2 ka inverse 1/2 ∉ Z)
+(Q − {0}, ×) : ✔ Abelian group (a ka inverse 1/a ✔)
+(Zₙ, +ₙ) — addition mod n : ✔ Group</pre>
+<div class="box b-fx"><b>Solved Example — verify (Z₄, +₄) is a group:</b>
+<pre>Z₄ = {0, 1, 2, 3},  operation = addition mod 4
+
+Closure:       1 + 3 = 4 ≡ 0 ∈ Z₄ ✔ (har pair check karo — chalega)
+Associativity: (1+2)+3 = 3+3 = 6 ≡ 2;  1+(2+3) = 1+5 = 6 ≡ 2 ✔
+Identity:      e = 0 (a + 0 = a mod 4) ✔
+Inverse:       0⁻¹=0, 1⁻¹=3 (1+3=4≡0), 2⁻¹=2 (2+2=4≡0), 3⁻¹=1 ✔
+Commutative:   1+2 = 2+1 ✔ (to Ye ABELIAN group hai) ✅
+
+Yaad rakho: Zₙ addition mod n me HAMESHA group banta hai (n kuch bhi ho)!</pre></div>
+
+<h3>4.3 Finite &amp; Infinite Groups, Order of a Group &amp; Element</h3>
+<ul>
+  <li><b>Finite group:</b> Jitne elements count kar sakte ho. <b>Order of group = total elements</b> (|G|). (Z₄ ka order 4 hai)</li>
+  <li><b>Infinite group:</b> (Z, +), (R, +) — infinite elements.</li>
+  <li><b>Order of an element a:</b> Sabse chhota positive integer n jisme aⁿ = e. (Agar nahi milta to order infinite.)</li>
+</ul>
+<pre>Example: Z₆ = {0,1,2,3,4,5} (mod 6 addition). Element 2 ka order?
+2¹ = 2, 2² = 4, 2³ = 6 ≡ 0 = e
+→ Order of 2 = 3 ✔
+
+Element 5 ka order: 5¹=5, 5²=10≡4, 5³=15≡3, 5⁴=20≡2, 5⁵=25≡1, 5⁶=30≡0
+→ Order of 5 = 6 ✔ (interesting fact: order of element always divides order of group!)</pre>
+
+<h3>4.4 Subgroups</h3>
+<div class="box b-def">H is a <b>subgroup</b> of group (G, *) if H ⊆ G and (H, *) khud ek group hai (same operation ke saath). Shortcut test: H subgroup hai agar (1) closure ✔ (2) identity ∈ H (3) har element ka inverse ∈ H.</div>
+<pre>Example: G = (Z, +),  H = even integers {..., −4, −2, 0, 2, 4, ...}
+Closure: even + even = even ✔
+Identity: 0 even hai ✔
+Inverse: 4 ka inverse −4, even ✔
+→ H, G ka subgroup hai ✔
+
+Counter-example: H = odd integers → odd + odd = even ❌ closure fail — subgroup nahi!
+
+Note: Har group ke 2 "trivial" subgroups hamesha: {e} aur G khud.
+Lagrange ki theorem: subgroup ka order group ke order ko divide karta hai.</pre>
+
+<h3>4.5 Cyclic Groups</h3>
+<div class="box b-def">A group G is <b>cyclic</b> if there exists an element a ∈ G whose powers se poora group ban jaye: G = ⟨a⟩ = {a, a², a³, ..., aⁿ = e}. Aise a ko <b>generator</b> kehte hain.</div>
+<pre>Example: (Z₅ − {0}, × mod 5)?  Actually chalo addition wala simple example lete hain:
+
+Z₅ = {0,1,2,3,4} with +₅. Is 1 generator hai?
+1 → 1, 2, 3, 4, 0 (repeating +1) ✔ poora set cover! → Z₅ cyclic hai, generator 1.
+
+Multiplication group (Z₇*, × mod 7) = {1,2,3,4,5,6}
+3 ke powers: 3¹=3, 3²=2, 3³=6, 3⁴=4, 3⁵=5, 3⁶=1 ✔ — poora group bana!
+→ 3 is a generator → Z₇* cyclic hai ✔
+
+Har cyclic group Abelian hota hai (ulta nahi zaroori).
+Har finite cyclic group, (Zₙ, +) ke isomorphic hota hai.</pre>
+<div class="box b-real"><b>CS me kahan:</b> <b>Cryptography</b> — RSA me modular arithmetic aur cyclic groups ka use hota hai (bade prime numbers ka power cycle). <b>Hashing</b>, error-correcting codes, elliptic-curve cryptography (WhatsApp encryption!), checkerboard/ring counters — sab cyclic group ke concepts. Aapka WhatsApp end-to-end encryption mathematical groups pe hi khada hai 🔐</div>
+
+<div class="rev">
+<h4>⚡ Unit 4 — Rapid Revision</h4>
+<ul>
+  <li>Binary operation: S × S → S (closure zaroori)</li>
+  <li>Semigroup = Closure + Associativity</li>
+  <li>Monoid = Semigroup + Identity</li>
+  <li>Group = Monoid + Inverse (CAII: Closure, Associativity, Identity, Inverse)</li>
+  <li>Abelian group = Group + Commutative</li>
+  <li>(Z, +) Abelian ✔ • (Z, ×) group ❌ • (Zₙ, +ₙ) hamesha group ✔</li>
+  <li>Order of group = number of elements • Order of element = smallest n with aⁿ = e</li>
+  <li>Subgroup: H ⊆ G aur H khud group • Test: closure + identity + inverse</li>
+  <li>Cyclic group: G = ⟨a⟩ (ek generator se poora group) • Cyclic ⇒ Abelian</li>
+  <li>Applications: RSA/ECC cryptography, hashing, coding theory</li>
+</ul>
+</div>
+<div class="box b-q"><b>Most probable exam questions — Unit 4:</b>
+<ol>
+  <li>Binary operation kya hai? Examples ke saath explain karo. (5)</li>
+  <li>Group ki definition aur 4 properties explain karo with example. (10)</li>
+  <li>Prove karo ki (Z, +) ek Abelian group hai. (10)</li>
+  <li>Semigroup, Monoid aur Group me difference (hierarchy diagram). (5)</li>
+  <li>Finite aur infinite group ka difference • Order of group vs order of element. (5)</li>
+  <li>Subgroup kya hai? Example ke saath verify karo. (10)</li>
+  <li>Cyclic group kya hai? Example + generator dhoondho. (10)</li>
+  <li>Abelian group kya hai? Ek example with verification. (5)</li>
+  <li>Z₆ me element 2 ka order nikalo. (5)</li>
+</ol></div>
+
+<!-- ================== UNIT 5 ================== -->
+<h2 class="unit" id="u5">UNIT 5 — Counting and Recurrence Relations</h2>
+
+<h3>5.1 Basics of Counting — Sum &amp; Product Rules</h3>
+<div class="box b-def"><b>Sum Rule (either-or):</b> Kaam A, m tarike se ho sakta hai aur kaam B, n tarike se (dono alag-alag, overlap nahi) → A ya B karne ke m+n tarike. <b>Product Rule (and):</b> Kaam A, m tarike se aur kaam B, n tarike se → dono saath karne ke m×n tarike.</div>
+<div class="box b-real"><b>Real life (college canteen 🍽️):</b> 4 types ki chai + 3 types ka samosa = 4+3 = 7 options (sum rule — "ya to chai, ya samosa"). Par "1 chai AUR 1 samosa" chahiye to 4×3 = 12 combinations (product rule). Roll number banane ke liye: 2 letters × 3 digits → 26×26×10×10×10 tarike.</div>
+<div class="box b-fx"><b>Solved Example:</b>
+<pre>Q: 5 different shirts, 4 pants, 3 shoes hain. Kitne outfits?
+→ Product rule: 5 × 4 × 3 = 60 outfits ✔
+
+Q: Password 4 characters ka hai, sab letters (a-z) use ho sakte hain?
+→ 26 × 26 × 26 × 26 = 4,56,976 passwords ✔
+(Digits bhi allowed ho to 36⁴ = 16,79,616 — isliye strong password = lamba + mixed!)</pre></div>
+
+<h3>5.2 Pigeonhole Principle</h3>
+<div class="box b-def">If n items are placed into m containers/pigeonholes and n &gt; m, then <b>at least one container must contain more than one item</b> (at least ⌈n/m⌉ items).</div>
+<div class="box b-hing"><b>Hinglish:</b> 3 kabootar, 2 khali slots — to ek slot me pakka 2 kabootar honge 🐦🐦. Simple par bahut powerful! Isse "dhundhne" wale sawal turant solve hote hain.</div>
+<div class="box b-fx"><b>Solved Examples (exam me direct aate hain):</b>
+<pre>Q1: 13 students aur 12 mahine. Kitne students ka birthday same mahine me hoga?
+→ n=13, m=12, n > m → at least ⌈13/12⌉ = 2 students ka birthday same mahine ✔
+
+Q2: Ek drawer me 10 red, 10 blue, 10 black socks hain. 
+    Ankhein band karke kam se kam kitni socks nikalne pe GUARANTEE 2 same colour honge?
+→ 3! (kyunki 2 nikalne pe RR, RB, BB possible, 3 me pakka ek colour repeat)
+
+Q3: 100 students, 99 seats → at least 2 students ek hi seat... (aap samajh gaye 😄)
+
+Q4 (strong form): 100 balls, 9 boxes → ek box me at least ⌈100/9⌉ = 12 balls honge ✔</pre></div>
+<div class="box b-real"><b>Kahan use hota hai:</b> Hashing me "collision pakka hoga" proof, WhatsApp me "1000 users, 999 ...", birthday paradox, network me duplicate, compression, aur competitive exams me 😄. Ye CS ke paper-setters ka favourite hai!</div>
+
+<h3>5.3 Permutation &amp; Combination</h3>
+<table>
+  <tr><th></th><th><b>Permutation (P)</b></th><th><b>Combination (C)</b></th></tr>
+  <tr><td>Matlab</td><td>Arrangement — <b>order matters</b></td><td>Selection — <b>order doesn't matter</b></td></tr>
+  <tr><td>Formula</td><td>ⁿPᵣ = n! / (n−r)!</td><td>ⁿCᵣ = n! / [r!(n−r)!]</td></tr>
+  <tr><td>Example</td><td>3 logon ko line me khada karna (ABC ≠ BCA) — 3! = 6 tarike</td><td>3 me se 2 log chunna — 3C₂ = 3 (AB, AC, BC — bas!)</td></tr>
+  <tr><td>Real life</td><td>Locker ka password/PIN (1234 ≠ 4321!)</td><td>Team selection (cricket XI — kaun kis position pe baad me decide hoga)</td></tr>
+</table>
+<div class="box b-mn"><b>Golden trick — "P for Position, C for Choose":</b> Jab <b>position/order</b> ka matlab ho (1st, 2nd, 3rd; password) → <b>P</b>. Jab sirf <b>chunna</b> ho (team, committee, cards) → <b>C</b>. Aur yaad rakho: <b>ⁿPᵣ = r! × ⁿCᵣ</b> (arrangement = selection × ordering) — ye relation har question me kaam aata hai!</div>
+<div class="box b-fx"><b>Solved Example:</b>
+<pre>Q1: "BCA" ke 3 letters se kitne 3-letter words?  → 3! = 6 (BCA, BAC, CAB, CBA, ABC, ACB)
+Q2: 10 students me se 3 ka committee?            → 10C3 = 10!/(3!7!) = 120
+Q3: 10 students me se president, secretary, treasurer chuno? → 10P3 = 10!/7! = 720
+Q4: 4-digit PIN (digits repeat nahi)?            → 10P4 = 5040
+Q5: 5C2 + 5C3 = 10 + 10 = 20 — check 5C2 = 5C3? (nCr = nC(n−r) ✔)
+Q6: 52 cards me se 5 patte?                      → 52C5 = 25,98,960
+
+Factorial yaad rakho: 0! = 1, 1! = 1, 2! = 2, 3! = 6, 4! = 24, 5! = 120, 6! = 720, 7! = 5040, 8! = 40320</pre></div>
+
+<h3>5.4 Binomial Coefficients &amp; Binomial Theorem</h3>
+<div class="box b-def">Binomial coefficients = nC₀, nC₁, ..., nCₙ — (a+b)ⁿ ke expansion ke coefficients. <b>Binomial Theorem:</b></div>
+<pre>(a + b)ⁿ = nC₀ aⁿ + nC₁ a^(n−1)b + nC₂ a^(n−2)b² + ... + nCₙ bⁿ
+
+Examples:
+(a+b)² = a² + 2ab + b²            (coefficients: 1 2 1)
+(a+b)³ = a³ + 3a²b + 3ab² + b³    (coefficients: 1 3 3 1)
+(a+b)⁴ = a⁴ + 4a³b + 6a²b² + 4ab³ + b⁴   (1 4 6 4 1)
+
+<span class="cm">Pascal's Triangle (coefficients ka jaadu — har number upar wale do ka sum):</span>
+          1
+        1   1
+      1   2   1
+    1   3   3   1
+  1   4   6   4   1
+1   5  10  10   5   1</pre>
+<p><b>Properties:</b> nC₀ = nCₙ = 1 • nC₁ = n • nCr = nC(n−r) • nC₀ + nC₁ + ... + nCₙ = 2ⁿ (subsets ka total — yahi 2ⁿ wala connection!) • Pascal's identity: nCr + nC(r−1) = (n+1)Cr.</p>
+<div class="box b-real"><b>CS me:</b> Probability (n coin toss me k heads hone ki probability = nCk/2ⁿ), cryptography, data compression, aur "2ⁿ subsets" ka proof bhi yahi theorem se. Binomial distribution — data science/ML ka base concept.</div>
+
+<h3>5.5 Recurrence Relations — Introduction</h3>
+<div class="box b-def">A <b>recurrence relation</b> defines a sequence in terms of its previous terms — n-th term ko pehle wale terms se nikalna. "Recursive definition" of a sequence.</div>
+<div class="box b-hing"><b>Hinglish:</b> Recurrence = "kal ke hisaab se aaj, aaj ke hisaab se kal" 🔁. Jaise bachat ka rule: "har mahine ₹1000 jodo: A(n) = A(n−1) + 1000". Ya Fibonacci: "agla number = pichhle do ka sum". Bahut si cheezein aise hi badhti hain — isliye recurrences ko solve karke formula nikalte hain.</div>
+<h4>Example 1 — Fibonacci Numbers</h4>
+<pre>Definition:  F(n) = F(n−1) + F(n−2),  F(0) = 0, F(1) = 1
+
+Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89...
+
+Real life: Maine hua — khargosh (rabbits) ki population, 
+phool ki pattiyan, pine cone pattern, aur CS me Fibonacci search,
+Golden Ratio (1.618) jo design/photography me hota hai 🌸</pre>
+<h4>Example 2 — Tower of Hanoi</h4>
+<pre>Problem: 3 rods, n disks (alag-alag size). Sab disks pehle rod se teesre rod pe shift karo,
+rules: (1) ek time pe ek disk (2) bada disk chhote ke upar nahi rakh sakte.
+
+Recurrence: T(n) = 2·T(n−1) + 1,  T(1) = 1
+Solution: T(n) = 2ⁿ − 1 moves
+
+n=1 → 1 move, n=2 → 3, n=3 → 7, n=64 → 2⁶⁴ − 1 ≈ 1.8 × 10¹⁹ moves!
+(Isliye kahani me "brahmand khatam hone" me itna waqt lagta hai — 
+har second ek move karne pe 580 billion saal!) 😲</pre>
+<div class="box b-real"><b>Recurrence kyun important:</b> Algorithms ki time complexity nikalna = recurrence solve karna. Merge sort: T(n) = 2T(n/2) + n → O(n log n). Binary search: T(n) = T(n/2) + 1 → O(log n). Recursion ka code likhne se pehle recurrence likhna best practice hai (C Unit 5 se connection yaad rakho!).</div>
+
+<h3>5.6 Solving Linear Recurrence — Characteristic Equation Method <span class="tag">Exam favourite ⭐</span></h3>
+<div class="box b-def">Linear recurrence with constant coefficients (aₙ = c₁aₙ₋₁ + c₂aₙ₋₂) ko solve karna: <b>characteristic equation</b> banao (r² = c₁r + c₂), uske roots nikalo, aur general solution me conditions lagakar constants nikal lo.</div>
+<div class="box b-fx"><b>Solved Example 1 — Fibonacci:</b>
+<pre>F(n) = F(n−1) + F(n−2),  F(0)=0, F(1)=1
+
+Step 1: Characteristic equation (F(n) = rⁿ maan kar):
+        r² = r + 1  →  r² − r − 1 = 0
+Step 2: Roots:  r = (1 ± √5)/2
+        r₁ = (1+√5)/2 ≈ 1.618  (Golden ratio φ!)
+        r₂ = (1−√5)/2 ≈ −0.618
+Step 3: General solution: F(n) = A·r₁ⁿ + B·r₂ⁿ
+Step 4: Conditions lagao (n=0, n=1):
+        F(0): A + B = 0          → B = −A
+        F(1): A·r₁ + B·r₂ = 1    → A(r₁ − r₂) = 1 → A = 1/√5, B = −1/√5
+Step 5: FINAL: F(n) = (1/√5)[ ((1+√5)/2)ⁿ − ((1−√5)/2)ⁿ ]   ✅
+Check: n=5 → (1/√5)(11.09 − 0.09) = (1/√5)(11.0) ≈ 4.92... 
+  hmm exact check: n=5 → F(5)=5. Value ≈ (1/2.236)(11.09 − (−0.090))≈ 5.0 ✔</pre></div>
+<div class="box b-fx"><b>Solved Example 2 — repeated roots wala case:</b>
+<pre>aₙ = 6aₙ₋₁ − 9aₙ₋₂,  a₀ = 1, a₁ = 6
+
+Step 1: r² = 6r − 9  →  r² − 6r + 9 = 0  →  (r − 3)² = 0  →  r = 3 (double root)
+Step 2: Repeated root ke liye solution: aₙ = (A + Bn)·3ⁿ
+Step 3: a₀ = 1: (A + 0)·1 = 1 → A = 1
+        a₁ = 6: (1 + B)·3 = 6 → 1 + B = 2 → B = 1
+Step 4: aₙ = (1 + n)·3ⁿ   ✅
+Check: a₂ = 6·6 − 9·1 = 27; formula se: (1+2)·9 = 27 ✔</pre></div>
+<div class="box b-fx"><b>Solved Example 3 — Tower of Hanoi ka solution:</b>
+<pre>T(n) = 2T(n−1) + 1,  T(1) = 1
+
+Step 1: Homogeneous part: r − 2 = 0 → r = 2
+Step 2: Particular solution (constant maan lo, T(n) = c):
+        c = 2c + 1 → c = −1
+Step 3: General: T(n) = A·2ⁿ − 1
+Step 4: T(1) = 1: 2A − 1 = 1 → A = 1
+Step 5: T(n) = 2ⁿ − 1   ✅</pre></div>
+<div class="box b-tip"><b>Steps yaad rakho (exam me yahi 5 steps likhna):</b><br>
+1️⃣ Recurrence ko characteristic equation me badlo (aₙ → rⁿ).<br>
+2️⃣ Roots nikalo (distinct → A·r₁ⁿ + B·r₂ⁿ; repeated → (A+Bn)·rⁿ).<br>
+3️⃣ General solution likho.<br>
+4️⃣ Initial conditions lagao (A, B nikalo).<br>
+5️⃣ Final formula verify karo (ek value check karke dikha do — examiner khush 😄)</div>
+
+<div class="rev">
+<h4>⚡ Unit 5 — Rapid Revision</h4>
+<ul>
+  <li>Sum rule (ya/OR → jod) • Product rule (aur/AND → guna)</li>
+  <li>Pigeonhole: n items, m boxes, n &gt; m → ek box me at least ⌈n/m⌉ • 13 students, 12 mahine → 2 same month</li>
+  <li>nPr = n!/(n−r)! (order matters) • nCr = n!/[r!(n−r)!] (order nahi) • nPr = r! × nCr</li>
+  <li>0! = 1 • nC0 = nCn = 1 • nCr = nC(n−r) • Σ nCr = 2ⁿ</li>
+  <li>(a+b)ⁿ expansion = Pascal's triangle • (a+b)² = a²+2ab+b² • (a+b)³ = a³+3a²b+3ab²+b³</li>
+  <li>Recurrence: F(n) = F(n−1)+F(n−2) (Fibonacci) • T(n) = 2T(n−1)+1 (Hanoi) → T(n) = 2ⁿ − 1</li>
+  <li>Solving: char. equation (rⁿ) → roots → general solution → conditions se constants → final formula</li>
+  <li>Distinct roots: A·r₁ⁿ + B·r₂ⁿ • Repeated root: (A + Bn)·rⁿ</li>
+  <li>Fibonacci ka closed form: (1/√5)(φⁿ − ψⁿ) — Golden ratio connection</li>
+</ul>
+</div>
+<div class="box b-q"><b>Most probable exam questions — Unit 5:</b>
+<ol>
+  <li>Sum rule aur product rule explain karo with examples. (5)</li>
+  <li>State and prove pigeonhole principle + 2 examples. (5–10)</li>
+  <li>Permutation aur combination me difference + formula. (5)</li>
+  <li>Evaluate: 10C3, 10P3, 5C2 + 5C3. (5)</li>
+  <li>Binomial theorem likho aur (a+b)⁴ expand karo. (5–10)</li>
+  <li>Binomial coefficients ke properties (nCr = nC(n−r), Σ = 2ⁿ). (5)</li>
+  <li>Recurrence relation kya hai? Fibonacci ka recurrence likho aur 10 terms nikaalo. (5)</li>
+  <li>Tower of Hanoi ka recurrence banake solve karo (T(n) = 2ⁿ − 1). (10)</li>
+  <li>Characteristic equation method se solve: aₙ = 6aₙ₋₁ − 9aₙ₋₂, a₀=1, a₁=6. (10)</li>
+  <li>Fibonacci ka closed-form solution nikalo. (10)</li>
+</ol></div>
+
+<div class="box b-key"><b>🏁 Poora Paper BCA102T — Final strategy:</b> Sabse scoring units: <b>Unit 1 (matrices — formulas + practice)</b> aur <b>Unit 5 (counting + recurrence — fixed steps)</b>. Unit 2–3 me definitions + examples. Unit 4 (groups) me verification wale questions aate hain — (Z,+) prove karna, cyclic group check karna ratta nahi, practice se aata hai. <b>Formula card</b> banao: det formula, inverse formula, Cramer, eigen equation, nPr, nCr, char. equation steps — exam se pehle 10 min me revise. 70 me 55+ possible hai! 💪</div>
+
+<div class="footer">
+  📚 File 03 — Mathematics Foundation to Computer Science (BCA102T) • Hinglish Notes with solved examples<br>
+  Baaki files: 01 (Computer Fundamentals), 02 (C Programming), 04 (Business Communication), 05 (IKS), 06 (EVS), 07 (Labs)
+</div>
+</div>
+</body>
+</html>
