@@ -14,15 +14,15 @@ mnemonics (yaad karne ki tricks), solved examples aur exam questions ke saath.
 | # | File | Subject | Words |
 |---|------|---------|-------|
 | 🌐 | **[index.html](index.html)** — START HERE | Hub: syllabus map, exam pattern, 10-week plan | — |
-| 01 | [01_Computer_Fundamentals_and_IT.html](01_Computer_Fundamentals_and_IT.html) | BCA101T — Computer Fundamental & IT (Unit 1–5) | ~13,000 |
-| 02 | [02_Programming_in_C.html](02_Programming_in_C.html) | SEC101T — Programming in 'C' (Unit 1–5, 38 programs) | ~9,600 |
-| 03 | [03_Math_Foundations.html](03_Math_Foundations.html) | BCA102T — Mathematics Foundation to CS (solved examples) | ~8,600 |
-| 04 | [04_Business_Communication.html](04_Business_Communication.html) | AEC101T — Business Communication (formats + templates) | ~5,200 |
-| 05 | [05_Indian_Knowledge_System.html](05_Indian_Knowledge_System.html) | MDE101T — Indian Knowledge System (Unit 1–4) | ~5,100 |
-| 06 | [06_Environmental_Science.html](06_Environmental_Science.html) | VAC101T — Environmental Science & Sustainability | ~6,400 |
-| 07 | [07_Lab_Practicals.html](07_Lab_Practicals.html) | BCA101P + SEC101P — Word, Excel + 16 C lab programs + viva | ~5,900 |
+| 01 | [01_Computer_Fundamentals_and_IT.html](01_Computer_Fundamentals_and_IT.html) | BCA101T — Computer Fundamental & IT (detailed notes + practice sets with solutions) | ~37,000 |
+| 02 | [02_Programming_in_C.html](02_Programming_in_C.html) | SEC101T — Programming in 'C' (detailed notes + 15-program bank + MCQ sets + lab checklist) | ~28,000 |
+| 03 | [03_Math_Foundations.html](03_Math_Foundations.html) | BCA102T — Mathematics Foundation to CS (detailed notes + step-by-step solved examples) | ~23,000 |
+| 04 | [04_Business_Communication.html](04_Business_Communication.html) | AEC101T — Business Communication (detailed notes + 10 ready formats + MCQ sets) | ~15,500 |
+| 05 | [05_Indian_Knowledge_System.html](05_Indian_Knowledge_System.html) | MDE101T — Indian Knowledge System (detailed notes + Kaun-Kya tables) | ~23,000 |
+| 06 | [06_Environmental_Science.html](06_Environmental_Science.html) | VAC101T — Environmental Science & Sustainability (detailed notes + glossary + 50 MCQs + solved sample paper) | ~19,200 |
+| 07 | [07_Lab_Practicals.html](07_Lab_Practicals.html) | BCA101P + SEC101P — Word, Excel + 16 C lab programs (detailed notes + lab file format + sample paper + 70 one-liners) | ~17,800 |
 
-**Total: 55,000+ words (~220 pages equivalent)**
+**Total: 163,000+ words (~655 pages equivalent)**
 
 ## 🎯 What's inside every file
 
